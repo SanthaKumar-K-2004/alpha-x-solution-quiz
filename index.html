@@ -96,6 +96,7 @@
       flex-direction: column;
       overflow-x: hidden;
       transition: background-color 0.25s ease, color 0.25s ease;
+      padding-top: 54px;
       padding-bottom: calc(68px + var(--safe-bottom));
     }
 
@@ -579,6 +580,7 @@
       position: absolute;
       inset: 0;
       background: rgba(255,255,255,0);
+      pointer-events: none;
       transition: background 0.18s;
     }
     .lobby-start-btn:hover {
@@ -1638,7 +1640,7 @@
       </div>
 
       <!-- Start Button -->
-      <button class="lobby-start-btn" onclick="startExamFromLobby()">
+      <button type="button" class="lobby-start-btn" id="btn-lobby-start" onclick="startExamFromLobby()">
         <span>தேர்வைத் தொடங்குக / Start Assessment</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </button>
@@ -1690,6 +1692,14 @@
     <main class="app-main-layout">
       <!-- Hero Question Card -->
       <section class="question-card-container" id="question-viewport">
+        <!-- Empty State Card (Shown only when zero questions match active filter) -->
+        <div class="apple-question-card" id="empty-filter-state" style="display: none; text-align: center; padding: 3rem 1.5rem;">
+          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">🔍</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">வினாக்கள் எதுவும் பொருந்தவில்லை</h3>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">வடிகட்டிகளை மாற்றி மீண்டும் முயற்சிக்கவும்.</p>
+          <button type="button" class="nav-step-btn btn-accent" style="margin: 1.25rem auto 0;" onclick="resetAllFilters()">அனைத்து வினாக்களையும் காட்டு</button>
+        </div>
+
         <article class="apple-question-card" id="quiz-card">
           <!-- Top Meta Line -->
           <div class="card-top-meta">
@@ -1970,22 +1980,28 @@
       if (typeof QUIZ_QUESTIONS !== 'undefined' && Array.isArray(QUIZ_QUESTIONS)) {
         quizState.questions = QUIZ_QUESTIONS;
       }
+      applyFilters();
 
       // 3. Restore Candidate Name from localStorage
       const savedName = localStorage.getItem('alpha_candidate_name');
       if (savedName && savedName.trim()) {
         quizState.candidateName = savedName;
-        document.getElementById('candidate-name-input').value = savedName;
-        document.getElementById('header-candidate-display').textContent = savedName;
+        const nameInp = document.getElementById('candidate-name-input');
+        if (nameInp) nameInp.value = savedName;
+        const nameDisp = document.getElementById('header-candidate-display');
+        if (nameDisp) nameDisp.textContent = savedName;
       }
 
       // 4. Check Lifetime High Score
       const highScore = localStorage.getItem('alpha_high_score');
       if (highScore && parseInt(highScore, 10) > 0) {
         const hsBox = document.getElementById('lobby-record-strip');
-        hsBox.classList.add('active');
-        document.getElementById('lobby-record-text').textContent =
-          `முந்தைய அதிகபட்ச சாதனை: ${highScore} / 115 (${Math.round((parseInt(highScore,10)/115)*100)}%)`;
+        if (hsBox) hsBox.classList.add('active');
+        const hsText = document.getElementById('lobby-record-text');
+        if (hsText) {
+          hsText.textContent =
+            `முந்தைய அதிகபட்ச சாதனை: ${highScore} / 115 (${Math.round((parseInt(highScore,10)/115)*100)}%)`;
+        }
       }
 
       loadLocalProgress();
@@ -2002,23 +2018,22 @@
       if (!header) return;
       let lastScroll = 0;
       let ticking = false;
-      const HIDE_THRESHOLD = 80; // px down before hiding
+      const HIDE_THRESHOLD = 50; // px down before sliding up
 
       window.addEventListener('scroll', () => {
         if (!ticking) {
           requestAnimationFrame(() => {
             const currentScroll = window.scrollY;
-            const onExamScreen = document.getElementById('exam-screen').style.display !== 'none';
 
-            if (currentScroll <= 4) {
+            if (currentScroll <= 10) {
               header.classList.remove('header-hidden', 'header-elevated');
               document.body.classList.remove('header-is-hidden');
-            } else if (onExamScreen && currentScroll > lastScroll && currentScroll > HIDE_THRESHOLD) {
-              // scrolling DOWN → hide header
+            } else if (currentScroll > lastScroll + 4 && currentScroll > HIDE_THRESHOLD) {
+              // scrolling DOWN → hide header smoothly
               header.classList.add('header-hidden');
               document.body.classList.add('header-is-hidden');
-            } else {
-              // scrolling UP → reveal header
+            } else if (currentScroll < lastScroll - 4) {
+              // scrolling UP → reveal header instantly
               header.classList.remove('header-hidden');
               document.body.classList.remove('header-is-hidden');
               header.classList.add('header-elevated');
@@ -2078,45 +2093,64 @@
     }
 
     function startExamFromLobby() {
-      // Save Candidate Name
-      const nameVal = document.getElementById('candidate-name-input').value.trim();
+      // 1. Save Candidate Name
+      const nameInput = document.getElementById('candidate-name-input');
+      const nameVal = nameInput ? nameInput.value.trim() : '';
       quizState.candidateName = nameVal || 'Santhakumar K';
       try {
         localStorage.setItem('alpha_candidate_name', quizState.candidateName);
       } catch(e) {}
-      document.getElementById('header-candidate-display').textContent = quizState.candidateName;
+      const candidateDisplay = document.getElementById('header-candidate-display');
+      if (candidateDisplay) {
+        candidateDisplay.textContent = quizState.candidateName;
+      }
 
-      // Apply Mode Settings
+      // 2. Configure Mode & Active Segment
       if (quizState.lobbyMode === 'practice_full') {
         quizState.mode = 'practice';
         quizState.activeSegment = 0;
-        setQuizMode('practice');
       } else if (quizState.lobbyMode === 'practice_section') {
         quizState.mode = 'practice';
-        quizState.activeSegment = quizState.selectedLobbySegment;
-        setQuizMode('practice');
+        quizState.activeSegment = quizState.selectedLobbySegment || 1;
       } else if (quizState.lobbyMode === 'exam_mock') {
         quizState.mode = 'exam';
         quizState.activeSegment = 0;
-        setQuizMode('exam');
       }
 
-      // Hide Lobby, Show Exam Stage
-      document.getElementById('lobby-screen').style.display = 'none';
-      document.getElementById('exam-screen').style.display = 'flex';
+      // Reset filters and active question
+      quizState.filterWrongOnly = false;
+      quizState.filterReviewOnly = false;
+      const chipWrong = document.getElementById('chip-wrong-only');
+      if (chipWrong) chipWrong.classList.remove('active-wrong');
+      const chipReview = document.getElementById('chip-review-only');
+      if (chipReview) chipReview.classList.remove('active-review');
+      quizState.currentIndex = 0;
 
-      // Update Section Pills
-      updateSectionPillUI();
+      // 3. Compute Filtered Questions FIRST
       applyFilters();
+
+      // 4. Update Mode Controls (Practice vs Timed Exam)
+      setQuizMode(quizState.mode);
+
+      // 5. Switch Visibility: Hide Lobby, Show Exam
+      const lobbyScreen = document.getElementById('lobby-screen');
+      const examScreen = document.getElementById('exam-screen');
+      if (lobbyScreen) lobbyScreen.style.display = 'none';
+      if (examScreen) examScreen.style.display = 'flex';
+
+      // 6. Refresh UI components
+      updateSectionPillUI();
       renderCurrentQuestion();
       updatePaletteHighlights();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     function returnToLobby() {
-      document.getElementById('exam-screen').style.display = 'none';
-      document.getElementById('lobby-screen').style.display = 'flex';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const examScreen = document.getElementById('exam-screen');
+      const lobbyScreen = document.getElementById('lobby-screen');
+      if (examScreen) examScreen.style.display = 'none';
+      if (lobbyScreen) lobbyScreen.style.display = 'flex';
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     function returnToLobbyFromModal() {
@@ -2187,24 +2221,26 @@
 
     // Question Rendering
     function renderCurrentQuestion() {
-      const qArea = document.getElementById('question-viewport');
-      if (quizState.filteredQuestions.length === 0) {
-        qArea.innerHTML = `
-          <div class="apple-question-card" style="text-align: center; padding: 3rem 1.5rem;">
-            <h3>வினாக்கள் எதுவும் பொருந்தவில்லை</h3>
-            <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">வடிகட்டிகளை மாற்றி மீண்டும் முயற்சிக்கவும்.</p>
-            <button class="nav-step-btn btn-accent" style="margin: 1.25rem auto 0;" onclick="resetAllFilters()">அனைத்து வினாக்களையும் காட்டு</button>
-          </div>
-        `;
+      const card = document.getElementById('quiz-card');
+      const emptyState = document.getElementById('empty-filter-state');
+      if (!card) return;
+
+      if (!quizState.filteredQuestions || quizState.filteredQuestions.length === 0) {
+        card.style.display = 'none';
+        if (emptyState) emptyState.style.display = 'block';
         return;
       }
 
-      const q = quizState.filteredQuestions[quizState.currentIndex];
-      const card = document.getElementById('quiz-card');
-      if (!card) {
-        location.reload();
-        return;
+      card.style.display = 'block';
+      if (emptyState) emptyState.style.display = 'none';
+
+      if (quizState.currentIndex < 0) quizState.currentIndex = 0;
+      if (quizState.currentIndex >= quizState.filteredQuestions.length) {
+        quizState.currentIndex = quizState.filteredQuestions.length - 1;
       }
+
+      const q = quizState.filteredQuestions[quizState.currentIndex];
+      if (!q) return;
 
       const totalInFilter = quizState.filteredQuestions.length;
       document.getElementById('q-badge-num').textContent = `வினா ${q.id} (${quizState.currentIndex + 1}/${totalInFilter})`;
@@ -2439,23 +2475,28 @@
     // Mode Toggle
     function setQuizMode(mode) {
       quizState.mode = mode;
-      document.getElementById('btn-mode-practice').classList.toggle('active', mode === 'practice');
-      document.getElementById('btn-mode-exam').classList.toggle('active', mode === 'exam');
+      const btnPractice = document.getElementById('btn-mode-practice');
+      if (btnPractice) btnPractice.classList.toggle('active', mode === 'practice');
+      const btnExam = document.getElementById('btn-mode-exam');
+      if (btnExam) btnExam.classList.toggle('active', mode === 'exam');
 
       const timerEl = document.getElementById('exam-timer-display');
       const submitBtn = document.getElementById('btn-submit-exam');
 
       if (mode === 'exam') {
-        timerEl.classList.add('active');
-        submitBtn.style.display = 'inline-flex';
+        if (timerEl) timerEl.classList.add('active');
+        if (submitBtn) submitBtn.style.display = 'inline-flex';
         startExamTimer();
       } else {
-        timerEl.classList.remove('active');
-        submitBtn.style.display = 'none';
+        if (timerEl) timerEl.classList.remove('active');
+        if (submitBtn) submitBtn.style.display = 'none';
         clearInterval(quizState.timerInterval);
       }
 
-      renderCurrentQuestion();
+      const examScreen = document.getElementById('exam-screen');
+      if (examScreen && examScreen.style.display !== 'none') {
+        renderCurrentQuestion();
+      }
     }
 
     // Timer
