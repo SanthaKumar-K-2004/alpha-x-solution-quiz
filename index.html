@@ -2,76 +2,80 @@
 <html lang="ta">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Alpha x Solution Quiz - தமிழ்நாடு வரலாறு & பண்பாடு</title>
-  <meta name="description" content="Alpha x Solution Quiz: TNPSC Group 1, Group 2, Group 4 தேர்வுகளுக்கான தமிழ்நாடு வரலாறு, பண்பாடு மற்றும் சமூக-அரசியல் இயக்கங்கள் முழுமையான பயிற்சி வினாடி வினா செயலி.">
-  <meta name="theme-color" content="#0b0f19">
+  <meta name="description" content="Alpha x Solution Quiz: TNPSC Group 1, Group 2, Group 4 தேர்வுகளுக்கான தமிழ்நாடு வரலாறு, பண்பாடு மற்றும் சமூக-அரசியல் இயக்கங்கள் முழுமையான மாதிரித் தேர்வு செயலி.">
+  <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ==========================================================================
+       APPLE DESIGN SYSTEM - ALPHA X SOLUTION QUIZ
+       Clean, Minimal, High-Legibility, Content-First Typography
+       ========================================================================== */
     :root {
-      --bg-primary: #080c16;
-      --bg-secondary: #0f172a;
-      --bg-card: rgba(18, 27, 49, 0.88);
-      --bg-card-hover: rgba(26, 38, 68, 0.98);
-      --border-color: rgba(255, 255, 255, 0.09);
-      --border-focus: #38bdf8;
-      
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-      
-      --brand-cyan: #06b6d4;
-      --brand-blue: #3b82f6;
-      --brand-gold: #f59e0b;
-      --brand-purple: #8b5cf6;
-      
-      --color-correct: #10b981;
-      --color-correct-bg: rgba(16, 185, 129, 0.16);
-      --color-wrong: #ef4444;
-      --color-wrong-bg: rgba(239, 68, 68, 0.16);
-      --color-review: #a855f7;
-      
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
-      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
-      --shadow-neon: 0 0 20px rgba(6, 182, 212, 0.35);
-      
-      --font-tamil: 'Mukta Malar', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-eng: 'Outfit', -apple-system, sans-serif;
-      
-      --app-font-scale: 1;
+      /* Dark Theme (Default OLED Black) */
+      --bg-body: #000000;
+      --bg-header: rgba(18, 19, 24, 0.85);
+      --bg-card: #14161b;
+      --bg-card-secondary: #1a1d24;
+      --bg-card-option: #181b22;
+      --bg-card-option-hover: #212530;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-subtle: rgba(255, 255, 255, 0.04);
+      --border-active: #0a84ff;
+
+      --text-primary: #f5f5f7;
+      --text-secondary: #98989d;
+      --text-muted: #68686d;
+
+      --apple-blue: #0a84ff;
+      --apple-blue-tint: rgba(10, 132, 255, 0.15);
+      --apple-green: #30d158;
+      --apple-green-tint: rgba(48, 209, 88, 0.14);
+      --apple-red: #ff453a;
+      --apple-red-tint: rgba(255, 69, 58, 0.14);
+      --apple-amber: #ffd60a;
+      --apple-purple: #bf5af2;
+
+      --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.35);
+      --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.65);
+
+      --font-sf: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Outfit", "Helvetica Neue", sans-serif;
+      --font-tamil: 'Mukta Malar', -apple-system, BlinkMacSystemFont, sans-serif;
+
       --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --app-font-scale: 1;
     }
 
     [data-theme="light"] {
-      --bg-primary: #f8fafc;
-      --bg-secondary: #ffffff;
-      --bg-card: rgba(255, 255, 255, 0.95);
-      --bg-card-hover: #ffffff;
-      --border-color: rgba(0, 0, 0, 0.09);
-      --border-focus: #0284c7;
-      
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-muted: #94a3b8;
-      
-      --brand-cyan: #0284c7;
-      --brand-blue: #2563eb;
-      --brand-gold: #d97706;
-      --brand-purple: #7c3aed;
-      
-      --color-correct: #059669;
-      --color-correct-bg: rgba(5, 150, 105, 0.12);
-      --color-wrong: #dc2626;
-      --color-wrong-bg: rgba(220, 38, 38, 0.12);
-      --color-review: #9333ea;
-      
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.12);
-      --shadow-neon: 0 0 16px rgba(2, 132, 199, 0.2);
+      /* Light Theme (Apple Clean White) */
+      --bg-body: #f5f5f7;
+      --bg-header: rgba(255, 255, 255, 0.88);
+      --bg-card: #ffffff;
+      --bg-card-secondary: #fbfbfd;
+      --bg-card-option: #f8f8fa;
+      --bg-card-option-hover: #f0f0f4;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-subtle: rgba(0, 0, 0, 0.04);
+      --border-active: #0071e3;
+
+      --text-primary: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --text-muted: #86868b;
+
+      --apple-blue: #0071e3;
+      --apple-blue-tint: rgba(0, 113, 227, 0.12);
+      --apple-green: #34c759;
+      --apple-green-tint: rgba(52, 199, 89, 0.12);
+      --apple-red: #ff3b30;
+      --apple-red-tint: rgba(255, 59, 48, 0.12);
+      --apple-amber: #ff9500;
+      --apple-purple: #af52de;
+
+      --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+      --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.15);
     }
 
     * {
@@ -82,17 +86,17 @@
     }
 
     body {
-      background-color: var(--bg-primary);
+      background-color: var(--bg-body);
       color: var(--text-primary);
       font-family: var(--font-tamil);
       font-size: calc(16px * var(--app-font-scale));
-      line-height: 1.65;
+      line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      transition: background-color 0.3s ease, color 0.3s ease;
       overflow-x: hidden;
-      padding-bottom: calc(75px + var(--safe-bottom));
+      transition: background-color 0.25s ease, color 0.25s ease;
+      padding-bottom: calc(68px + var(--safe-bottom));
     }
 
     @media (min-width: 1025px) {
@@ -101,878 +105,781 @@
       }
     }
 
-    /* Ambient Background Atmosphere */
-    .ambient-glow {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .glow-orb-1 {
-      position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%);
-      filter: blur(50px);
-      border-radius: 50%;
-    }
-    .glow-orb-2 {
-      position: absolute;
-      bottom: -150px;
-      left: -100px;
-      width: 520px;
-      height: 520px;
-      background: radial-gradient(circle, rgba(245, 158, 11, 0.14) 0%, rgba(139, 92, 246, 0.06) 40%, transparent 70%);
-      filter: blur(60px);
-      border-radius: 50%;
-    }
-
-    /* Header Styling */
+    /* ==========================================================================
+       APPLE MINIMAL HEADER (Height: 52px, Content First)
+       ========================================================================== */
     header {
       position: sticky;
       top: 0;
-      z-index: 60;
-      background: rgba(8, 12, 22, 0.88);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      z-index: 50;
+      background: var(--bg-header);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
-      transition: background 0.3s ease;
-    }
-    [data-theme="light"] header {
-      background: rgba(255, 255, 255, 0.9);
+      height: 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .header-container {
-      max-width: 1400px;
+      max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
-      padding: 0.75rem 1.25rem;
+      padding: 0 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
-    /* Alpha x Solution Logo Brand */
+    /* Brand Logo & Title */
     .brand-cluster {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-      text-decoration: none;
+      gap: 0.55rem;
       cursor: pointer;
+      user-select: none;
+      text-decoration: none;
     }
 
-    .alpha-logo-wrap {
-      width: 46px;
-      height: 46px;
-      position: relative;
+    .brand-icon-box {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--apple-blue);
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      border: 1.5px solid rgba(6, 182, 212, 0.45);
-      box-shadow: var(--shadow-neon);
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    .alpha-logo-svg {
-      width: 32px;
-      height: 32px;
-      filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.8));
-    }
-
-    .brand-text-col h1 {
-      font-family: var(--font-eng);
-      font-size: 1.28rem;
+      color: #ffffff;
+      font-family: var(--font-sf);
       font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--text-primary);
+      font-size: 15px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .brand-title-wrap {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      line-height: 1.15;
+      gap: 0.4rem;
     }
 
-    .brand-gradient {
-      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #f59e0b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .brand-name {
+      font-family: var(--font-sf);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+      white-space: nowrap;
     }
 
     .brand-badge {
-      font-family: var(--font-eng);
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 0.15rem 0.55rem;
+      font-family: var(--font-sf);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 1.5px 6px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-blue) 100%);
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(6, 182, 212, 0.4);
-    }
-
-    .brand-text-col p {
-      font-size: 0.82rem;
+      background: rgba(255, 255, 255, 0.1);
       color: var(--text-secondary);
-      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    [data-theme="light"] .brand-badge {
+      background: rgba(0, 0, 0, 0.06);
     }
 
-    /* Header Action Controls */
+    /* Header Actions Right */
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.45rem;
     }
 
-    .mode-switch-pill {
+    /* Apple Segmented Control [Practice | Exam] */
+    .segmented-control {
       display: flex;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 999px;
-      padding: 3px;
+      padding: 2.5px;
+      border: 1px solid var(--border-subtle);
     }
-    .mode-btn {
+    [data-theme="light"] .segmented-control {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .seg-mode-btn {
       border: none;
       background: transparent;
       color: var(--text-secondary);
-      padding: 0.38rem 0.85rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 999px;
       font-family: var(--font-tamil);
-      font-size: 0.82rem;
-      font-weight: 700;
+      font-size: 0.76rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.25s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
     }
-    .mode-btn.active {
-      background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-blue) 100%);
-      color: #ffffff;
-      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
+    .seg-mode-btn.active {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
     }
 
+    /* Exam Timer Badge */
     .timer-badge {
       display: none;
       align-items: center;
-      gap: 0.4rem;
-      font-family: var(--font-eng);
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: var(--brand-gold);
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      padding: 0.35rem 0.8rem;
+      gap: 0.25rem;
+      font-family: var(--font-sf);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--apple-amber);
+      background: rgba(255, 214, 10, 0.12);
+      padding: 0.25rem 0.55rem;
       border-radius: 999px;
+      border: 1px solid rgba(255, 214, 10, 0.3);
     }
     .timer-badge.active {
       display: flex;
     }
 
-    .icon-action-btn {
-      background: var(--bg-secondary);
+    .btn-submit-exam {
+      background: var(--apple-green);
+      color: #ffffff;
+      border: none;
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+      font-family: var(--font-tamil);
+      font-weight: 700;
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 0.3rem;
+      transition: opacity 0.2s;
+    }
+    .btn-submit-exam:hover {
+      opacity: 0.9;
+    }
+
+    /* Icon Action Buttons */
+    .icon-btn {
+      background: transparent;
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.2s ease;
-      font-size: 1.05rem;
+      transition: background 0.15s, color 0.15s;
+      flex-shrink: 0;
     }
-    .icon-action-btn:hover {
-      background: var(--bg-card-hover);
+    .icon-btn:hover {
+      background: var(--bg-card-secondary);
       color: var(--text-primary);
-      border-color: var(--border-focus);
+    }
+    .icon-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
     }
 
-    .btn-submit-exam {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: #ffffff;
-      border: none;
-      padding: 0.45rem 1.1rem;
-      border-radius: 10px;
-      font-family: var(--font-tamil);
-      font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      gap: 0.4rem;
-      box-shadow: 0 2px 12px rgba(16, 185, 129, 0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
+    /* Hairline Progress Indicator */
+    .progress-track-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background: rgba(255, 255, 255, 0.05);
     }
-    .btn-submit-exam:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.5);
+    [data-theme="light"] .progress-track-line {
+      background: rgba(0, 0, 0, 0.04);
+    }
+    .progress-fill-line {
+      height: 100%;
+      width: 0%;
+      background: var(--apple-blue);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Live Analytics Bar */
-    .live-status-strip {
-      background: var(--bg-secondary);
+    /* ==========================================================================
+       SUB-NAV STRIP: COMPACT TOPICS (38px, Zero Waste)
+       ========================================================================== */
+    .subnav-topic-strip {
+      background: var(--bg-body);
       border-bottom: 1px solid var(--border-color);
-      padding: 0.5rem 1.25rem;
-      font-size: 0.84rem;
-      color: var(--text-secondary);
+      padding: 0.4rem 1rem;
+      position: sticky;
+      top: 52px;
+      z-index: 40;
     }
-    .status-strip-inner {
-      max-width: 1400px;
+
+    .subnav-inner {
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
-    .stat-pill-list {
+    .subnav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .topic-pill-track {
       display: flex;
       align-items: center;
-      gap: 1.15rem;
-      flex-wrap: wrap;
+      gap: 0.4rem;
+      flex-shrink: 0;
     }
-    .stat-pill-item strong {
+
+    .topic-pill {
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-family: var(--font-tamil);
+      font-size: 0.76rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .topic-pill:hover {
       color: var(--text-primary);
+      border-color: var(--border-active);
     }
-    .stat-pill-item.correct strong { color: var(--color-correct); }
-    .stat-pill-item.wrong strong { color: var(--color-wrong); }
-    .stat-pill-item.score strong { color: var(--brand-gold); }
-
-    .overall-progress-bar {
-      flex: 1;
-      min-width: 140px;
-      max-width: 280px;
-      height: 7px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 999px;
-      overflow: hidden;
+    .topic-pill.active {
+      background: var(--text-primary);
+      color: var(--bg-body);
+      border-color: transparent;
+      font-weight: 700;
     }
-    [data-theme="light"] .overall-progress-bar {
-      background: rgba(0, 0, 0, 0.08);
-    }
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--brand-cyan), var(--color-correct));
-      border-radius: 999px;
-      transition: width 0.35s ease;
+    .topic-pill .pill-count {
+      font-family: var(--font-sf);
+      font-size: 0.68rem;
+      opacity: 0.8;
     }
 
-    /* Main Workspace Grid */
-    .main-wrapper {
-      flex: 1;
-      max-width: 1400px;
+    .topic-quick-filter-btn {
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      flex-shrink: 0;
+    }
+    .topic-quick-filter-btn.active-wrong {
+      background: var(--apple-red-tint);
+      color: var(--apple-red);
+      border-color: var(--apple-red);
+    }
+    .topic-quick-filter-btn.active-review {
+      background: rgba(191, 90, 242, 0.14);
+      color: var(--apple-purple);
+      border-color: var(--apple-purple);
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT: QUESTION & ANSWER HERO (Content-First)
+       ========================================================================== */
+    .app-main-layout {
+      max-width: 1200px;
       width: 100%;
       margin: 0 auto;
-      padding: 1.25rem;
+      padding: 1rem 1rem 0;
+      flex: 1;
       display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 1.5rem;
-      position: relative;
-      z-index: 10;
+      grid-template-columns: 1fr 310px;
+      gap: 1.25rem;
+      align-items: start;
     }
 
     @media (max-width: 1024px) {
-      .main-wrapper {
+      .app-main-layout {
         grid-template-columns: 1fr;
-        padding: 0.85rem;
+        padding: 0.75rem 0.75rem 0;
       }
     }
 
-    /* Segment Filter Ribbon */
-    .segment-ribbon-card {
-      grid-column: 1 / -1;
+    /* Hero Question Card */
+    .question-card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .apple-question-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 18px;
-      padding: 0.85rem 1.15rem;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+      padding: 1.35rem 1.25rem;
+      box-shadow: var(--shadow-subtle);
+      transition: background 0.2s, border-color 0.2s;
+      position: relative;
     }
 
-    .segment-scroll-track {
-      display: flex;
-      gap: 0.5rem;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      scrollbar-width: thin;
-      -webkit-overflow-scrolling: touch;
-    }
-    .segment-scroll-track::-webkit-scrollbar {
-      height: 4px;
-    }
-    .segment-scroll-track::-webkit-scrollbar-thumb {
-      background: var(--border-color);
-      border-radius: 4px;
+    @media (max-width: 600px) {
+      .apple-question-card {
+        padding: 1.15rem 1rem;
+        border-radius: 16px;
+      }
     }
 
-    .seg-pill-btn {
-      white-space: nowrap;
-      border: 1px solid var(--border-color);
-      background: var(--bg-secondary);
-      color: var(--text-secondary);
-      padding: 0.45rem 1rem;
-      border-radius: 10px;
-      font-family: var(--font-tamil);
-      font-size: 0.86rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
+    /* Top Meta Line */
+    .card-top-meta {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.95rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border-subtle);
     }
-    .seg-pill-btn:hover {
-      background: var(--bg-card-hover);
-      color: var(--text-primary);
-      border-color: var(--border-focus);
+
+    .meta-badges-left {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
     }
-    .seg-pill-btn.active {
-      background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-blue) 100%);
-      color: #ffffff;
-      border-color: transparent;
-      box-shadow: 0 4px 12px rgba(6, 182, 212, 0.35);
-    }
-    .seg-count-badge {
-      font-family: var(--font-eng);
-      font-size: 0.74rem;
+
+    .meta-q-counter {
+      font-family: var(--font-sf);
       font-weight: 700;
-      padding: 0.1rem 0.45rem;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.25);
-    }
-
-    .sub-filter-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      border-top: 1px solid var(--border-color);
-      padding-top: 0.65rem;
-    }
-
-    .filter-chips-cluster {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .filter-chip-btn {
-      background: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      padding: 0.32rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: all 0.2s;
-    }
-    .filter-chip-btn:hover {
-      border-color: var(--border-focus);
-    }
-    .filter-chip-btn.active-wrong {
-      background: var(--color-wrong-bg);
-      color: var(--color-wrong);
-      border-color: var(--color-wrong);
-    }
-    .filter-chip-btn.active-review {
-      background: rgba(168, 85, 247, 0.15);
-      color: var(--color-review);
-      border-color: var(--color-review);
-    }
-
-    .search-field-wrap {
-      position: relative;
-      min-width: 220px;
-    }
-    .search-box-input {
-      width: 100%;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      padding: 0.45rem 0.85rem 0.45rem 2.1rem;
-      border-radius: 10px;
-      font-family: var(--font-tamil);
-      font-size: 0.84rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .search-box-input:focus {
-      border-color: var(--border-focus);
-      box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
-    }
-    .search-ico {
-      position: absolute;
-      left: 0.7rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    /* Question Interaction Container */
-    .question-viewport {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    /* Premium Question Card */
-    .quiz-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 1.65rem;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative;
-      backdrop-filter: blur(12px);
-    }
-
-    .card-meta-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.15rem;
-      padding-bottom: 0.85rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .meta-tags-left {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .badge-q-number {
-      font-family: var(--font-eng);
-      font-weight: 800;
-      font-size: 0.85rem;
-      background: linear-gradient(135deg, var(--brand-cyan), var(--brand-blue));
-      color: #ffffff;
-      padding: 0.22rem 0.65rem;
-      border-radius: 8px;
+      font-size: 0.76rem;
       letter-spacing: 0.3px;
+      background: var(--apple-blue-tint);
+      color: var(--apple-blue);
+      padding: 2px 8px;
+      border-radius: 6px;
     }
 
-    .badge-segment-name {
-      font-size: 0.78rem;
-      font-weight: 700;
-      background: rgba(245, 158, 11, 0.15);
-      color: var(--brand-gold);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      padding: 0.18rem 0.6rem;
-      border-radius: 8px;
-    }
-
-    .badge-q-type {
+    .meta-q-segment {
       font-size: 0.75rem;
-      font-weight: 700;
-      background: rgba(139, 92, 246, 0.15);
-      color: #a78bfa;
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      padding: 0.18rem 0.6rem;
-      border-radius: 8px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    [data-theme="light"] .meta-q-segment {
+      background: rgba(0, 0, 0, 0.04);
     }
 
-    .btn-bookmark-action {
-      background: transparent;
-      border: 1px solid var(--border-color);
+    .meta-q-type {
+      font-size: 0.72rem;
       color: var(--text-muted);
-      padding: 0.28rem 0.7rem;
-      border-radius: 8px;
-      font-size: 0.82rem;
+    }
+
+    .bookmark-toggle-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.35rem;
-      transition: all 0.2s;
+      gap: 0.25rem;
+      font-size: 0.76rem;
+      padding: 3px 6px;
+      border-radius: 6px;
+      transition: color 0.15s;
     }
-    .btn-bookmark-action:hover, .btn-bookmark-action.bookmarked {
-      color: var(--color-review);
-      border-color: var(--color-review);
-      background: rgba(168, 85, 247, 0.12);
+    .bookmark-toggle-btn.bookmarked {
+      color: var(--apple-amber);
+    }
+    .bookmark-toggle-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
     }
 
-    .question-statement {
-      font-size: 1.15rem;
+    /* Question Statement Text */
+    .question-statement-text {
+      font-size: 1.08rem;
       font-weight: 600;
+      line-height: 1.65;
       color: var(--text-primary);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.25rem;
       white-space: pre-line;
-      line-height: 1.75;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    @media (max-width: 600px) {
+      .question-statement-text {
+        font-size: 1.02rem;
+        margin-bottom: 1.1rem;
+      }
     }
 
     /* Options Stack */
-    .options-stack {
+    .options-group-list {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
-      margin-bottom: 1.25rem;
+      gap: 0.65rem;
+      margin-bottom: 1.15rem;
     }
 
-    .option-card-btn {
-      background: var(--bg-secondary);
+    .option-cell-btn {
+      background: var(--bg-card-option);
       border: 1.5px solid var(--border-color);
       border-radius: 14px;
-      padding: 0.95rem 1.2rem;
+      padding: 0.85rem 1.05rem;
       display: flex;
       align-items: flex-start;
-      gap: 0.95rem;
+      gap: 0.85rem;
       cursor: pointer;
-      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
       text-align: left;
       color: var(--text-primary);
       font-family: var(--font-tamil);
-      font-size: 1.02rem;
-      position: relative;
+      font-size: 1rem;
+      font-weight: 500;
       user-select: none;
-      min-height: 54px;
+      min-height: 52px;
     }
 
-    .option-card-btn:hover:not(.locked) {
-      border-color: var(--border-focus);
-      background: var(--bg-card-hover);
-      transform: translateX(4px);
+    .option-cell-btn:hover:not(.locked) {
+      background: var(--bg-card-option-hover);
+      border-color: var(--border-active);
     }
 
-    /* Option Letter Capital A, B, C, D */
-    .opt-letter-circle {
-      font-family: var(--font-eng);
-      font-weight: 800;
-      font-size: 0.92rem;
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
+    /* Capital Option Letter Badges (A, B, C, D) */
+    .opt-letter-pill {
+      font-family: var(--font-sf);
+      font-weight: 700;
+      font-size: 0.86rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
       background: rgba(255, 255, 255, 0.08);
       color: var(--text-secondary);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      transition: all 0.2s;
+      transition: background 0.15s, color 0.15s;
     }
-    [data-theme="light"] .opt-letter-circle {
-      background: rgba(0, 0, 0, 0.07);
+    [data-theme="light"] .opt-letter-pill {
+      background: rgba(0, 0, 0, 0.06);
     }
 
-    .opt-text-body {
+    .opt-text-wrap {
       flex: 1;
-      line-height: 1.55;
+      line-height: 1.5;
+      padding-top: 1px;
     }
 
-    .opt-indicator-icon {
-      font-size: 1.15rem;
+    .opt-status-marker {
+      font-size: 1rem;
       opacity: 0;
-      transform: scale(0.5);
-      transition: all 0.25s ease;
+      transform: scale(0.6);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       margin-left: auto;
+      flex-shrink: 0;
     }
 
-    /* Option Selection States */
-    .option-card-btn.selected-exam-mode {
-      border-color: var(--brand-blue);
-      background: rgba(59, 130, 246, 0.16);
+    /* Interactive States */
+    .option-cell-btn.selected-exam-mode {
+      background: var(--apple-blue-tint);
+      border-color: var(--apple-blue);
     }
-    .option-card-btn.selected-exam-mode .opt-letter-circle {
-      background: var(--brand-blue);
+    .option-cell-btn.selected-exam-mode .opt-letter-pill {
+      background: var(--apple-blue);
       color: #ffffff;
     }
 
-    /* Practice Mode: Correct */
-    .option-card-btn.is-correct-reveal {
-      border-color: var(--color-correct);
-      background: var(--color-correct-bg);
-      animation: pulseGreen 0.35s ease;
+    .option-cell-btn.is-correct-reveal {
+      background: var(--apple-green-tint);
+      border-color: var(--apple-green);
     }
-    .option-card-btn.is-correct-reveal .opt-letter-circle {
-      background: var(--color-correct);
+    .option-cell-btn.is-correct-reveal .opt-letter-pill {
+      background: var(--apple-green);
       color: #ffffff;
     }
-    .option-card-btn.is-correct-reveal .opt-indicator-icon {
+    .option-cell-btn.is-correct-reveal .opt-status-marker {
       opacity: 1;
       transform: scale(1);
-      color: var(--color-correct);
+      color: var(--apple-green);
     }
 
-    /* Practice Mode: Wrong */
-    .option-card-btn.is-wrong-reveal {
-      border-color: var(--color-wrong);
-      background: var(--color-wrong-bg);
-      animation: shakeWrong 0.4s ease;
+    .option-cell-btn.is-wrong-reveal {
+      background: var(--apple-red-tint);
+      border-color: var(--apple-red);
+      animation: appleShake 0.32s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
-    .option-card-btn.is-wrong-reveal .opt-letter-circle {
-      background: var(--color-wrong);
+    .option-cell-btn.is-wrong-reveal .opt-letter-pill {
+      background: var(--apple-red);
       color: #ffffff;
     }
-    .option-card-btn.is-wrong-reveal .opt-indicator-icon {
+    .option-cell-btn.is-wrong-reveal .opt-status-marker {
       opacity: 1;
       transform: scale(1);
-      color: var(--color-wrong);
+      color: var(--apple-red);
     }
 
-    @keyframes shakeWrong {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-7px); }
-      40%, 80% { transform: translateX(7px); }
+    @keyframes appleShake {
+      10%, 90% { transform: translate3d(-1px, 0, 0); }
+      20%, 80% { transform: translate3d(2px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+      40%, 60% { transform: translate3d(3px, 0, 0); }
     }
 
-    @keyframes pulseGreen {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-      100% { transform: scale(1); }
-    }
-
-    .option-card-btn.locked {
+    .option-cell-btn.locked {
       cursor: default;
-      pointer-events: none;
     }
 
-    /* Explanation Card */
-    .explanation-reveal-card {
+    /* Apple Pedagogical Citation Callout */
+    .citation-callout-card {
       display: none;
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      border-radius: 14px;
-      padding: 1.2rem 1.35rem;
-      margin-top: 1rem;
-      animation: slideInExp 0.35s ease forwards;
-    }
-    [data-theme="light"] .explanation-reveal-card {
-      background: rgba(5, 150, 105, 0.08);
-      border-color: rgba(5, 150, 105, 0.3);
+      background: var(--apple-green-tint);
+      border: 1px solid rgba(48, 209, 88, 0.25);
+      border-left: 3.5px solid var(--apple-green);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.15rem;
+      animation: fadeInCallout 0.25s ease forwards;
     }
 
-    @keyframes slideInExp {
-      from { opacity: 0; transform: translateY(-10px); }
+    @keyframes fadeInCallout {
+      from { opacity: 0; transform: translateY(-4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .exp-title-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--color-correct);
-      font-weight: 700;
-      font-size: 0.96rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .exp-body-content {
-      font-size: 0.94rem;
-      color: var(--text-primary);
-      line-height: 1.7;
-    }
-
-    /* Question Card Nav Footer */
-    .q-card-footer-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 1.4rem;
-      padding-top: 1.15rem;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .btn-card-nav {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      padding: 0.6rem 1.25rem;
-      border-radius: 10px;
-      font-family: var(--font-tamil);
-      font-size: 0.92rem;
-      font-weight: 700;
-      cursor: pointer;
+    .citation-header-row {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      transition: all 0.2s;
-      min-height: 44px;
-    }
-    .btn-card-nav:hover:not(:disabled) {
-      background: var(--bg-card-hover);
-      border-color: var(--border-focus);
-    }
-    .btn-card-nav:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
-    }
-    .btn-card-nav.primary-btn {
-      background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-blue) 100%);
-      color: #ffffff;
-      border-color: transparent;
-      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
-    }
-    .btn-card-nav.primary-btn:hover:not(:disabled) {
-      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.45);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--apple-green);
+      margin-bottom: 0.35rem;
     }
 
-    /* Desktop Question Palette Sidebar */
-    .palette-sidebar-pane {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 1.25rem;
-      box-shadow: var(--shadow-md);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      height: fit-content;
-      position: sticky;
-      top: 85px;
-      max-height: calc(100vh - 105px);
+    .citation-text-body {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-primary);
     }
 
-    .palette-top-bar {
+    /* Card Footer Nav Controls */
+    .card-footer-controls {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.65rem;
+      gap: 0.75rem;
+      padding-top: 0.95rem;
+      border-top: 1px solid var(--border-subtle);
     }
-    .palette-top-bar h3 {
-      font-size: 0.98rem;
+
+    .nav-step-btn {
+      background: var(--bg-card-option);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.55rem 1.15rem;
+      border-radius: 10px;
+      font-family: var(--font-tamil);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background 0.15s, opacity 0.15s;
+    }
+    .nav-step-btn:hover:not(:disabled) {
+      background: var(--bg-card-option-hover);
+    }
+    .nav-step-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .nav-step-btn.btn-accent {
+      background: var(--apple-blue);
+      color: #ffffff;
+      border-color: transparent;
+    }
+    .nav-step-btn.btn-accent:hover:not(:disabled) {
+      opacity: 0.92;
+    }
+
+    /* ==========================================================================
+       SIDEBAR QUESTION PALETTE (Desktop Only)
+       ========================================================================== */
+    .desktop-palette-sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 1.15rem;
+      box-shadow: var(--shadow-subtle);
+      position: sticky;
+      top: 106px;
+      max-height: calc(100vh - 120px);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    @media (max-width: 1024px) {
+      .desktop-palette-sidebar {
+        display: none;
+      }
+    }
+
+    .sidebar-head-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .sidebar-head-row h3 {
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--text-primary);
     }
 
-    .palette-color-keys {
+    .sidebar-reset-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      cursor: pointer;
+    }
+    .sidebar-reset-btn:hover {
+      color: var(--apple-red);
+    }
+
+    .palette-legend-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.45rem;
-      font-size: 0.74rem;
+      gap: 0.35rem;
+      font-size: 0.72rem;
       color: var(--text-secondary);
     }
-    .color-key-row {
+    .legend-item {
       display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
     }
-    .key-indicator-dot {
-      width: 9px;
-      height: 9px;
+    .legend-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
     }
-    .dot-not-visited { background: var(--bg-secondary); border: 1px solid var(--border-color); }
-    .dot-answered { background: var(--brand-blue); }
-    .dot-correct { background: var(--color-correct); }
-    .dot-wrong { background: var(--color-wrong); }
-    .dot-review { background: var(--color-review); }
+    .dot-unvisited { background: var(--bg-card-option); border: 1px solid var(--border-color); }
+    .dot-ans { background: var(--apple-blue); }
+    .dot-cor { background: var(--apple-green); }
+    .dot-wro { background: var(--apple-red); }
+    .dot-rev { background: var(--apple-purple); }
 
-    .palette-buttons-matrix {
+    .matrix-grid-scroll {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 0.42rem;
+      gap: 0.38rem;
       overflow-y: auto;
-      padding-right: 4px;
-      max-height: 400px;
+      padding-right: 2px;
+      max-height: 420px;
       scrollbar-width: thin;
     }
-    .palette-buttons-matrix::-webkit-scrollbar {
+    .matrix-grid-scroll::-webkit-scrollbar {
       width: 4px;
     }
-    .palette-buttons-matrix::-webkit-scrollbar-thumb {
+    .matrix-grid-scroll::-webkit-scrollbar-thumb {
       background: var(--border-color);
       border-radius: 4px;
     }
 
-    .q-matrix-btn {
+    .matrix-num-btn {
       aspect-ratio: 1;
       border: 1px solid var(--border-color);
-      background: var(--bg-secondary);
+      background: var(--bg-card-option);
       color: var(--text-secondary);
       border-radius: 8px;
-      font-family: var(--font-eng);
-      font-weight: 700;
-      font-size: 0.82rem;
+      font-family: var(--font-sf);
+      font-weight: 600;
+      font-size: 0.78rem;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.12s;
     }
-    .q-matrix-btn:hover {
-      border-color: var(--border-focus);
+    .matrix-num-btn:hover {
+      border-color: var(--border-active);
       color: var(--text-primary);
     }
-    .q-matrix-btn.is-active-focus {
-      border: 2px solid var(--brand-cyan);
-      box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+    .matrix-num-btn.is-active-focus {
+      border: 2px solid var(--apple-blue);
     }
-    .q-matrix-btn.st-answered {
-      background: var(--brand-blue);
+    .matrix-num-btn.st-answered {
+      background: var(--apple-blue);
       color: #ffffff;
-      border-color: var(--brand-blue);
+      border-color: var(--apple-blue);
     }
-    .q-matrix-btn.st-correct {
-      background: var(--color-correct);
+    .matrix-num-btn.st-correct {
+      background: var(--apple-green);
       color: #ffffff;
-      border-color: var(--color-correct);
+      border-color: var(--apple-green);
     }
-    .q-matrix-btn.st-wrong {
-      background: var(--color-wrong);
+    .matrix-num-btn.st-wrong {
+      background: var(--apple-red);
       color: #ffffff;
-      border-color: var(--color-wrong);
+      border-color: var(--apple-red);
     }
-    .q-matrix-btn.st-review {
-      background: var(--color-review);
+    .matrix-num-btn.st-review {
+      background: var(--apple-purple);
       color: #ffffff;
-      border-color: var(--color-review);
+      border-color: var(--apple-purple);
     }
 
-    /* Mobile Bottom Navigation Bar */
-    .mobile-app-nav-bar {
+    /* ==========================================================================
+       MOBILE APP BOTTOM TAB BAR (iOS Style, Height: 58px)
+       ========================================================================== */
+    .mobile-tab-bar {
       display: none;
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100vw;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background: var(--bg-header);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border-top: 1px solid var(--border-color);
-      padding: 0.5rem 0.75rem calc(0.5rem + var(--safe-bottom));
-      z-index: 70;
+      padding: 0.35rem 0.5rem calc(0.35rem + var(--safe-bottom));
+      z-index: 60;
       justify-content: space-around;
       align-items: center;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
-    }
-    [data-theme="light"] .mobile-app-nav-bar {
-      background: rgba(255, 255, 255, 0.95);
     }
 
     @media (max-width: 1024px) {
-      .palette-sidebar-pane {
-        display: none;
-      }
-      .mobile-app-nav-bar {
+      .mobile-tab-bar {
         display: flex;
       }
     }
 
-    .mobile-nav-item {
+    .tab-item-btn {
       border: none;
       background: transparent;
       color: var(--text-secondary);
@@ -980,174 +887,195 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.2rem;
+      gap: 2px;
       font-family: var(--font-tamil);
-      font-size: 0.72rem;
-      font-weight: 600;
+      font-size: 0.68rem;
+      font-weight: 500;
       cursor: pointer;
-      padding: 0.25rem 0.5rem;
+      padding: 0.2rem 0.65rem;
       border-radius: 8px;
-      transition: all 0.2s;
+      transition: color 0.15s;
     }
-    .mobile-nav-item.active {
-      color: var(--brand-cyan);
+    .tab-item-btn.active {
+      color: var(--apple-blue);
     }
-    .mobile-nav-item svg {
-      width: 22px;
-      height: 22px;
+    .tab-item-btn svg {
+      width: 20px;
+      height: 20px;
       fill: currentColor;
     }
 
-    /* Mobile Palette Drawer Modal (Slide Up) */
-    .mobile-drawer-backdrop {
+    /* Mobile Palette Drawer Sheet */
+    .mobile-sheet-backdrop {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(6px);
-      z-index: 80;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 90;
       display: none;
       align-items: flex-end;
     }
-    .mobile-drawer-backdrop.active {
+    .mobile-sheet-backdrop.active {
       display: flex;
     }
 
-    .mobile-drawer-sheet {
-      background: var(--bg-secondary);
+    .mobile-sheet-content {
+      background: var(--bg-card);
       border-top: 1px solid var(--border-color);
-      border-radius: 24px 24px 0 0;
+      border-radius: 20px 20px 0 0;
       width: 100%;
       max-height: 80vh;
       display: flex;
       flex-direction: column;
-      padding: 1.25rem 1.25rem calc(1.5rem + var(--safe-bottom));
-      box-shadow: var(--shadow-lg);
-      animation: slideUpDrawer 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 1rem 1rem calc(1.5rem + var(--safe-bottom));
+      box-shadow: var(--shadow-modal);
+      animation: slideSheetUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    @keyframes slideUpDrawer {
+
+    @keyframes slideSheetUp {
       from { transform: translateY(100%); }
       to { transform: translateY(0); }
     }
 
-    .drawer-drag-pill {
-      width: 44px;
-      height: 5px;
+    .sheet-handle-pill {
+      width: 36px;
+      height: 4px;
       background: var(--border-color);
       border-radius: 999px;
-      margin: 0 auto 1rem;
+      margin: 0 auto 0.85rem;
     }
 
-    /* Scorecard Modal */
-    .modal-overlay {
+    /* ==========================================================================
+       SCORECARD MODAL
+       ========================================================================== */
+    .modal-backdrop {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.78);
-      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
       z-index: 100;
       display: none;
       align-items: center;
       justify-content: center;
       padding: 1rem;
     }
-    .modal-overlay.active {
+    .modal-backdrop.active {
       display: flex;
     }
 
-    .modal-card-box {
-      background: var(--bg-secondary);
-      border: 1.5px solid var(--border-color);
-      border-radius: 24px;
-      max-width: 580px;
+    .modal-box-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      max-width: 480px;
       width: 100%;
-      padding: 2.2rem;
-      box-shadow: var(--shadow-lg);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow-modal);
       position: relative;
-      animation: modalScale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    @keyframes modalScale {
-      from { transform: scale(0.9); opacity: 0; }
+
+    @keyframes modalFadeIn {
+      from { transform: scale(0.95); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
 
-    .modal-headline {
-      font-size: 1.45rem;
-      font-weight: 800;
+    .modal-headline-text {
+      font-size: 1.25rem;
+      font-weight: 700;
       text-align: center;
-      margin-bottom: 0.35rem;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
     }
 
-    .modal-score-ring-wrap {
+    .modal-sub-text {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .score-circle-container {
       display: flex;
       justify-content: center;
-      margin: 1.35rem 0;
+      margin-bottom: 1.25rem;
     }
-    .score-radial-ring {
-      width: 145px;
-      height: 145px;
+
+    .score-circle-ring {
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      background: conic-gradient(var(--color-correct) calc(var(--percent, 0) * 1%), rgba(255,255,255,0.1) 0);
+      background: conic-gradient(var(--apple-green) calc(var(--percent, 0) * 1%), rgba(255, 255, 255, 0.08) 0);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
     }
-    .score-radial-core {
-      width: 114px;
-      height: 114px;
+    [data-theme="light"] .score-circle-ring {
+      background: conic-gradient(var(--apple-green) calc(var(--percent, 0) * 1%), rgba(0, 0, 0, 0.08) 0);
+    }
+
+    .score-circle-inner {
+      width: 104px;
+      height: 104px;
       border-radius: 50%;
-      background: var(--bg-secondary);
+      background: var(--bg-card);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-    .score-big-digits {
-      font-family: var(--font-eng);
-      font-size: 1.9rem;
-      font-weight: 900;
-      color: var(--brand-gold);
+
+    .score-big-num {
+      font-family: var(--font-sf);
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--apple-green);
       line-height: 1;
     }
-    .score-sub-label {
-      font-family: var(--font-eng);
-      font-size: 0.78rem;
+
+    .score-label-cap {
+      font-family: var(--font-sf);
+      font-size: 0.72rem;
       color: var(--text-muted);
     }
 
-    .modal-stat-cards-grid {
+    .stats-tri-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
+      gap: 0.65rem;
+      margin-bottom: 1.35rem;
       text-align: center;
-      margin-bottom: 1.65rem;
-    }
-    .modal-mini-stat {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 0.85rem 0.5rem;
-    }
-    .modal-mini-val {
-      font-family: var(--font-eng);
-      font-size: 1.35rem;
-      font-weight: 800;
-    }
-    .modal-mini-title {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
     }
 
-    .modal-buttons-row {
+    .stat-cell-box {
+      background: var(--bg-card-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.65rem 0.4rem;
+    }
+
+    .stat-cell-val {
+      font-family: var(--font-sf);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .stat-cell-title {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .modal-actions-row {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.65rem;
       justify-content: center;
-      flex-wrap: wrap;
     }
 
     /* Confetti Canvas */
@@ -1161,360 +1089,272 @@
       z-index: 120;
     }
 
-    /* Footer with Developer Signature */
-    footer {
+    /* ==========================================================================
+       DISCREET MINI FOOTER (Small & Clean)
+       ========================================================================== */
+    footer.apple-mini-footer {
       border-top: 1px solid var(--border-color);
-      background: var(--bg-secondary);
-      padding: 1.75rem 1.25rem;
+      background: var(--bg-body);
+      padding: 0.95rem 1rem;
       text-align: center;
-      color: var(--text-secondary);
-      font-size: 0.88rem;
-      margin-top: auto;
-      position: relative;
-      z-index: 20;
-    }
-    .footer-inner-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      align-items: center;
-    }
-    .dev-signature-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.92rem;
-      color: var(--text-primary);
-      font-weight: 700;
-    }
-    .dev-name {
-      background: linear-gradient(135deg, var(--brand-cyan) 0%, #a855f7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
-    }
-    .footer-desc {
       color: var(--text-muted);
-      font-size: 0.82rem;
+      font-size: 0.74rem;
+      margin-top: auto;
+    }
+    .footer-line-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .footer-author-highlight {
+      color: var(--text-secondary);
+      font-weight: 600;
     }
   </style>
 </head>
 <body data-theme="dark">
   <canvas id="confetti-canvas"></canvas>
 
-  <div class="ambient-glow">
-    <div class="glow-orb-1"></div>
-    <div class="glow-orb-2"></div>
-  </div>
-
-  <!-- Header -->
+  <!-- Apple Minimal Header -->
   <header>
     <div class="header-container">
-      <!-- Brand Logo & Title -->
+      <!-- Minimalist Brand -->
       <div class="brand-cluster" onclick="filterSegment(0)">
-        <div class="alpha-logo-wrap">
-          <!-- Premium Alpha x Solution Logo SVG -->
-          <svg class="alpha-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="alphaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#00f2fe" />
-                <stop offset="50%" stop-color="#4facfe" />
-                <stop offset="100%" stop-color="#f59e0b" />
-              </linearGradient>
-            </defs>
-            <!-- Outer Shield Ring -->
-            <path d="M50 5 L88 20 L88 55 Q88 80 50 95 Q12 80 12 55 L12 20 Z" stroke="url(#alphaGrad)" stroke-width="6" fill="none" stroke-linejoin="round" />
-            <!-- Greek Alpha α symbol -->
-            <path d="M68 38 C60 28 42 28 35 44 C28 60 40 72 52 65 C62 58 68 40 68 38 M68 38 L68 72" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- Crossed X Accent -->
-            <line x1="60" y1="36" x2="78" y2="54" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="brand-text-col">
-          <h1>
-            <span class="brand-gradient">Alpha x Solution Quiz</span>
-            <span class="brand-badge">115 Qs</span>
-          </h1>
-          <p>TNPSC அலகு - 6: தமிழ்நாடு வரலாறு & பண்பாடு | Master Portal</p>
+        <div class="brand-icon-box">α</div>
+        <div class="brand-title-wrap">
+          <span class="brand-name">Alpha x Solution Quiz</span>
+          <span class="brand-badge">115 Qs</span>
         </div>
       </div>
 
       <!-- Controls -->
       <div class="header-actions">
-        <!-- Mode Switcher -->
-        <div class="mode-switch-pill">
-          <button class="mode-btn active" id="btn-mode-practice" onclick="setQuizMode('practice')">
-            <span>🎯 பயிற்சி</span>
-          </button>
-          <button class="mode-btn" id="btn-mode-exam" onclick="setQuizMode('exam')">
-            <span>⏱️ தேர்வு</span>
-          </button>
+        <!-- Segmented Mode Control -->
+        <div class="segmented-control">
+          <button class="seg-mode-btn active" id="btn-mode-practice" onclick="setQuizMode('practice')">பயிற்சி</button>
+          <button class="seg-mode-btn" id="btn-mode-exam" onclick="setQuizMode('exam')">தேர்வு</button>
         </div>
 
-        <!-- Exam Timer -->
+        <!-- Exam Timer (Visible only in Exam mode) -->
         <div class="timer-badge" id="exam-timer-display">
-          <span>⏳</span>
           <span id="timer-text">02:00:00</span>
         </div>
 
-        <!-- Submit Button for Exam Mode -->
-        <button class="btn-submit-exam" id="btn-submit-exam" onclick="confirmSubmitExam()">
-          <span>சமர்ப்பி</span>
-        </button>
+        <!-- Exam Submit Button -->
+        <button class="btn-submit-exam" id="btn-submit-exam" onclick="confirmSubmitExam()">சமர்ப்பி</button>
 
         <!-- Sound Toggle -->
-        <button class="icon-action-btn" id="btn-sound-toggle" onclick="toggleAudio()" title="ஒலி இயக்கம்" aria-label="Toggle sound">
-          <span id="sound-icon">🔊</span>
+        <button class="icon-btn" id="btn-sound-toggle" onclick="toggleAudio()" title="ஒலி" aria-label="Toggle sound">
+          <svg id="sound-icon-svg" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
         </button>
 
-        <!-- Theme Switcher -->
-        <button class="icon-action-btn" onclick="toggleTheme()" title="கருப்பு/வெள்ளை தீம்" aria-label="Toggle theme">
-          <span id="theme-icon">☀️</span>
+        <!-- Theme Toggle -->
+        <button class="icon-btn" onclick="toggleTheme()" title="தீம் மாற்றுக" aria-label="Toggle theme">
+          <svg id="theme-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </div>
+    </div>
+
+    <!-- Thin Progress Bar Line -->
+    <div class="progress-track-line">
+      <div class="progress-fill-line" id="progress-bar-fill"></div>
     </div>
   </header>
 
-  <!-- Live Statistics Strip -->
-  <section class="live-status-strip">
-    <div class="status-strip-inner">
-      <div class="stat-pill-list">
-        <div class="stat-pill-item">வினா: <strong id="stat-current-num">1</strong> / <strong id="stat-total-num">115</strong></div>
-        <div class="stat-pill-item">பதிலளித்தவை: <strong id="stat-attempted-num">0</strong></div>
-        <div class="stat-pill-item correct">சரி: <strong id="stat-correct-num">0</strong></div>
-        <div class="stat-pill-item wrong">தவறு: <strong id="stat-wrong-num">0</strong></div>
-        <div class="stat-pill-item score">மதிப்பெண்: <strong id="stat-score-num">0</strong> (<span id="stat-acc-num">0%</span>)</div>
+  <!-- Compact Topics Bar (Only 38px tall, fast horizontal scroll) -->
+  <nav class="subnav-topic-strip">
+    <div class="subnav-inner">
+      <div class="topic-pill-track" id="segment-scroll-track">
+        <button class="topic-pill active" onclick="filterSegment(0)">
+          <span>அனைத்தும்</span> <span class="pill-count" id="count-seg-0">115</span>
+        </button>
+        <button class="topic-pill" onclick="filterSegment(1)">
+          <span>1. சங்க காலம்</span> <span class="pill-count" id="count-seg-1">25</span>
+        </button>
+        <button class="topic-pill" onclick="filterSegment(2)">
+          <span>2. பாளையக்காரர் & வேலூர்</span> <span class="pill-count" id="count-seg-2">20</span>
+        </button>
+        <button class="topic-pill" onclick="filterSegment(3)">
+          <span>3. விடுதலைப் போராட்டம்</span> <span class="pill-count" id="count-seg-3">20</span>
+        </button>
+        <button class="topic-pill" onclick="filterSegment(4)">
+          <span>4. நீதிக்கட்சி</span> <span class="pill-count" id="count-seg-4">20</span>
+        </button>
+        <button class="topic-pill" onclick="filterSegment(5)">
+          <span>5. அரசியல் தலைவர்கள்</span> <span class="pill-count" id="count-seg-5">15</span>
+        </button>
+        <button class="topic-pill" onclick="filterSegment(6)">
+          <span>6. திருக்குறள்</span> <span class="pill-count" id="count-seg-6">15</span>
+        </button>
       </div>
-      <div class="overall-progress-bar">
-        <div class="progress-bar-fill" id="progress-bar-fill"></div>
-      </div>
+
+      <!-- Quick Action Chips -->
+      <button class="topic-quick-filter-btn" id="chip-wrong-only" onclick="toggleFilterWrongOnly()">
+        <span>தவறானவை</span>
+      </button>
+      <button class="topic-quick-filter-btn" id="chip-review-only" onclick="toggleFilterReviewOnly()">
+        <span>குறித்தவை</span>
+      </button>
     </div>
-  </section>
+  </nav>
 
-  <!-- Main Grid Workspace -->
-  <main class="main-wrapper">
-    <!-- Segment Navigation Tabs -->
-    <section class="segment-ribbon-card">
-      <div class="segment-scroll-track" id="segment-scroll-track">
-        <button class="seg-pill-btn active" onclick="filterSegment(0)">
-          <span>அனைத்தும்</span>
-          <span class="seg-count-badge" id="count-seg-0">115</span>
-        </button>
-        <button class="seg-pill-btn" onclick="filterSegment(1)">
-          <span>1. சங்க காலம் & தொல்லியல்</span>
-          <span class="seg-count-badge" id="count-seg-1">25</span>
-        </button>
-        <button class="seg-pill-btn" onclick="filterSegment(2)">
-          <span>2. பாளையக்காரர் & வேலூர் புரட்சி</span>
-          <span class="seg-count-badge" id="count-seg-2">20</span>
-        </button>
-        <button class="seg-pill-btn" onclick="filterSegment(3)">
-          <span>3. விடுதலைப் போராட்டம்</span>
-          <span class="seg-count-badge" id="count-seg-3">20</span>
-        </button>
-        <button class="seg-pill-btn" onclick="filterSegment(4)">
-          <span>4. நீதிக்கட்சி & சுயமரியாதை</span>
-          <span class="seg-count-badge" id="count-seg-4">20</span>
-        </button>
-        <button class="seg-pill-btn" onclick="filterSegment(5)">
-          <span>5. அரசியல் & நலத்திட்டங்கள்</span>
-          <span class="seg-count-badge" id="count-seg-5">15</span>
-        </button>
-        <button class="seg-pill-btn" onclick="filterSegment(6)">
-          <span>6. திருக்குறள் & அறநெறி</span>
-          <span class="seg-count-badge" id="count-seg-6">15</span>
-        </button>
-      </div>
+  <!-- Main Layout -->
+  <main class="app-main-layout">
+    <!-- Hero Question Viewport -->
+    <section class="question-card-container" id="question-viewport">
+      <article class="apple-question-card" id="quiz-card">
+        <!-- Top Meta Line -->
+        <div class="card-top-meta">
+          <div class="meta-badges-left">
+            <span class="meta-q-counter" id="q-badge-num">வினா 1 / 115</span>
+            <span class="meta-q-segment" id="q-badge-segment">சங்க காலம்</span>
+            <span class="meta-q-type" id="q-badge-type">கூற்றுகளை ஆராய்க</span>
+          </div>
 
-      <div class="sub-filter-row">
-        <div class="filter-chips-cluster">
-          <button class="filter-chip-btn" id="chip-wrong-only" onclick="toggleFilterWrongOnly()">
-            <span>❌ தவறானவை மட்டும்</span>
-          </button>
-          <button class="filter-chip-btn" id="chip-review-only" onclick="toggleFilterReviewOnly()">
-            <span>⭐ குறிக்கப்பட்டவை</span>
+          <button class="bookmark-toggle-btn" id="btn-bookmark-action" onclick="toggleBookmarkCurrent()" title="மறுபார்வைக்குக் குறிக்க">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <span id="bm-text">குறிக்க</span>
           </button>
         </div>
 
-        <div class="search-field-wrap">
-          <span class="search-ico">🔍</span>
-          <input type="text" class="search-box-input" id="search-box-input" placeholder="வினாக்களைத் தேடுக..." oninput="handleSearch(this.value)">
-        </div>
-      </div>
-    </section>
+        <!-- Question Statement (Always 100% visible) -->
+        <h1 class="question-statement-text" id="question-statement">வினா ஏற்றப்படுகிறது...</h1>
 
-    <!-- Question Viewport -->
-    <section class="question-viewport" id="question-viewport">
-      <!-- Active Question Card -->
-      <article class="quiz-card" id="quiz-card">
-        <div class="card-meta-head">
-          <div class="meta-tags-left">
-            <span class="badge-q-number" id="q-badge-num">வினா 1 / 115</span>
-            <span class="badge-segment-name" id="q-badge-segment">சங்க காலம்</span>
-            <span class="badge-q-type" id="q-badge-type">கூற்றுகளை ஆராய்க</span>
-          </div>
-
-          <div class="meta-actions-right">
-            <button class="btn-bookmark-action" id="btn-bookmark-action" onclick="toggleBookmarkCurrent()">
-              <span id="bm-icon">☆</span>
-              <span id="bm-text">குறிக்க</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Question Statement -->
-        <h2 class="question-statement" id="question-statement">வினா ஏற்றப்படுகிறது...</h2>
-
-        <!-- Options Container with Capital A, B, C, D -->
-        <div class="options-stack" id="options-stack">
+        <!-- Capital Option Group (A, B, C, D) -->
+        <div class="options-group-list" id="options-stack">
           <!-- Injected via JavaScript -->
         </div>
 
-        <!-- Explanation Card -->
-        <div class="explanation-reveal-card" id="explanation-reveal-card">
-          <div class="exp-title-row">
+        <!-- Pedagogical Citation Callout -->
+        <div class="citation-callout-card" id="explanation-reveal-card">
+          <div class="citation-header-row">
             <span>📖 பாடப்புத்தக மேற்கோள் & விளக்கம்:</span>
           </div>
-          <p class="exp-body-content" id="exp-body-content"></p>
+          <p class="citation-text-body" id="exp-body-content"></p>
         </div>
 
         <!-- Question Nav Buttons -->
-        <div class="q-card-footer-nav">
-          <button class="btn-card-nav" id="btn-prev" onclick="navigateQuestion(-1)">
+        <div class="card-footer-controls">
+          <button class="nav-step-btn" id="btn-prev" onclick="navigateQuestion(-1)">
             <span>← முந்தையது</span>
           </button>
-          <button class="btn-card-nav primary-btn" id="btn-next" onclick="navigateQuestion(1)">
+          <button class="nav-step-btn btn-accent" id="btn-next" onclick="navigateQuestion(1)">
             <span>அடுத்தது →</span>
           </button>
         </div>
       </article>
     </section>
 
-    <!-- Desktop Sidebar Question Palette -->
-    <aside class="palette-sidebar-pane">
-      <div class="palette-top-bar">
-        <h3>வினாத் தட்டு (Palette)</h3>
-        <button class="filter-chip-btn" onclick="resetQuizProgress()" title="மீண்டும் தொடங்க">
-          <span>🔄 மீட்டமை</span>
-        </button>
+    <!-- Desktop Sidebar Palette -->
+    <aside class="desktop-palette-sidebar">
+      <div class="sidebar-head-row">
+        <h3>வினாத் தட்டு (115)</h3>
+        <button class="sidebar-reset-btn" onclick="resetQuizProgress()" title="மீட்டமைக்க">மீட்டமை</button>
       </div>
 
-      <div class="palette-color-keys">
-        <div class="color-key-row"><span class="key-indicator-dot dot-not-visited"></span> பார்க்காதவை</div>
-        <div class="color-key-row"><span class="key-indicator-dot dot-answered"></span> பதிலளித்தவை</div>
-        <div class="color-key-row"><span class="key-indicator-dot dot-correct"></span> சரியானது</div>
-        <div class="color-key-row"><span class="key-indicator-dot dot-wrong"></span> தவறானது</div>
-        <div class="color-key-row"><span class="key-indicator-dot dot-review"></span> மறுபார்வைக்கு</div>
+      <div class="palette-legend-grid">
+        <div class="legend-item"><span class="legend-dot dot-unvisited"></span> பார்க்காதவை</div>
+        <div class="legend-item"><span class="legend-dot dot-ans"></span> பதிலளித்தவை</div>
+        <div class="legend-item"><span class="legend-dot dot-cor"></span> சரியானது</div>
+        <div class="legend-item"><span class="legend-dot dot-wro"></span> தவறானது</div>
       </div>
 
-      <div class="palette-buttons-matrix" id="palette-buttons-matrix">
+      <div class="matrix-grid-scroll" id="palette-buttons-matrix">
         <!-- 1 to 115 buttons generated by JS -->
       </div>
     </aside>
   </main>
 
-  <!-- Mobile Bottom Navigation Bar -->
-  <nav class="mobile-app-nav-bar">
-    <button class="mobile-nav-item" onclick="navigateQuestion(-1)">
+  <!-- Mobile Bottom Tab Bar (iOS Native Style) -->
+  <nav class="mobile-tab-bar">
+    <button class="tab-item-btn" onclick="navigateQuestion(-1)">
       <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
       <span>முந்தையது</span>
     </button>
-    <button class="mobile-nav-item active" onclick="openMobilePalette()">
+    <button class="tab-item-btn active" onclick="openMobilePalette()">
       <svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
       <span>வினாத்தட்டு</span>
     </button>
-    <button class="mobile-nav-item" onclick="showScorecardModal()">
+    <button class="tab-item-btn" onclick="showScorecardModal()">
       <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
       <span>மதிப்பெண்</span>
     </button>
-    <button class="mobile-nav-item" onclick="navigateQuestion(1)">
+    <button class="tab-item-btn" onclick="navigateQuestion(1)">
       <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
       <span>அடுத்தது</span>
     </button>
   </nav>
 
-  <!-- Mobile Palette Drawer Sheet (Slide Up) -->
-  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" onclick="closeMobilePalette(event)">
-    <div class="mobile-drawer-sheet" onclick="event.stopPropagation()">
-      <div class="drawer-drag-pill"></div>
-      <div class="palette-top-bar" style="margin-bottom: 0.8rem;">
+  <!-- Mobile Palette Half-Sheet Drawer -->
+  <div class="mobile-sheet-backdrop" id="mobile-drawer-backdrop" onclick="closeMobilePalette(event)">
+    <div class="mobile-sheet-content" onclick="event.stopPropagation()">
+      <div class="sheet-handle-pill"></div>
+      <div class="sidebar-head-row" style="margin-bottom: 0.8rem;">
         <h3>வினாத் தட்டு (115 வினாக்கள்)</h3>
-        <button class="filter-chip-btn" onclick="closeMobilePalette()"><span>✕ மூடுக</span></button>
+        <button class="sidebar-reset-btn" onclick="closeMobilePalette()">மூடுக ✕</button>
       </div>
-      <div class="palette-buttons-matrix" id="mobile-palette-buttons" style="max-height: 55vh; grid-template-columns: repeat(6, 1fr);">
+      <div class="matrix-grid-scroll" id="mobile-palette-buttons" style="max-height: 55vh; grid-template-columns: repeat(6, 1fr);">
         <!-- Injected via JS -->
       </div>
     </div>
   </div>
 
-  <!-- Scorecard / Result Modal -->
-  <div class="modal-overlay" id="scorecard-modal">
-    <div class="modal-card-box">
-      <h2 class="modal-headline">🎉 தேர்வு முடிவுகள்</h2>
-      <p style="text-align: center; color: var(--text-secondary); font-size: 0.92rem;">
-        Alpha x Solution Quiz • TNPSC அலகு - 6 மாதிரித் தேர்வு
-      </p>
+  <!-- Scorecard Result Modal -->
+  <div class="modal-backdrop" id="scorecard-modal">
+    <div class="modal-box-card">
+      <h2 class="modal-headline-text">தேர்வு மதிப்பீடு</h2>
+      <p class="modal-sub-text">Alpha x Solution Quiz • TNPSC அலகு - 6 மாதிரித் தேர்வு</p>
 
-      <div class="modal-score-ring-wrap">
-        <div class="score-radial-ring" id="score-radial-ring" style="--percent: 0;">
-          <div class="score-radial-core">
-            <span class="score-big-digits" id="modal-score-num">0</span>
-            <span class="score-sub-label">/ 115 வினாக்கள்</span>
+      <div class="score-circle-container">
+        <div class="score-circle-ring" id="score-radial-ring" style="--percent: 0;">
+          <div class="score-circle-inner">
+            <span class="score-big-num" id="modal-score-num">0</span>
+            <span class="score-label-cap">/ 115 வினாக்கள்</span>
           </div>
         </div>
       </div>
 
-      <div class="modal-stat-cards-grid">
-        <div class="modal-mini-stat">
-          <div class="modal-mini-val" style="color: var(--color-correct);" id="modal-correct-count">0</div>
-          <div class="modal-mini-title">சரியானவை</div>
+      <div class="stats-tri-grid">
+        <div class="stat-cell-box">
+          <div class="stat-cell-val" style="color: var(--apple-green);" id="modal-correct-count">0</div>
+          <div class="stat-cell-title">சரியானவை</div>
         </div>
-        <div class="modal-mini-stat">
-          <div class="modal-mini-val" style="color: var(--color-wrong);" id="modal-wrong-count">0</div>
-          <div class="modal-mini-title">தவறானவை</div>
+        <div class="stat-cell-box">
+          <div class="stat-cell-val" style="color: var(--apple-red);" id="modal-wrong-count">0</div>
+          <div class="stat-cell-title">தவறானவை</div>
         </div>
-        <div class="modal-mini-stat">
-          <div class="modal-mini-val" style="color: var(--brand-cyan);" id="modal-acc-pct">0%</div>
-          <div class="modal-mini-title">துல்லிய விகிதம்</div>
+        <div class="stat-cell-box">
+          <div class="stat-cell-val" style="color: var(--apple-blue);" id="modal-acc-pct">0%</div>
+          <div class="stat-cell-title">துல்லியம்</div>
         </div>
       </div>
 
-      <div class="modal-buttons-row">
-        <button class="btn-card-nav primary-btn" onclick="reviewIncorrectFromModal()">
-          <span>❌ தவறான வினாக்களை மீளாய்வு செய்க</span>
-        </button>
-        <button class="btn-card-nav" onclick="closeModal()">
-          <span>மூடுக</span>
-        </button>
+      <div class="modal-actions-row">
+        <button class="nav-step-btn btn-accent" onclick="reviewIncorrectFromModal()">தவறானவற்றை மீளாய்வு</button>
+        <button class="nav-step-btn" onclick="closeModal()">மூடுக</button>
       </div>
     </div>
   </div>
 
-  <!-- Footer with Santhakumar K Signature -->
-  <footer>
-    <div class="footer-inner-content">
-      <div class="dev-signature-tag">
-        <span>Crafted with excellence by</span>
-        <span class="dev-name">Santhakumar K</span>
-        <span>• Alpha x Solution</span>
-      </div>
-      <p class="footer-desc">
-        TNPSC Group 1 / 2 / 4 தேர்வுக்கான பிரத்யேக மாதிரித் தேர்வு செயலி | மூல ஆவணம்: <strong>UNIT - 6 [ TN HISTORY ]</strong>
-      </p>
-      <p style="font-size: 0.76rem; color: var(--text-muted);">
-        அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை © 2026 Alpha x Solution • Mobile App Responsive Edition
-      </p>
+  <!-- Discreet Small Footer -->
+  <footer class="apple-mini-footer">
+    <div class="footer-line-text">
+      <span>Alpha x Solution Quiz</span>
+      <span>•</span>
+      <span>Crafted by <span class="footer-author-highlight">Santhakumar K</span></span>
+      <span>•</span>
+      <span>UNIT - 6 Study Reference</span>
     </div>
   </footer>
 
   <!-- Include Dataset Script -->
   <script src="quiz_data.js"></script>
 
-  <!-- Interactive Logic Engine -->
+  <!-- Application Engine Script -->
   <script>
-    // App State Engine
+    // State Engine
     let quizState = {
       mode: 'practice', // 'practice' or 'exam'
       questions: [],
@@ -1531,10 +1371,9 @@
       soundEnabled: true
     };
 
-    // Capital English Option Letters
     const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
 
-    // Web Audio Synthesizer for High-End Tactile Audio Feedback
+    // Web Audio Synthesizer (Apple-style subtle clicks and pleasant chime)
     let audioCtx = null;
     function getAudioContext() {
       if (!audioCtx) {
@@ -1546,7 +1385,7 @@
       return audioCtx;
     }
 
-    function playTone(freq, type, duration, delay = 0) {
+    function playTone(freq, type, duration, delay = 0, gainLevel = 0.08) {
       if (!quizState.soundEnabled) return;
       try {
         const ctx = getAudioContext();
@@ -1555,32 +1394,34 @@
           const gain = ctx.createGain();
           osc.type = type;
           osc.frequency.setValueAtTime(freq, ctx.currentTime);
-          gain.gain.setValueAtTime(0.12, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+          gain.gain.setValueAtTime(gainLevel, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
           osc.connect(gain);
           gain.connect(ctx.destination);
           osc.start();
           osc.stop(ctx.currentTime + duration);
         }, delay * 1000);
-      } catch(e) {
-        // audio might be blocked before user gesture
-      }
+      } catch(e) {}
     }
 
     function playCorrectSound() {
-      playTone(523.25, 'sine', 0.15, 0);      // C5
-      playTone(659.25, 'sine', 0.2, 0.08);    // E5
-      playTone(783.99, 'sine', 0.35, 0.16);   // G5
+      playTone(587.33, 'sine', 0.12, 0, 0.09);    // D5
+      playTone(880.00, 'sine', 0.22, 0.07, 0.08);   // A5
     }
 
     function playWrongSound() {
-      playTone(220.00, 'sawtooth', 0.18, 0);    // A3
-      playTone(185.00, 'sawtooth', 0.25, 0.1);  // F#3
+      playTone(261.63, 'sine', 0.14, 0, 0.09);   // C4
+      playTone(220.00, 'sine', 0.2, 0.06, 0.08);   // A3
     }
 
     function toggleAudio() {
       quizState.soundEnabled = !quizState.soundEnabled;
-      document.getElementById('sound-icon').textContent = quizState.soundEnabled ? '🔊' : '🔇';
+      const svg = document.getElementById('sound-icon-svg');
+      if (quizState.soundEnabled) {
+        svg.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+      } else {
+        svg.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
+      }
     }
 
     // App Initialization
@@ -1589,17 +1430,18 @@
         quizState.questions = QUIZ_QUESTIONS;
       }
 
+      const savedTheme = localStorage.getItem('alpha_theme') || 'dark';
+      applyTheme(savedTheme);
       loadLocalProgress();
       applyFilters();
       buildPalette();
       renderCurrentQuestion();
-      updateLiveStats();
 
-      // Swipe Gestures for Mobile
+      // Mobile Touch Swipes
       setupTouchSwipes();
     });
 
-    // Touch Swipe Gestures
+    // Touch Swipe Gestures for Mobile
     function setupTouchSwipes() {
       let touchStartX = 0;
       let touchStartY = 0;
@@ -1616,7 +1458,6 @@
         const diffX = touchEndX - touchStartX;
         const diffY = touchEndY - touchStartY;
 
-        // Ensure predominantly horizontal swipe
         if (Math.abs(diffX) > 60 && Math.abs(diffY) < 50) {
           if (diffX < 0) {
             navigateQuestion(1); // Swipe Left -> Next
@@ -1663,7 +1504,7 @@
 
     function filterSegment(segId) {
       quizState.activeSegment = segId;
-      document.querySelectorAll('.seg-pill-btn').forEach((btn, idx) => {
+      document.querySelectorAll('.topic-pill').forEach((btn, idx) => {
         btn.classList.toggle('active', idx === segId);
       });
       applyFilters();
@@ -1685,21 +1526,15 @@
       renderCurrentQuestion();
     }
 
-    function handleSearch(val) {
-      quizState.searchQuery = val;
-      applyFilters();
-      renderCurrentQuestion();
-    }
-
-    // Question Renderer
+    // Question Rendering (Content First)
     function renderCurrentQuestion() {
       const qArea = document.getElementById('question-viewport');
       if (quizState.filteredQuestions.length === 0) {
         qArea.innerHTML = `
-          <div class="quiz-card" style="text-align: center; padding: 3rem 1.5rem;">
-            <h3>🔍 வினாக்கள் எதுவும் பொருந்தவில்லை</h3>
-            <p style="color: var(--text-secondary); margin-top: 0.5rem;">வடிகட்டிகளை மாற்றி மீண்டும் முயற்சிக்கவும்.</p>
-            <button class="btn-card-nav primary-btn" style="margin: 1.5rem auto 0;" onclick="resetAllFilters()">அனைத்து வினாக்களையும் காட்டு</button>
+          <div class="apple-question-card" style="text-align: center; padding: 3rem 1.5rem;">
+            <h3>வினாக்கள் எதுவும் பொருந்தவில்லை</h3>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">வடிகட்டிகளை மாற்றி மீண்டும் முயற்சிக்கவும்.</p>
+            <button class="nav-step-btn btn-accent" style="margin: 1.25rem auto 0;" onclick="resetAllFilters()">அனைத்து வினாக்களையும் காட்டு</button>
           </div>
         `;
         return;
@@ -1712,9 +1547,8 @@
         return;
       }
 
-      // Header Meta Badges
       const totalInFilter = quizState.filteredQuestions.length;
-      document.getElementById('q-badge-num').textContent = `வினா ${q.id} (${quizState.currentIndex + 1} / ${totalInFilter})`;
+      document.getElementById('q-badge-num').textContent = `வினா ${q.id} (${quizState.currentIndex + 1}/${totalInFilter})`;
       document.getElementById('q-badge-segment').textContent = q.segmentTitle;
       document.getElementById('q-badge-type').textContent = q.type;
 
@@ -1722,13 +1556,12 @@
       const isBm = quizState.bookmarks.has(q.id);
       const btnBm = document.getElementById('btn-bookmark-action');
       btnBm.classList.toggle('bookmarked', isBm);
-      document.getElementById('bm-icon').textContent = isBm ? '★' : '☆';
       document.getElementById('bm-text').textContent = isBm ? 'குறிக்கப்பட்டது' : 'குறிக்க';
 
       // Question Statement
       document.getElementById('question-statement').textContent = q.question;
 
-      // Options Rendering with Capital A, B, C, D
+      // Options Rendering
       const stack = document.getElementById('options-stack');
       stack.innerHTML = '';
 
@@ -1737,7 +1570,7 @@
 
       q.options.forEach((optText, optIdx) => {
         const btn = document.createElement('button');
-        btn.className = 'option-card-btn';
+        btn.className = 'option-cell-btn';
         btn.id = `opt-choice-${optIdx}`;
 
         let statusIcon = '';
@@ -1745,10 +1578,10 @@
           btn.classList.add('locked');
           if (optIdx === q.correct) {
             btn.classList.add('is-correct-reveal');
-            statusIcon = '✅';
+            statusIcon = '✓';
           } else if (optIdx === userAns) {
             btn.classList.add('is-wrong-reveal');
-            statusIcon = '❌';
+            statusIcon = '✕';
           }
         } else if (quizState.mode === 'exam') {
           if (userAns === optIdx) {
@@ -1757,16 +1590,16 @@
         }
 
         btn.innerHTML = `
-          <span class="opt-letter-circle">${OPTION_LETTERS[optIdx]}</span>
-          <span class="opt-text-body">${optText}</span>
-          <span class="opt-indicator-icon">${statusIcon}</span>
+          <span class="opt-letter-pill">${OPTION_LETTERS[optIdx]}</span>
+          <span class="opt-text-wrap">${optText}</span>
+          <span class="opt-status-marker">${statusIcon}</span>
         `;
 
         btn.onclick = () => handleSelectOption(q.id, optIdx);
         stack.appendChild(btn);
       });
 
-      // Explanation Box
+      // Citation / Explanation Callout
       const expBox = document.getElementById('explanation-reveal-card');
       if (quizState.mode === 'practice' && isAnswered) {
         expBox.style.display = 'block';
@@ -1779,7 +1612,11 @@
       document.getElementById('btn-prev').disabled = quizState.currentIndex === 0;
       document.getElementById('btn-next').disabled = quizState.currentIndex === quizState.filteredQuestions.length - 1;
 
-      updateLiveStats();
+      // Update Hairline Progress
+      const answeredCount = Object.keys(quizState.userAnswers).length;
+      const pct = Math.round((answeredCount / quizState.questions.length) * 100);
+      document.getElementById('progress-bar-fill').style.width = `${pct}%`;
+
       updatePaletteHighlights();
     }
 
@@ -1798,185 +1635,146 @@
         const clickedBtn = document.getElementById(`opt-choice-${optIdx}`);
         const correctBtn = document.getElementById(`opt-choice-${correctIdx}`);
 
-        document.querySelectorAll('.option-card-btn').forEach(btn => btn.classList.add('locked'));
+        document.querySelectorAll('.option-cell-btn').forEach(btn => btn.classList.add('locked'));
 
         if (optIdx === correctIdx) {
           clickedBtn.classList.add('is-correct-reveal');
-          clickedBtn.querySelector('.opt-indicator-icon').textContent = '✅';
+          clickedBtn.querySelector('.opt-status-marker').textContent = '✓';
           playCorrectSound();
         } else {
-          // Wrong Click: Highlight clicked in red, reveal real correct answer in green!
           clickedBtn.classList.add('is-wrong-reveal');
-          clickedBtn.querySelector('.opt-indicator-icon').textContent = '❌';
+          clickedBtn.querySelector('.opt-status-marker').textContent = '✕';
           playWrongSound();
 
           if (correctBtn) {
             correctBtn.classList.add('is-correct-reveal');
-            correctBtn.querySelector('.opt-indicator-icon').textContent = '✅';
+            correctBtn.querySelector('.opt-status-marker').textContent = '✓';
           }
         }
 
         const expBox = document.getElementById('explanation-reveal-card');
         expBox.style.display = 'block';
         document.getElementById('exp-body-content').textContent = q.explanation;
-      } else {
-        // Exam Mode: select option without revealing answer
+
+      } else if (quizState.mode === 'exam') {
         quizState.userAnswers[qId] = optIdx;
         saveLocalProgress();
-        renderCurrentQuestion();
+        document.querySelectorAll('.option-cell-btn').forEach((btn, idx) => {
+          btn.classList.toggle('selected-exam-mode', idx === optIdx);
+        });
       }
 
-      updateLiveStats();
+      // Update Hairline Progress
+      const answeredCount = Object.keys(quizState.userAnswers).length;
+      const pct = Math.round((answeredCount / quizState.questions.length) * 100);
+      document.getElementById('progress-bar-fill').style.width = `${pct}%`;
+
       updatePaletteHighlights();
     }
 
     // Navigation
-    function navigateQuestion(delta) {
-      const newIdx = quizState.currentIndex + delta;
+    function navigateQuestion(dir) {
+      const newIdx = quizState.currentIndex + dir;
       if (newIdx >= 0 && newIdx < quizState.filteredQuestions.length) {
         quizState.currentIndex = newIdx;
         renderCurrentQuestion();
       }
     }
 
-    function jumpToQuestionById(qId) {
-      closeMobilePalette();
+    function jumpToQuestion(qId) {
       const idx = quizState.filteredQuestions.findIndex(q => q.id === qId);
       if (idx !== -1) {
         quizState.currentIndex = idx;
         renderCurrentQuestion();
+        closeMobilePalette();
       } else {
-        // Reset filters if item not in current view
-        resetAllFilters();
-        const newIdx = quizState.filteredQuestions.findIndex(q => q.id === qId);
-        if (newIdx !== -1) {
-          quizState.currentIndex = newIdx;
+        quizState.activeSegment = 0;
+        quizState.filterWrongOnly = false;
+        quizState.filterReviewOnly = false;
+        quizState.searchQuery = '';
+        applyFilters();
+        const fallbackIdx = quizState.filteredQuestions.findIndex(q => q.id === qId);
+        if (fallbackIdx !== -1) {
+          quizState.currentIndex = fallbackIdx;
+          renderCurrentQuestion();
+          closeMobilePalette();
         }
-        renderCurrentQuestion();
       }
     }
 
-    // Question Palette Builders (Both Desktop and Mobile)
-    function buildPalette() {
-      const desktopGrid = document.getElementById('palette-buttons-matrix');
-      const mobileGrid = document.getElementById('mobile-palette-buttons');
-      desktopGrid.innerHTML = '';
-      mobileGrid.innerHTML = '';
-
-      quizState.questions.forEach((q) => {
-        // Desktop Button
-        const btnD = document.createElement('button');
-        btnD.className = 'q-matrix-btn';
-        btnD.id = `pal-d-${q.id}`;
-        btnD.textContent = q.id;
-        btnD.title = `வினா ${q.id}: ${q.segmentTitle}`;
-        btnD.onclick = () => jumpToQuestionById(q.id);
-        desktopGrid.appendChild(btnD);
-
-        // Mobile Button
-        const btnM = document.createElement('button');
-        btnM.className = 'q-matrix-btn';
-        btnM.id = `pal-m-${q.id}`;
-        btnM.textContent = q.id;
-        btnM.onclick = () => jumpToQuestionById(q.id);
-        mobileGrid.appendChild(btnM);
-      });
-
-      updatePaletteHighlights();
-    }
-
-    function updatePaletteHighlights() {
-      const currentQ = quizState.filteredQuestions[quizState.currentIndex];
-      const currentId = currentQ ? currentQ.id : null;
-
-      quizState.questions.forEach(q => {
-        const btnD = document.getElementById(`pal-d-${q.id}`);
-        const btnM = document.getElementById(`pal-m-${q.id}`);
-        const buttons = [btnD, btnM].filter(Boolean);
-
-        buttons.forEach(btn => {
-          btn.className = 'q-matrix-btn';
-
-          if (q.id === currentId) {
-            btn.classList.add('is-active-focus');
-          }
-
-          const ans = quizState.userAnswers[q.id];
-          if (ans !== undefined) {
-            if (quizState.mode === 'practice') {
-              if (ans === q.correct) {
-                btn.classList.add('st-correct');
-              } else {
-                btn.classList.add('st-wrong');
-              }
-            } else {
-              btn.classList.add('st-answered');
-            }
-          }
-
-          if (quizState.bookmarks.has(q.id)) {
-            btn.classList.add('st-review');
-          }
-        });
-      });
-    }
-
-    // Mobile Palette Drawer
-    function openMobilePalette() {
-      document.getElementById('mobile-drawer-backdrop').classList.add('active');
-    }
-    function closeMobilePalette(e) {
-      if (e && e.target !== e.currentTarget) return;
-      document.getElementById('mobile-drawer-backdrop').classList.remove('active');
-    }
-
-    // Bookmark Toggle
+    // Bookmark
     function toggleBookmarkCurrent() {
-      const q = quizState.filteredQuestions[quizState.currentIndex];
-      if (!q) return;
+      const curQ = quizState.filteredQuestions[quizState.currentIndex];
+      if (!curQ) return;
 
-      if (quizState.bookmarks.has(q.id)) {
-        quizState.bookmarks.delete(q.id);
+      if (quizState.bookmarks.has(curQ.id)) {
+        quizState.bookmarks.delete(curQ.id);
       } else {
-        quizState.bookmarks.add(q.id);
+        quizState.bookmarks.add(curQ.id);
       }
+
       saveLocalProgress();
       renderCurrentQuestion();
       updatePaletteHighlights();
     }
 
-    // Live Statistics
-    function updateLiveStats() {
-      const total = quizState.questions.length;
-      let attempted = 0;
-      let correct = 0;
-      let wrong = 0;
+    // Palette Matrix
+    function buildPalette() {
+      const desktopBox = document.getElementById('palette-buttons-matrix');
+      const mobileBox = document.getElementById('mobile-palette-buttons');
+      desktopBox.innerHTML = '';
+      mobileBox.innerHTML = '';
 
-      quizState.questions.forEach(q => {
-        const a = quizState.userAnswers[q.id];
-        if (a !== undefined) {
-          attempted++;
-          if (a === q.correct) correct++;
-          else wrong++;
-        }
+      quizState.questions.forEach((q) => {
+        const btnD = createPaletteBtn(q);
+        const btnM = createPaletteBtn(q);
+        desktopBox.appendChild(btnD);
+        mobileBox.appendChild(btnM);
       });
-
-      const curQ = quizState.filteredQuestions[quizState.currentIndex];
-      document.getElementById('stat-current-num').textContent = curQ ? curQ.id : '0';
-      document.getElementById('stat-total-num').textContent = total;
-      document.getElementById('stat-attempted-num').textContent = attempted;
-      document.getElementById('stat-correct-num').textContent = correct;
-      document.getElementById('stat-wrong-num').textContent = wrong;
-      document.getElementById('stat-score-num').textContent = `${correct} / ${total}`;
-
-      const acc = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
-      document.getElementById('stat-acc-num').textContent = `${acc}%`;
-
-      const progressPct = Math.round((attempted / total) * 100);
-      document.getElementById('progress-bar-fill').style.width = `${progressPct}%`;
     }
 
-    // Mode Switching
+    function createPaletteBtn(q) {
+      const btn = document.createElement('button');
+      btn.className = 'matrix-num-btn';
+      btn.id = `palette-btn-${q.id}`;
+      btn.textContent = q.id;
+      btn.onclick = () => jumpToQuestion(q.id);
+      return btn;
+    }
+
+    function updatePaletteHighlights() {
+      const curQ = quizState.filteredQuestions[quizState.currentIndex];
+
+      quizState.questions.forEach(q => {
+        const btns = [
+          document.querySelector(`#palette-buttons-matrix #palette-btn-${q.id}`),
+          document.querySelector(`#mobile-palette-buttons #palette-btn-${q.id}`)
+        ];
+
+        btns.forEach(btn => {
+          if (!btn) return;
+          btn.className = 'matrix-num-btn';
+
+          if (curQ && curQ.id === q.id) {
+            btn.classList.add('is-active-focus');
+          }
+
+          const ans = quizState.userAnswers[q.id];
+          if (quizState.bookmarks.has(q.id)) {
+            btn.classList.add('st-review');
+          } else if (ans !== undefined) {
+            if (quizState.mode === 'practice') {
+              if (ans === q.correct) btn.classList.add('st-correct');
+              else btn.classList.add('st-wrong');
+            } else {
+              btn.classList.add('st-answered');
+            }
+          }
+        });
+      });
+    }
+
+    // Mode Toggle
     function setQuizMode(mode) {
       quizState.mode = mode;
       document.getElementById('btn-mode-practice').classList.toggle('active', mode === 'practice');
@@ -1987,7 +1785,7 @@
 
       if (mode === 'exam') {
         timerEl.classList.add('active');
-        submitBtn.style.display = 'flex';
+        submitBtn.style.display = 'inline-flex';
         startExamTimer();
       } else {
         timerEl.classList.remove('active');
@@ -1996,16 +1794,15 @@
       }
 
       renderCurrentQuestion();
-      updatePaletteHighlights();
     }
 
-    // Timer Implementation
+    // Timer
     function startExamTimer() {
       clearInterval(quizState.timerInterval);
       quizState.timerInterval = setInterval(() => {
         if (quizState.timerSeconds <= 0) {
           clearInterval(quizState.timerInterval);
-          autoSubmitExam();
+          finishExam();
           return;
         }
         quizState.timerSeconds--;
@@ -2025,17 +1822,21 @@
       }
     }
 
-    function autoSubmitExam() {
-      alert('தேர்வுக்கான கால நேரம் முடிவடைந்தது! உங்கள் தேர்வு தானாகச் சமர்ப்பிக்கப்படுகிறது.');
-      finishExam();
-    }
-
     function finishExam() {
       clearInterval(quizState.timerInterval);
-      quizState.mode = 'practice';
       setQuizMode('practice');
       showScorecardModal();
       triggerConfetti();
+    }
+
+    // Mobile Palette Drawer
+    function openMobilePalette() {
+      document.getElementById('mobile-drawer-backdrop').classList.add('active');
+    }
+
+    function closeMobilePalette(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('mobile-drawer-backdrop').classList.remove('active');
     }
 
     // Scorecard Modal
@@ -2087,7 +1888,6 @@
         applyFilters();
         renderCurrentQuestion();
         updatePaletteHighlights();
-        updateLiveStats();
       }
     }
 
@@ -2098,8 +1898,7 @@
       quizState.searchQuery = '';
       document.getElementById('chip-wrong-only').classList.remove('active-wrong');
       document.getElementById('chip-review-only').classList.remove('active-review');
-      document.getElementById('search-box-input').value = '';
-      document.querySelectorAll('.seg-pill-btn').forEach((btn, i) => btn.classList.toggle('active', i === 0));
+      document.querySelectorAll('.topic-pill').forEach((btn, i) => btn.classList.toggle('active', i === 0));
       applyFilters();
       renderCurrentQuestion();
     }
@@ -2109,9 +1908,7 @@
       try {
         localStorage.setItem('alpha_tnpsc_answers', JSON.stringify(quizState.userAnswers));
         localStorage.setItem('alpha_tnpsc_bookmarks', JSON.stringify([...quizState.bookmarks]));
-      } catch (e) {
-        console.warn('LocalStorage save error:', e);
-      }
+      } catch (e) {}
     }
 
     function loadLocalProgress() {
@@ -2121,20 +1918,37 @@
 
         const savedBm = localStorage.getItem('alpha_tnpsc_bookmarks');
         if (savedBm) quizState.bookmarks = new Set(JSON.parse(savedBm));
-      } catch (e) {
-        console.warn('LocalStorage load error:', e);
-      }
+      } catch (e) {}
     }
 
-    // Theme Switch
+    // Theme Switch with Persistent Preference and Apple Icons
+    function applyTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#000000' : '#f5f5f7');
+      
+      const themeSvg = document.getElementById('theme-icon-svg');
+      if (themeSvg) {
+        if (theme === 'dark') {
+          // Sun Icon (tap to switch to light)
+          themeSvg.innerHTML = '<circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
+        } else {
+          // Moon Icon (tap to switch to dark)
+          themeSvg.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>';
+        }
+      }
+      try {
+        localStorage.setItem('alpha_theme', theme);
+      } catch(e) {}
+    }
+
     function toggleTheme() {
       const cur = document.body.getAttribute('data-theme') || 'dark';
       const nxt = cur === 'dark' ? 'light' : 'dark';
-      document.body.setAttribute('data-theme', nxt);
-      document.getElementById('theme-icon').textContent = nxt === 'dark' ? '☀️' : '🌙';
+      applyTheme(nxt);
     }
 
-    // Canvas Confetti Celebration Animation
+    // Canvas Confetti
     function triggerConfetti() {
       const canvas = document.getElementById('confetti-canvas');
       const ctx = canvas.getContext('2d');
@@ -2142,20 +1956,20 @@
       canvas.height = window.innerHeight;
 
       const particles = [];
-      const colors = ['#00f2fe', '#4facfe', '#f59e0b', '#10b981', '#a855f7', '#ec4899'];
+      const colors = ['#0a84ff', '#30d158', '#ffd60a', '#ff453a', '#bf5af2'];
 
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 90; i++) {
         particles.push({
           x: canvas.width / 2,
           y: canvas.height / 2,
-          w: Math.random() * 9 + 4,
-          h: Math.random() * 9 + 4,
+          w: Math.random() * 8 + 4,
+          h: Math.random() * 8 + 4,
           color: colors[Math.floor(Math.random() * colors.length)],
-          vx: (Math.random() - 0.5) * 14,
-          vy: (Math.random() - 0.7) * 16,
-          gravity: 0.3,
+          vx: (Math.random() - 0.5) * 12,
+          vy: (Math.random() - 0.7) * 14,
+          gravity: 0.28,
           rot: Math.random() * 360,
-          rotSpeed: (Math.random() - 0.5) * 8
+          rotSpeed: (Math.random() - 0.5) * 7
         });
       }
 
@@ -2177,7 +1991,7 @@
         });
 
         frames++;
-        if (frames < 140) {
+        if (frames < 120) {
           requestAnimationFrame(animateConfetti);
         } else {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -2188,11 +2002,9 @@
 
     // Keyboard Shortcuts (1-4 for A-D options, arrows for navigation)
     window.addEventListener('keydown', (e) => {
-      if (document.activeElement === document.getElementById('search-box-input')) return;
-
-      if (e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N') {
+      if (['ArrowRight', 'n', 'N'].includes(e.key)) {
         navigateQuestion(1);
-      } else if (e.key === 'ArrowLeft' || e.key === 'p' || e.key === 'P') {
+      } else if (['ArrowLeft', 'p', 'P'].includes(e.key)) {
         navigateQuestion(-1);
       } else if (['1', '2', '3', '4'].includes(e.key)) {
         const optIdx = parseInt(e.key, 10) - 1;
