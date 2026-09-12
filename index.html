@@ -8,16 +8,16 @@
   <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       APPLE DESIGN SYSTEM - ALPHA X SOLUTION QUIZ
-       Clean, Minimal, High-Legibility, Content-First Typography
+       ENTERPRISE APPLE DESIGN SYSTEM - ALPHA X SOLUTION QUIZ
+       Clean, Minimal, Modern, Content-First Typography
        ========================================================================== */
     :root {
       /* Dark Theme (Default OLED Black) */
       --bg-body: #000000;
-      --bg-header: rgba(18, 19, 24, 0.85);
+      --bg-header: rgba(18, 19, 24, 0.88);
       --bg-card: #14161b;
       --bg-card-secondary: #1a1d24;
       --bg-card-option: #181b22;
@@ -40,7 +40,7 @@
       --apple-purple: #bf5af2;
 
       --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.35);
-      --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.65);
+      --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.75);
 
       --font-sf: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Outfit", "Helvetica Neue", sans-serif;
       --font-tamil: 'Mukta Malar', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -52,7 +52,7 @@
     [data-theme="light"] {
       /* Light Theme (Apple Clean White) */
       --bg-body: #f5f5f7;
-      --bg-header: rgba(255, 255, 255, 0.88);
+      --bg-header: rgba(255, 255, 255, 0.9);
       --bg-card: #ffffff;
       --bg-card-secondary: #fbfbfd;
       --bg-card-option: #f8f8fa;
@@ -75,7 +75,7 @@
       --apple-purple: #af52de;
 
       --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
-      --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.15);
+      --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.18);
     }
 
     * {
@@ -105,21 +105,42 @@
       }
     }
 
+    button {
+      font-family: inherit;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    button:active {
+      transform: scale(0.965);
+    }
+
     /* ==========================================================================
-       APPLE MINIMAL HEADER (Height: 52px, Content First)
+       ENTERPRISE APPLE STICKY HEADER (52px, Flawless Positioning)
        ========================================================================== */
-    header {
+    header.apple-app-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 70;
       background: var(--bg-header);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
       border-bottom: 1px solid var(--border-color);
-      height: 52px;
+      height: 54px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.25s ease,
+                  box-shadow 0.25s ease;
+      will-change: transform;
+    }
+    header.apple-app-header.header-hidden {
+      transform: translateY(-100%);
+    }
+    header.apple-app-header.header-elevated {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.28);
+    }
+    [data-theme="light"] header.apple-app-header.header-elevated {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     }
 
     .header-container {
@@ -133,62 +154,77 @@
       gap: 0.75rem;
     }
 
-    /* Brand Logo & Title */
+    /* Executive Emblem Logo */
     .brand-cluster {
       display: flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.6rem;
       cursor: pointer;
       user-select: none;
       text-decoration: none;
     }
 
-    .brand-icon-box {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      background: var(--apple-blue);
+    .brand-emblem-box {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #0a84ff 0%, #003fa3 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #ffffff;
-      font-family: var(--font-sf);
-      font-weight: 800;
-      font-size: 15px;
-      line-height: 1;
+      box-shadow: 0 3px 12px rgba(10, 132, 255, 0.45), inset 0 1px 0 rgba(255,255,255,0.18);
       flex-shrink: 0;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .brand-cluster:hover .brand-emblem-box {
+      transform: scale(1.05);
+      box-shadow: 0 5px 18px rgba(10, 132, 255, 0.55);
+    }
+
+    /* AX monogram SVG */
+    .brand-emblem-svg {
+      width: 22px;
+      height: 22px;
     }
 
     .brand-title-wrap {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
     }
 
     .brand-name {
       font-family: var(--font-sf);
-      font-size: 1.02rem;
+      font-size: 0.98rem;
       font-weight: 700;
       color: var(--text-primary);
       letter-spacing: -0.3px;
       white-space: nowrap;
     }
+    @media (max-width: 420px) {
+      .brand-name { font-size: 0.88rem; }
+    }
 
-    .brand-badge {
+    .brand-candidate-pill {
       font-family: var(--font-sf);
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 1.5px 6px;
+      font-size: 0.66rem;
+      font-weight: 600;
+      padding: 2px 8px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text-secondary);
-      letter-spacing: 0.2px;
+      background: rgba(10, 132, 255, 0.12);
+      color: var(--apple-blue);
+      border: 1px solid rgba(10, 132, 255, 0.2);
+      max-width: 110px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
-    [data-theme="light"] .brand-badge {
-      background: rgba(0, 0, 0, 0.06);
+    [data-theme="light"] .brand-candidate-pill {
+      background: rgba(0, 0, 0, 0.05);
     }
 
-    /* Header Actions Right */
+    /* Header Actions */
     .header-actions {
       display: flex;
       align-items: center;
@@ -198,10 +234,11 @@
     /* Apple Segmented Control [Practice | Exam] */
     .segmented-control {
       display: flex;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.07);
       border-radius: 999px;
-      padding: 2.5px;
+      padding: 3px;
       border: 1px solid var(--border-subtle);
+      gap: 0;
     }
     [data-theme="light"] .segmented-control {
       background: rgba(0, 0, 0, 0.06);
@@ -211,19 +248,19 @@
       border: none;
       background: transparent;
       color: var(--text-secondary);
-      padding: 0.25rem 0.65rem;
+      padding: 0.22rem 0.7rem;
       border-radius: 999px;
       font-family: var(--font-tamil);
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s ease;
       white-space: nowrap;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .seg-mode-btn.active {
       background: var(--bg-card);
       color: var(--text-primary);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
     }
 
     /* Exam Timer Badge */
@@ -257,30 +294,25 @@
       display: none;
       align-items: center;
       gap: 0.3rem;
-      transition: opacity 0.2s;
-    }
-    .btn-submit-exam:hover {
-      opacity: 0.9;
     }
 
-    /* Enterprise-Grade Icon Action Buttons */
+    /* Enterprise Icon Buttons */
     .icon-btn {
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
       flex-shrink: 0;
-      position: relative;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     }
     [data-theme="light"] .icon-btn {
-      background: rgba(0, 0, 0, 0.03);
+      background: rgba(0, 0, 0, 0.04);
     }
     .icon-btn:hover {
       background: var(--bg-card-option-hover);
@@ -289,73 +321,11 @@
       transform: translateY(-1px);
     }
     .icon-btn:active {
-      transform: scale(0.92);
+      transform: scale(0.93);
     }
     .icon-btn svg {
       width: 17px;
       height: 17px;
-      stroke-width: 2.2;
-    }
-
-    /* Enterprise Brand Monogram */
-    .brand-icon-box {
-      width: 30px;
-      height: 30px;
-      border-radius: 9px;
-      background: linear-gradient(135deg, #0a84ff 0%, #0066cc 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(10, 132, 255, 0.35);
-      flex-shrink: 0;
-    }
-    .brand-icon-box svg {
-      width: 18px;
-      height: 18px;
-      fill: none;
-      stroke: #ffffff;
-      stroke-width: 2.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* Tactile Micro-Interactions for All Action Buttons */
-    button {
-      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    button:active {
-      transform: scale(0.965);
-    }
-
-    /* Status Badge Indicator inside Options (SVG Check/Cross) */
-    .status-badge-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-      animation: popBadge 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    }
-    .status-badge-icon svg {
-      width: 13px;
-      height: 13px;
-    }
-    .status-badge-icon.badge-correct {
-      background: var(--apple-green);
-      color: #ffffff;
-    }
-    .status-badge-icon.badge-wrong {
-      background: var(--apple-red);
-      color: #ffffff;
-    }
-
-    @keyframes popBadge {
-      0% { transform: scale(0.3); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
     }
 
     /* Hairline Progress Indicator */
@@ -364,8 +334,8 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 2.5px;
-      background: rgba(255, 255, 255, 0.05);
+      height: 2px;
+      background: rgba(255, 255, 255, 0.04);
     }
     [data-theme="light"] .progress-track-line {
       background: rgba(0, 0, 0, 0.04);
@@ -373,20 +343,271 @@
     .progress-fill-line {
       height: 100%;
       width: 0%;
-      background: var(--apple-blue);
-      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      background: linear-gradient(90deg, #0a84ff, #30d158);
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 0 999px 999px 0;
     }
 
     /* ==========================================================================
-       SUB-NAV STRIP: COMPACT TOPICS (38px, Zero Waste)
+       VIEW 1: PRE-EXAM SETUP LOBBY (Hero Welcome & Exam Config)
        ========================================================================== */
+    .lobby-view-container {
+      max-width: 680px;
+      width: 100%;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lobby-card-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .lobby-header-text {
+      text-align: center;
+      margin-bottom: 1.35rem;
+    }
+    .lobby-badge-tag {
+      display: inline-block;
+      font-family: var(--font-sf);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: var(--apple-blue-tint);
+      color: var(--apple-blue);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+    .lobby-main-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 0.35rem;
+    }
+    .lobby-sub-title {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    /* Candidate Name Input */
+    .lobby-field-group {
+      margin-bottom: 1.35rem;
+    }
+    .lobby-field-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+    .lobby-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .lobby-input-wrap svg {
+      position: absolute;
+      left: 14px;
+      width: 18px;
+      height: 18px;
+      color: var(--text-muted);
+    }
+    .lobby-text-input {
+      width: 100%;
+      background: var(--bg-card-option);
+      border: 1.5px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.75rem 1rem 0.75rem 2.6rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .lobby-text-input:focus {
+      border-color: var(--apple-blue);
+      box-shadow: 0 0 0 3px var(--apple-blue-tint);
+    }
+
+    /* Previous Best Record Card */
+    .lobby-record-strip {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 214, 10, 0.1);
+      border: 1px solid rgba(255, 214, 10, 0.25);
+      border-radius: 12px;
+      padding: 0.65rem 0.9rem;
+      margin-bottom: 1.35rem;
+      font-size: 0.82rem;
+      color: var(--apple-amber);
+    }
+    .lobby-record-strip.active {
+      display: flex;
+    }
+    .lobby-record-strip svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Format Selection Cards */
+    .mode-select-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mode-choice-card {
+      background: var(--bg-card-option);
+      border: 1.5px solid var(--border-color);
+      border-radius: 14px;
+      padding: 0.95rem 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mode-choice-card:hover {
+      background: var(--bg-card-option-hover);
+      border-color: var(--border-active);
+    }
+    .mode-choice-card.active {
+      background: var(--apple-blue-tint);
+      border-color: var(--apple-blue);
+    }
+
+    .mode-choice-radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .mode-choice-card.active .mode-choice-radio {
+      border-color: var(--apple-blue);
+    }
+    .radio-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--apple-blue);
+      transform: scale(0);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .mode-choice-card.active .radio-dot {
+      transform: scale(1);
+    }
+
+    .mode-choice-info {
+      flex: 1;
+    }
+    .mode-choice-title {
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+    .mode-choice-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Section dropdown picker inside Section mode */
+    .lobby-section-picker {
+      margin-top: 0.65rem;
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .lobby-select-input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.55rem 0.85rem;
+      border-radius: 9px;
+      font-family: var(--font-tamil);
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    /* Start Button */
+    .lobby-start-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #0a84ff 0%, #005ed4 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.92rem 1.5rem;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 6px 20px rgba(10, 132, 255, 0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .lobby-start-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background 0.18s;
+    }
+    .lobby-start-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(10, 132, 255, 0.52);
+    }
+    .lobby-start-btn:active {
+      transform: scale(0.97) translateY(0);
+      box-shadow: 0 3px 10px rgba(10, 132, 255, 0.35);
+    }
+
+    /* ==========================================================================
+       VIEW 2: ACTIVE QUESTION STAGE
+       ========================================================================== */
+    .exam-view-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    /* Subnav Section Pills Bar (Fully Clickable & Reactive) */
     .subnav-topic-strip {
       background: var(--bg-body);
       border-bottom: 1px solid var(--border-color);
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 0.85rem;
       position: sticky;
-      top: 52px;
+      top: 54px;
       z-index: 40;
+      transition: top 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body.header-is-hidden .subnav-topic-strip {
+      top: 0;
     }
 
     .subnav-inner {
@@ -415,14 +636,12 @@
       border: 1px solid var(--border-color);
       background: var(--bg-card);
       color: var(--text-secondary);
-      padding: 0.25rem 0.75rem;
+      padding: 0.28rem 0.8rem;
       border-radius: 999px;
-      font-family: var(--font-tamil);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 600;
       white-space: nowrap;
       cursor: pointer;
-      transition: all 0.15s ease;
       display: flex;
       align-items: center;
       gap: 0.35rem;
@@ -447,7 +666,7 @@
       border: 1px solid var(--border-color);
       background: var(--bg-card);
       color: var(--text-secondary);
-      padding: 0.25rem 0.6rem;
+      padding: 0.28rem 0.65rem;
       border-radius: 999px;
       font-size: 0.74rem;
       font-weight: 600;
@@ -469,9 +688,7 @@
       border-color: var(--apple-purple);
     }
 
-    /* ==========================================================================
-       MAIN CONTENT: QUESTION & ANSWER HERO (Content-First)
-       ========================================================================== */
+    /* Main Workspace Layout */
     .app-main-layout {
       max-width: 1200px;
       width: 100%;
@@ -504,7 +721,6 @@
       border-radius: 18px;
       padding: 1.35rem 1.25rem;
       box-shadow: var(--shadow-subtle);
-      transition: background 0.2s, border-color 0.2s;
       position: relative;
     }
 
@@ -515,7 +731,7 @@
       }
     }
 
-    /* Top Meta Line */
+    /* Meta Line */
     .card-top-meta {
       display: flex;
       align-items: center;
@@ -572,7 +788,6 @@
       font-size: 0.76rem;
       padding: 3px 6px;
       border-radius: 6px;
-      transition: color 0.15s;
     }
     .bookmark-toggle-btn.bookmarked {
       color: var(--apple-amber);
@@ -580,7 +795,6 @@
     .bookmark-toggle-btn svg {
       width: 14px;
       height: 14px;
-      fill: currentColor;
     }
 
     /* Question Statement Text */
@@ -619,10 +833,8 @@
       align-items: flex-start;
       gap: 0.85rem;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, transform 0.1s;
       text-align: left;
       color: var(--text-primary);
-      font-family: var(--font-tamil);
       font-size: 1rem;
       font-weight: 500;
       user-select: none;
@@ -639,16 +851,15 @@
       font-family: var(--font-sf);
       font-weight: 700;
       font-size: 0.86rem;
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
       background: rgba(255, 255, 255, 0.08);
       color: var(--text-secondary);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      transition: background 0.15s, color 0.15s;
     }
     [data-theme="light"] .opt-letter-pill {
       background: rgba(0, 0, 0, 0.06);
@@ -657,19 +868,17 @@
     .opt-text-wrap {
       flex: 1;
       line-height: 1.5;
-      padding-top: 1px;
+      padding-top: 2px;
     }
 
     .opt-status-marker {
-      font-size: 1rem;
-      opacity: 0;
-      transform: scale(0.6);
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       margin-left: auto;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
     }
 
-    /* Interactive States */
+    /* Selection States */
     .option-cell-btn.selected-exam-mode {
       background: var(--apple-blue-tint);
       border-color: var(--apple-blue);
@@ -687,11 +896,6 @@
       background: var(--apple-green);
       color: #ffffff;
     }
-    .option-cell-btn.is-correct-reveal .opt-status-marker {
-      opacity: 1;
-      transform: scale(1);
-      color: var(--apple-green);
-    }
 
     .option-cell-btn.is-wrong-reveal {
       background: var(--apple-red-tint);
@@ -701,11 +905,6 @@
     .option-cell-btn.is-wrong-reveal .opt-letter-pill {
       background: var(--apple-red);
       color: #ffffff;
-    }
-    .option-cell-btn.is-wrong-reveal .opt-status-marker {
-      opacity: 1;
-      transform: scale(1);
-      color: var(--apple-red);
     }
 
     @keyframes appleShake {
@@ -717,6 +916,36 @@
 
     .option-cell-btn.locked {
       cursor: default;
+    }
+
+    /* Status Badge Indicator inside Options (SVG Check/Cross) */
+    .status-badge-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      animation: popBadge 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    .status-badge-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+    .status-badge-icon.badge-correct {
+      background: var(--apple-green);
+      color: #ffffff;
+    }
+    .status-badge-icon.badge-wrong {
+      background: var(--apple-red);
+      color: #ffffff;
+    }
+
+    @keyframes popBadge {
+      0% { transform: scale(0.3); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     /* Apple Pedagogical Citation Callout */
@@ -766,32 +995,37 @@
       background: var(--bg-card-option);
       border: 1px solid var(--border-color);
       color: var(--text-primary);
-      padding: 0.55rem 1.15rem;
+      padding: 0.55rem 1.2rem;
       border-radius: 10px;
-      font-family: var(--font-tamil);
       font-size: 0.88rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 0.35rem;
-      transition: background 0.15s, opacity 0.15s;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .nav-step-btn:hover:not(:disabled) {
       background: var(--bg-card-option-hover);
+      border-color: var(--border-active);
+      transform: translateY(-1px);
+    }
+    .nav-step-btn:active:not(:disabled) {
+      transform: scale(0.96);
     }
     .nav-step-btn:disabled {
       opacity: 0.3;
       cursor: not-allowed;
     }
-
     .nav-step-btn.btn-accent {
       background: var(--apple-blue);
       color: #ffffff;
       border-color: transparent;
+      box-shadow: 0 3px 10px rgba(10,132,255,0.3);
     }
     .nav-step-btn.btn-accent:hover:not(:disabled) {
-      opacity: 0.92;
+      opacity: 0.93;
+      box-shadow: 0 5px 16px rgba(10,132,255,0.4);
     }
 
     /* ==========================================================================
@@ -894,7 +1128,6 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.12s;
     }
     .matrix-num-btn:hover {
       border-color: var(--border-active);
@@ -925,7 +1158,7 @@
     }
 
     /* ==========================================================================
-       MOBILE APP BOTTOM TAB BAR (iOS Style, Height: 58px)
+       MOBILE APP BOTTOM TAB BAR (iOS Enterprise Style)
        ========================================================================== */
     .mobile-tab-bar {
       display: none;
@@ -934,10 +1167,10 @@
       left: 0;
       width: 100vw;
       background: var(--bg-header);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
       border-top: 1px solid var(--border-color);
-      padding: 0.35rem 0.5rem calc(0.35rem + var(--safe-bottom));
+      padding: 0.32rem 0 calc(0.32rem + var(--safe-bottom));
       z-index: 60;
       justify-content: space-around;
       align-items: center;
@@ -957,22 +1190,29 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2px;
-      font-family: var(--font-tamil);
-      font-size: 0.68rem;
+      gap: 3px;
+      font-size: 0.65rem;
       font-weight: 500;
       cursor: pointer;
-      padding: 0.2rem 0.65rem;
-      border-radius: 8px;
-      transition: color 0.15s;
+      padding: 0.28rem 1rem;
+      border-radius: 10px;
+      flex: 1;
+      transition: color 0.18s, background 0.18s;
+      min-height: 48px;
+    }
+    .tab-item-btn:active {
+      background: rgba(255,255,255,0.06);
+      transform: scale(0.93);
+    }
+    [data-theme="light"] .tab-item-btn:active {
+      background: rgba(0,0,0,0.06);
     }
     .tab-item-btn.active {
       color: var(--apple-blue);
     }
     .tab-item-btn svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
+      width: 22px;
+      height: 22px;
     }
 
     /* Mobile Palette Drawer Sheet */
@@ -1019,7 +1259,7 @@
     }
 
     /* ==========================================================================
-       SCORECARD MODAL
+       ENTERPRISE SECTION-WISE SCORECARD MODAL
        ========================================================================== */
     .modal-backdrop {
       position: fixed;
@@ -1027,13 +1267,14 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(10px);
       z-index: 100;
       display: none;
       align-items: center;
       justify-content: center;
       padding: 1rem;
+      overflow-y: auto;
     }
     .modal-backdrop.active {
       display: flex;
@@ -1043,12 +1284,13 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      max-width: 480px;
+      max-width: 540px;
       width: 100%;
-      padding: 1.75rem 1.5rem;
+      padding: 1.75rem 1.4rem;
       box-shadow: var(--shadow-modal);
       position: relative;
       animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      margin: auto;
     }
 
     @keyframes modalFadeIn {
@@ -1057,42 +1299,54 @@
     }
 
     .modal-headline-text {
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.3rem;
+      font-weight: 800;
       text-align: center;
       color: var(--text-primary);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
-    .modal-sub-text {
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 0.82rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .score-circle-container {
+    .modal-candidate-badge {
       display: flex;
+      align-items: center;
       justify-content: center;
+      gap: 0.4rem;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.1rem;
+    }
+    .candidate-name-highlight {
+      color: var(--apple-blue);
+      font-weight: 700;
+    }
+
+    /* Circular Score & High Score Strip */
+    .score-summary-cluster {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
       margin-bottom: 1.25rem;
+      flex-wrap: wrap;
     }
 
     .score-circle-ring {
-      width: 130px;
-      height: 130px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       background: conic-gradient(var(--apple-green) calc(var(--percent, 0) * 1%), rgba(255, 255, 255, 0.08) 0);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
     [data-theme="light"] .score-circle-ring {
       background: conic-gradient(var(--apple-green) calc(var(--percent, 0) * 1%), rgba(0, 0, 0, 0.08) 0);
     }
 
     .score-circle-inner {
-      width: 104px;
-      height: 104px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       background: var(--bg-card);
       display: flex;
@@ -1103,7 +1357,7 @@
 
     .score-big-num {
       font-family: var(--font-sf);
-      font-size: 1.65rem;
+      font-size: 1.55rem;
       font-weight: 800;
       color: var(--apple-green);
       line-height: 1;
@@ -1111,41 +1365,109 @@
 
     .score-label-cap {
       font-family: var(--font-sf);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: var(--text-muted);
     }
 
-    .stats-tri-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.65rem;
-      margin-bottom: 1.35rem;
-      text-align: center;
+    .score-quick-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+    }
+    .score-stat-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .score-stat-line strong {
+      font-family: var(--font-sf);
     }
 
-    .stat-cell-box {
+    /* All Time High Score Banner */
+    .modal-highscore-banner {
+      background: rgba(255, 214, 10, 0.1);
+      border: 1px solid rgba(255, 214, 10, 0.3);
+      border-radius: 10px;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.82rem;
+      color: var(--apple-amber);
+      text-align: center;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    /* Section Wise Score Breakdown Table */
+    .section-breakdown-box {
       background: var(--bg-card-secondary);
       border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 0.65rem 0.4rem;
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      margin-bottom: 1.35rem;
     }
 
-    .stat-cell-val {
-      font-family: var(--font-sf);
-      font-size: 1.15rem;
+    .breakdown-title {
+      font-size: 0.82rem;
       font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
     }
 
-    .stat-cell-title {
-      font-size: 0.7rem;
-      color: var(--text-secondary);
-      margin-top: 2px;
+    .section-rows-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .section-row-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .section-row-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .sec-title-text {
+      color: var(--text-primary);
+    }
+    .sec-score-badge {
+      font-family: var(--font-sf);
+      font-weight: 700;
+      color: var(--apple-blue);
+    }
+
+    .section-mini-track {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    [data-theme="light"] .section-mini-track {
+      background: rgba(0, 0, 0, 0.08);
+    }
+    .section-mini-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--apple-blue);
+      transition: width 0.4s ease;
     }
 
     .modal-actions-row {
       display: flex;
       gap: 0.65rem;
       justify-content: center;
+      flex-wrap: wrap;
     }
 
     /* Confetti Canvas */
@@ -1159,9 +1481,7 @@
       z-index: 120;
     }
 
-    /* ==========================================================================
-       DISCREET MINI FOOTER (Small & Clean)
-       ========================================================================== */
+    /* Discreet Small Footer */
     footer.apple-mini-footer {
       border-top: 1px solid var(--border-color);
       background: var(--bg-body);
@@ -1187,24 +1507,27 @@
 <body data-theme="dark">
   <canvas id="confetti-canvas"></canvas>
 
-  <!-- Apple Minimal Header -->
-  <header>
+  <!-- Apple Minimal Sticky Header -->
+  <header class="apple-app-header">
     <div class="header-container">
-      <!-- Minimalist Brand -->
-      <div class="brand-cluster" onclick="filterSegment(0)">
-        <div class="brand-icon-box">
-          <svg viewBox="0 0 24 24"><path d="M18 18h-4.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 4.5 4.5V18z"></path><path d="M18 13V7a4 4 0 0 0-8 0v11"></path></svg>
+      <!-- Minimalist Brand Logo -->
+      <div class="brand-cluster" onclick="returnToLobby()">
+        <div class="brand-emblem-box">
+          <!-- AX Premium Monogram Logo -->
+          <svg class="brand-emblem-svg" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="2" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Outfit', sans-serif" font-weight="800" font-size="13" fill="white" letter-spacing="-0.5">AX</text>
+          </svg>
         </div>
         <div class="brand-title-wrap">
           <span class="brand-name">Alpha x Solution Quiz</span>
-          <span class="brand-badge">115 Qs</span>
+          <span class="brand-candidate-pill" id="header-candidate-display">115 Qs</span>
         </div>
       </div>
 
       <!-- Controls -->
       <div class="header-actions">
         <!-- Segmented Mode Control -->
-        <div class="segmented-control">
+        <div class="segmented-control" id="header-segmented-mode">
           <button class="seg-mode-btn active" id="btn-mode-practice" onclick="setQuizMode('practice')">பயிற்சி</button>
           <button class="seg-mode-btn" id="btn-mode-exam" onclick="setQuizMode('exam')">தேர்வு</button>
         </div>
@@ -1239,142 +1562,227 @@
     </div>
   </header>
 
-  <!-- Compact Topics Bar (Only 38px tall, fast horizontal scroll) -->
-  <nav class="subnav-topic-strip">
-    <div class="subnav-inner">
-      <div class="topic-pill-track" id="segment-scroll-track">
-        <button class="topic-pill active" onclick="filterSegment(0)">
-          <span>அனைத்தும்</span> <span class="pill-count" id="count-seg-0">115</span>
-        </button>
-        <button class="topic-pill" onclick="filterSegment(1)">
-          <span>1. சங்க காலம்</span> <span class="pill-count" id="count-seg-1">25</span>
-        </button>
-        <button class="topic-pill" onclick="filterSegment(2)">
-          <span>2. பாளையக்காரர் & வேலூர்</span> <span class="pill-count" id="count-seg-2">20</span>
-        </button>
-        <button class="topic-pill" onclick="filterSegment(3)">
-          <span>3. விடுதலைப் போராட்டம்</span> <span class="pill-count" id="count-seg-3">20</span>
-        </button>
-        <button class="topic-pill" onclick="filterSegment(4)">
-          <span>4. நீதிக்கட்சி</span> <span class="pill-count" id="count-seg-4">20</span>
-        </button>
-        <button class="topic-pill" onclick="filterSegment(5)">
-          <span>5. அரசியல் தலைவர்கள்</span> <span class="pill-count" id="count-seg-5">15</span>
-        </button>
-        <button class="topic-pill" onclick="filterSegment(6)">
-          <span>6. திருக்குறள்</span> <span class="pill-count" id="count-seg-6">15</span>
-        </button>
+  <!-- =========================================================================
+       VIEW 1: PRE-EXAM SETUP LOBBY
+       ========================================================================= -->
+  <main class="lobby-view-container" id="lobby-screen">
+    <div class="lobby-card-box">
+      <div class="lobby-header-text">
+        <span class="lobby-badge-tag">TNPSC UNIT - 6 ASSESSMENT</span>
+        <h1 class="lobby-main-title">தமிழ்நாடு வரலாறு & பண்பாடு</h1>
+        <p class="lobby-sub-title">115 தரப்படுத்தப்பட்ட வினாக்கள் • உடனடி மதிப்பீடு & மேற்கோள்கள்</p>
       </div>
 
-      <!-- Quick Action Chips -->
-      <button class="topic-quick-filter-btn" id="chip-wrong-only" onclick="toggleFilterWrongOnly()">
-        <span>தவறானவை</span>
-      </button>
-      <button class="topic-quick-filter-btn" id="chip-review-only" onclick="toggleFilterReviewOnly()">
-        <span>குறித்தவை</span>
+      <!-- Candidate Name Field -->
+      <div class="lobby-field-group">
+        <label class="lobby-field-label" for="candidate-name-input">தேர்வர் பெயர் / Candidate Name</label>
+        <div class="lobby-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <input type="text" id="candidate-name-input" class="lobby-text-input" placeholder="உங்கள் பெயரை உள்ளிடவும் (எ.கா. Santhakumar K)">
+        </div>
+      </div>
+
+      <!-- Previous Best Record Strip -->
+      <div class="lobby-record-strip" id="lobby-record-strip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="7"></circle>
+          <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+        </svg>
+        <span id="lobby-record-text">உங்கள் முந்தைய அதிகபட்ச சாதனை: 0 / 115</span>
+      </div>
+
+      <!-- Format Selection Cards -->
+      <div class="mode-select-grid">
+        <!-- 1. Full Practice -->
+        <div class="mode-choice-card active" id="mode-card-full" onclick="selectLobbyMode('practice_full')">
+          <div class="mode-choice-radio"><div class="radio-dot"></div></div>
+          <div class="mode-choice-info">
+            <div class="mode-choice-title">🎯 முழு வினாடி வினா பயிற்சி (Full Practice)</div>
+            <div class="mode-choice-desc">115 வினாக்கள் முழுமையாக • உடனடி சரி/தவறு விடை, விளக்க மேற்கோள் & ஆடியோ.</div>
+          </div>
+        </div>
+
+        <!-- 2. Section-Wise -->
+        <div class="mode-choice-card" id="mode-card-section" onclick="selectLobbyMode('practice_section')">
+          <div class="mode-choice-radio"><div class="radio-dot"></div></div>
+          <div class="mode-choice-info">
+            <div class="mode-choice-title">🏛️ பாட அலகு வாரியான பயிற்சி (Section-wise)</div>
+            <div class="mode-choice-desc">குறிப்பிட்ட ஒரு வரலாற்று அலகை மட்டும் தேர்ந்தெடுத்துப் பயிற்சி பெறலாம்.</div>
+            <div id="lobby-section-picker" class="lobby-section-picker" style="display: none;">
+              <select id="lobby-select-segment" class="lobby-select-input" onchange="updateLobbySegment(this.value)">
+                <option value="1">1. தமிழ் சமூக வரலாறு & சங்க காலம், தொல்லியல் (25 Qs)</option>
+                <option value="2">2. பாளையக்காரர்கள் புரட்சி & 1806 வேலூர் புரட்சி (20 Qs)</option>
+                <option value="3">3. விடுதலைப் போராட்டத்தில் தமிழகத்தின் பங்கு (20 Qs)</option>
+                <option value="4">4. நீதிக்கட்சி & சுயமரியாதை இயக்கம் (20 Qs)</option>
+                <option value="5">5. தமிழக அரசியல் தலைவர்கள் & நலத்திட்டங்கள் (15 Qs)</option>
+                <option value="6">6. திருக்குறள் & அற இலக்கியங்கள் (15 Qs)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Mock Exam -->
+        <div class="mode-choice-card" id="mode-card-exam" onclick="selectLobbyMode('exam_mock')">
+          <div class="mode-choice-radio"><div class="radio-dot"></div></div>
+          <div class="mode-choice-info">
+            <div class="mode-choice-title">⏱️ TNPSC மாதிரித் தேர்வு (Timed Mock Exam)</div>
+            <div class="mode-choice-desc">120 நிமிடங்கள் முழு நேரம் • OMR வினாத்தட்டு, பதில் பூட்டுதல் & விரிவான மதிப்பெண் அறிக்கை.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Start Button -->
+      <button class="lobby-start-btn" onclick="startExamFromLobby()">
+        <span>தேர்வைத் தொடங்குக / Start Assessment</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </button>
     </div>
-  </nav>
-
-  <!-- Main Layout -->
-  <main class="app-main-layout">
-    <!-- Hero Question Viewport -->
-    <section class="question-card-container" id="question-viewport">
-      <article class="apple-question-card" id="quiz-card">
-        <!-- Top Meta Line -->
-        <div class="card-top-meta">
-          <div class="meta-badges-left">
-            <span class="meta-q-counter" id="q-badge-num">வினா 1 / 115</span>
-            <span class="meta-q-segment" id="q-badge-segment">சங்க காலம்</span>
-            <span class="meta-q-type" id="q-badge-type">கூற்றுகளை ஆராய்க</span>
-          </div>
-
-          <button class="bookmark-toggle-btn" id="btn-bookmark-action" onclick="toggleBookmarkCurrent()" title="மறுபார்வைக்குக் குறிக்க">
-            <svg id="bm-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-            <span id="bm-text">குறிக்க</span>
-          </button>
-        </div>
-
-        <!-- Question Statement (Always 100% visible) -->
-        <h1 class="question-statement-text" id="question-statement">வினா ஏற்றப்படுகிறது...</h1>
-
-        <!-- Capital Option Group (A, B, C, D) -->
-        <div class="options-group-list" id="options-stack">
-          <!-- Injected via JavaScript -->
-        </div>
-
-        <!-- Pedagogical Citation Callout -->
-        <div class="citation-callout-card" id="explanation-reveal-card">
-          <div class="citation-header-row">
-            <span>📖 பாடப்புத்தக மேற்கோள் & விளக்கம்:</span>
-          </div>
-          <p class="citation-text-body" id="exp-body-content"></p>
-        </div>
-
-        <!-- Question Nav Buttons -->
-        <div class="card-footer-controls">
-          <button class="nav-step-btn" id="btn-prev" onclick="navigateQuestion(-1)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            <span>முந்தையது</span>
-          </button>
-          <button class="nav-step-btn btn-accent" id="btn-next" onclick="navigateQuestion(1)">
-            <span>அடுத்தது</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
-        </div>
-      </article>
-    </section>
-
-    <!-- Desktop Sidebar Palette -->
-    <aside class="desktop-palette-sidebar">
-      <div class="sidebar-head-row">
-        <h3>வினாத் தட்டு (115)</h3>
-        <button class="sidebar-reset-btn" onclick="resetQuizProgress()" title="மீட்டமைக்க">மீட்டமை</button>
-      </div>
-
-      <div class="palette-legend-grid">
-        <div class="legend-item"><span class="legend-dot dot-unvisited"></span> பார்க்காதவை</div>
-        <div class="legend-item"><span class="legend-dot dot-ans"></span> பதிலளித்தவை</div>
-        <div class="legend-item"><span class="legend-dot dot-cor"></span> சரியானது</div>
-        <div class="legend-item"><span class="legend-dot dot-wro"></span> தவறானது</div>
-      </div>
-
-      <div class="matrix-grid-scroll" id="palette-buttons-matrix">
-        <!-- 1 to 115 buttons generated by JS -->
-      </div>
-    </aside>
   </main>
 
-  <!-- Mobile Bottom Tab Bar (iOS Enterprise Style) -->
-  <nav class="mobile-tab-bar">
-    <button class="tab-item-btn" onclick="navigateQuestion(-1)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-      <span>முந்தையது</span>
-    </button>
-    <button class="tab-item-btn active" onclick="openMobilePalette()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="7" height="7" rx="1.8"></rect>
-        <rect x="14" y="3" width="7" height="7" rx="1.8"></rect>
-        <rect x="14" y="14" width="7" height="7" rx="1.8"></rect>
-        <rect x="3" y="14" width="7" height="7" rx="1.8"></rect>
-      </svg>
-      <span>வினாத்தட்டு</span>
-    </button>
-    <button class="tab-item-btn" onclick="showScorecardModal()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-        <path d="M4 22h16"></path>
-        <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
-        <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
-      </svg>
-      <span>மதிப்பெண்</span>
-    </button>
-    <button class="tab-item-btn" onclick="navigateQuestion(1)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-      <span>அடுத்தது</span>
-    </button>
-  </nav>
+  <!-- =========================================================================
+       VIEW 2: ACTIVE QUESTION VIEWPORT
+       ========================================================================= -->
+  <div class="exam-view-container" id="exam-screen" style="display: none;">
+    <!-- Compact Topics Bar (Fully Clickable & Reactive) -->
+    <nav class="subnav-topic-strip">
+      <div class="subnav-inner">
+        <div class="topic-pill-track" id="segment-scroll-track">
+          <button class="topic-pill active" onclick="selectSegmentFilter(0)">
+            <span>அனைத்தும்</span> <span class="pill-count" id="count-seg-0">115</span>
+          </button>
+          <button class="topic-pill" onclick="selectSegmentFilter(1)">
+            <span>1. சங்க காலம்</span> <span class="pill-count" id="count-seg-1">25</span>
+          </button>
+          <button class="topic-pill" onclick="selectSegmentFilter(2)">
+            <span>2. பாளையக்காரர் & வேலூர்</span> <span class="pill-count" id="count-seg-2">20</span>
+          </button>
+          <button class="topic-pill" onclick="selectSegmentFilter(3)">
+            <span>3. விடுதலைப் போராட்டம்</span> <span class="pill-count" id="count-seg-3">20</span>
+          </button>
+          <button class="topic-pill" onclick="selectSegmentFilter(4)">
+            <span>4. நீதிக்கட்சி</span> <span class="pill-count" id="count-seg-4">20</span>
+          </button>
+          <button class="topic-pill" onclick="selectSegmentFilter(5)">
+            <span>5. அரசியல் தலைவர்கள்</span> <span class="pill-count" id="count-seg-5">15</span>
+          </button>
+          <button class="topic-pill" onclick="selectSegmentFilter(6)">
+            <span>6. திருக்குறள்</span> <span class="pill-count" id="count-seg-6">15</span>
+          </button>
+        </div>
+
+        <!-- Quick Filter Chips -->
+        <button class="topic-quick-filter-btn" id="chip-wrong-only" onclick="toggleFilterWrongOnly()">
+          <span>தவறானவை</span>
+        </button>
+        <button class="topic-quick-filter-btn" id="chip-review-only" onclick="toggleFilterReviewOnly()">
+          <span>குறித்தவை</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Question Layout -->
+    <main class="app-main-layout">
+      <!-- Hero Question Card -->
+      <section class="question-card-container" id="question-viewport">
+        <article class="apple-question-card" id="quiz-card">
+          <!-- Top Meta Line -->
+          <div class="card-top-meta">
+            <div class="meta-badges-left">
+              <span class="meta-q-counter" id="q-badge-num">வினா 1 / 115</span>
+              <span class="meta-q-segment" id="q-badge-segment">சங்க காலம்</span>
+              <span class="meta-q-type" id="q-badge-type">கூற்றுகளை ஆராய்க</span>
+            </div>
+
+            <button class="bookmark-toggle-btn" id="btn-bookmark-action" onclick="toggleBookmarkCurrent()" title="மறுபார்வைக்குக் குறிக்க">
+              <svg id="bm-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              <span id="bm-text">குறிக்க</span>
+            </button>
+          </div>
+
+          <!-- Question Statement (Always 100% visible) -->
+          <h1 class="question-statement-text" id="question-statement">வினா ஏற்றப்படுகிறது...</h1>
+
+          <!-- Capital Option Group (A, B, C, D) -->
+          <div class="options-group-list" id="options-stack">
+            <!-- Injected via JavaScript -->
+          </div>
+
+          <!-- Pedagogical Citation Callout -->
+          <div class="citation-callout-card" id="explanation-reveal-card">
+            <div class="citation-header-row">
+              <span>📖 பாடப்புத்தக மேற்கோள் & விளக்கம்:</span>
+            </div>
+            <p class="citation-text-body" id="exp-body-content"></p>
+          </div>
+
+          <!-- Question Nav Buttons -->
+          <div class="card-footer-controls">
+            <button class="nav-step-btn" id="btn-prev" onclick="navigateQuestion(-1)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              <span>முந்தையது</span>
+            </button>
+            <button class="nav-step-btn btn-accent" id="btn-next" onclick="navigateQuestion(1)">
+              <span>அடுத்தது</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- Desktop Sidebar Palette -->
+      <aside class="desktop-palette-sidebar">
+        <div class="sidebar-head-row">
+          <h3>வினாத் தட்டு (115)</h3>
+          <button class="sidebar-reset-btn" onclick="resetQuizProgress()" title="மீட்டமைக்க">மீட்டமை</button>
+        </div>
+
+        <div class="palette-legend-grid">
+          <div class="legend-item"><span class="legend-dot dot-unvisited"></span> பார்க்காதவை</div>
+          <div class="legend-item"><span class="legend-dot dot-ans"></span> பதிலளித்தவை</div>
+          <div class="legend-item"><span class="legend-dot dot-cor"></span> சரியானது</div>
+          <div class="legend-item"><span class="legend-dot dot-wro"></span> தவறானது</div>
+        </div>
+
+        <div class="matrix-grid-scroll" id="palette-buttons-matrix">
+          <!-- 1 to 115 buttons generated by JS -->
+        </div>
+      </aside>
+    </main>
+
+    <!-- Mobile Bottom Tab Bar (iOS Enterprise Style) -->
+    <nav class="mobile-tab-bar">
+      <button class="tab-item-btn" onclick="navigateQuestion(-1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span>முந்தையது</span>
+      </button>
+      <button class="tab-item-btn active" onclick="openMobilePalette()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1.8"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.8"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.8"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.8"></rect>
+        </svg>
+        <span>வினாத்தட்டு</span>
+      </button>
+      <button class="tab-item-btn" onclick="showScorecardModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+          <path d="M4 22h16"></path>
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+          <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+        </svg>
+        <span>மதிப்பெண்</span>
+      </button>
+      <button class="tab-item-btn" onclick="navigateQuestion(1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <span>அடுத்தது</span>
+      </button>
+    </nav>
+  </div>
 
   <!-- Mobile Palette Half-Sheet Drawer -->
   <div class="mobile-sheet-backdrop" id="mobile-drawer-backdrop" onclick="closeMobilePalette(event)">
@@ -1390,38 +1798,61 @@
     </div>
   </div>
 
-  <!-- Scorecard Result Modal -->
+  <!-- =========================================================================
+       ENTERPRISE SECTION-WISE SCORECARD MODAL
+       ========================================================================= -->
   <div class="modal-backdrop" id="scorecard-modal">
     <div class="modal-box-card">
-      <h2 class="modal-headline-text">தேர்வு மதிப்பீடு</h2>
-      <p class="modal-sub-text">Alpha x Solution Quiz • TNPSC அலகு - 6 மாதிரித் தேர்வு</p>
+      <h2 class="modal-headline-text">தேர்வு மதிப்பீட்டு அறிக்கை</h2>
+      <div class="modal-candidate-badge">
+        <span>தேர்வர்:</span>
+        <span class="candidate-name-highlight" id="modal-candidate-name">Santhakumar K</span>
+        <span>•</span>
+        <span id="modal-exam-mode-tag">TNPSC மாதிரித் தேர்வு</span>
+      </div>
 
-      <div class="score-circle-container">
+      <!-- Radial Circle + Key Metrics -->
+      <div class="score-summary-cluster">
         <div class="score-circle-ring" id="score-radial-ring" style="--percent: 0;">
           <div class="score-circle-inner">
             <span class="score-big-num" id="modal-score-num">0</span>
-            <span class="score-label-cap">/ 115 வினாக்கள்</span>
+            <span class="score-label-cap" id="modal-score-max">/ 115 வினாக்கள்</span>
+          </div>
+        </div>
+
+        <div class="score-quick-stats">
+          <div class="score-stat-line" style="color: var(--apple-green);">
+            <span>✓ சரியானவை:</span>
+            <strong id="modal-correct-count">0</strong>
+          </div>
+          <div class="score-stat-line" style="color: var(--apple-red);">
+            <span>✕ தவறானவை:</span>
+            <strong id="modal-wrong-count">0</strong>
+          </div>
+          <div class="score-stat-line" style="color: var(--apple-blue);">
+            <span>🎯 துல்லிய விகிதம்:</span>
+            <strong id="modal-acc-pct">0%</strong>
           </div>
         </div>
       </div>
 
-      <div class="stats-tri-grid">
-        <div class="stat-cell-box">
-          <div class="stat-cell-val" style="color: var(--apple-green);" id="modal-correct-count">0</div>
-          <div class="stat-cell-title">சரியானவை</div>
-        </div>
-        <div class="stat-cell-box">
-          <div class="stat-cell-val" style="color: var(--apple-red);" id="modal-wrong-count">0</div>
-          <div class="stat-cell-title">தவறானவை</div>
-        </div>
-        <div class="stat-cell-box">
-          <div class="stat-cell-val" style="color: var(--apple-blue);" id="modal-acc-pct">0%</div>
-          <div class="stat-cell-title">துல்லியம்</div>
+      <!-- Lifetime High Score Record Banner -->
+      <div class="modal-highscore-banner" id="modal-highscore-banner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+        <span id="modal-highscore-text">உங்கள் அதிகபட்ச சாதனை: 0 / 115</span>
+      </div>
+
+      <!-- Section-Wise Breakdown Table -->
+      <div class="section-breakdown-box">
+        <div class="breakdown-title">பாட அலகு வாரியான தேர்ச்சி (Section Breakdown)</div>
+        <div class="section-rows-list" id="section-breakdown-rows">
+          <!-- Dynamically Injected: Units 1 to 6 Breakdown -->
         </div>
       </div>
 
       <div class="modal-actions-row">
         <button class="nav-step-btn btn-accent" onclick="reviewIncorrectFromModal()">தவறானவற்றை மீளாய்வு</button>
+        <button class="nav-step-btn" onclick="returnToLobbyFromModal()">முகப்பு / புதிய தேர்வு</button>
         <button class="nav-step-btn" onclick="closeModal()">மூடுக</button>
       </div>
     </div>
@@ -1438,13 +1869,26 @@
     </div>
   </footer>
 
-  <!-- Include Dataset Script -->
+  <!-- Include Dataset Script (Strictly Pure Vanilla JS) -->
   <script src="quiz_data.js"></script>
 
   <!-- Application Engine Script -->
   <script>
+    // Syllabus Units Definition
+    const SYLLABUS_SECTIONS = [
+      { id: 1, title: 'தமிழ் சமூக வரலாறு & சங்க காலம், தொல்லியல்', count: 25 },
+      { id: 2, title: 'பாளையக்காரர்கள் புரட்சி & 1806 வேலூர் புரட்சி', count: 20 },
+      { id: 3, title: 'விடுதலைப் போராட்டத்தில் தமிழகத்தின் பங்கு', count: 20 },
+      { id: 4, title: 'நீதிக்கட்சி & சுயமரியாதை இயக்கம்', count: 20 },
+      { id: 5, title: 'தமிழக அரசியல் தலைவர்கள் & நலத்திட்டங்கள்', count: 15 },
+      { id: 6, title: 'திருக்குறள் & அற இலக்கியங்கள்', count: 15 }
+    ];
+
     // State Engine
     let quizState = {
+      candidateName: 'Santhakumar K',
+      lobbyMode: 'practice_full', // 'practice_full', 'practice_section', 'exam_mock'
+      selectedLobbySegment: 1,
       mode: 'practice', // 'practice' or 'exam'
       questions: [],
       filteredQuestions: [],
@@ -1462,7 +1906,7 @@
 
     const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
 
-    // Web Audio Synthesizer (Apple-style subtle clicks and pleasant chime)
+    // Web Audio Synthesizer (Apple-style clicks and pleasant chime)
     let audioCtx = null;
     function getAudioContext() {
       if (!audioCtx) {
@@ -1515,20 +1959,76 @@
 
     // App Initialization
     window.addEventListener('DOMContentLoaded', () => {
+      // 1. Theme Restoration
+      const savedTheme = localStorage.getItem('alpha_theme') || 'dark';
+      applyTheme(savedTheme);
+
+      // 2. Load Questions Dataset
       if (typeof QUIZ_QUESTIONS !== 'undefined' && Array.isArray(QUIZ_QUESTIONS)) {
         quizState.questions = QUIZ_QUESTIONS;
       }
 
-      const savedTheme = localStorage.getItem('alpha_theme') || 'dark';
-      applyTheme(savedTheme);
-      loadLocalProgress();
-      applyFilters();
-      buildPalette();
-      renderCurrentQuestion();
+      // 3. Restore Candidate Name from localStorage
+      const savedName = localStorage.getItem('alpha_candidate_name');
+      if (savedName && savedName.trim()) {
+        quizState.candidateName = savedName;
+        document.getElementById('candidate-name-input').value = savedName;
+        document.getElementById('header-candidate-display').textContent = savedName;
+      }
 
-      // Mobile Touch Swipes
+      // 4. Check Lifetime High Score
+      const highScore = localStorage.getItem('alpha_high_score');
+      if (highScore && parseInt(highScore, 10) > 0) {
+        const hsBox = document.getElementById('lobby-record-strip');
+        hsBox.classList.add('active');
+        document.getElementById('lobby-record-text').textContent =
+          `முந்தைய அதிகபட்ச சாதனை: ${highScore} / 115 (${Math.round((parseInt(highScore,10)/115)*100)}%)`;
+      }
+
+      loadLocalProgress();
+      buildPalette();
       setupTouchSwipes();
+      setupScrollHeader();
     });
+
+    // =========================================================================
+    // SMOOTH SCROLL-HIDE / REVEAL HEADER
+    // =========================================================================
+    function setupScrollHeader() {
+      const header = document.querySelector('header.apple-app-header');
+      if (!header) return;
+      let lastScroll = 0;
+      let ticking = false;
+      const HIDE_THRESHOLD = 80; // px down before hiding
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const currentScroll = window.scrollY;
+            const onExamScreen = document.getElementById('exam-screen').style.display !== 'none';
+
+            if (currentScroll <= 4) {
+              header.classList.remove('header-hidden', 'header-elevated');
+              document.body.classList.remove('header-is-hidden');
+            } else if (onExamScreen && currentScroll > lastScroll && currentScroll > HIDE_THRESHOLD) {
+              // scrolling DOWN → hide header
+              header.classList.add('header-hidden');
+              document.body.classList.add('header-is-hidden');
+            } else {
+              // scrolling UP → reveal header
+              header.classList.remove('header-hidden');
+              document.body.classList.remove('header-is-hidden');
+              header.classList.add('header-elevated');
+            }
+
+            lastScroll = Math.max(0, currentScroll);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+
 
     // Touch Swipe Gestures for Mobile
     function setupTouchSwipes() {
@@ -1557,7 +2057,93 @@
       }, { passive: true });
     }
 
-    // Filter Logic
+    // =========================================================================
+    // LOBBY CONTROLS & TEST START
+    // =========================================================================
+    function selectLobbyMode(mode) {
+      quizState.lobbyMode = mode;
+      document.getElementById('mode-card-full').classList.toggle('active', mode === 'practice_full');
+      document.getElementById('mode-card-section').classList.toggle('active', mode === 'practice_section');
+      document.getElementById('mode-card-exam').classList.toggle('active', mode === 'exam_mock');
+
+      const picker = document.getElementById('lobby-section-picker');
+      picker.style.display = mode === 'practice_section' ? 'block' : 'none';
+    }
+
+    function updateLobbySegment(val) {
+      quizState.selectedLobbySegment = parseInt(val, 10);
+    }
+
+    function startExamFromLobby() {
+      // Save Candidate Name
+      const nameVal = document.getElementById('candidate-name-input').value.trim();
+      quizState.candidateName = nameVal || 'Santhakumar K';
+      try {
+        localStorage.setItem('alpha_candidate_name', quizState.candidateName);
+      } catch(e) {}
+      document.getElementById('header-candidate-display').textContent = quizState.candidateName;
+
+      // Apply Mode Settings
+      if (quizState.lobbyMode === 'practice_full') {
+        quizState.mode = 'practice';
+        quizState.activeSegment = 0;
+        setQuizMode('practice');
+      } else if (quizState.lobbyMode === 'practice_section') {
+        quizState.mode = 'practice';
+        quizState.activeSegment = quizState.selectedLobbySegment;
+        setQuizMode('practice');
+      } else if (quizState.lobbyMode === 'exam_mock') {
+        quizState.mode = 'exam';
+        quizState.activeSegment = 0;
+        setQuizMode('exam');
+      }
+
+      // Hide Lobby, Show Exam Stage
+      document.getElementById('lobby-screen').style.display = 'none';
+      document.getElementById('exam-screen').style.display = 'flex';
+
+      // Update Section Pills
+      updateSectionPillUI();
+      applyFilters();
+      renderCurrentQuestion();
+      updatePaletteHighlights();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function returnToLobby() {
+      document.getElementById('exam-screen').style.display = 'none';
+      document.getElementById('lobby-screen').style.display = 'flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function returnToLobbyFromModal() {
+      closeModal();
+      returnToLobby();
+    }
+
+    // =========================================================================
+    // SECTION FILTERING (Flawlessly Clickable & Reactive)
+    // =========================================================================
+    function selectSegmentFilter(segId) {
+      quizState.activeSegment = segId;
+      quizState.filterWrongOnly = false;
+      quizState.filterReviewOnly = false;
+      document.getElementById('chip-wrong-only').classList.remove('active-wrong');
+      document.getElementById('chip-review-only').classList.remove('active-review');
+
+      updateSectionPillUI();
+      applyFilters();
+      quizState.currentIndex = 0;
+      renderCurrentQuestion();
+      updatePaletteHighlights();
+    }
+
+    function updateSectionPillUI() {
+      document.querySelectorAll('.topic-pill').forEach((btn, idx) => {
+        btn.classList.toggle('active', idx === quizState.activeSegment);
+      });
+    }
+
     function applyFilters() {
       quizState.filteredQuestions = quizState.questions.filter(q => {
         if (quizState.activeSegment !== 0 && q.segment !== quizState.activeSegment) {
@@ -1574,31 +2160,12 @@
             return false;
           }
         }
-        if (quizState.searchQuery.trim() !== '') {
-          const query = quizState.searchQuery.toLowerCase();
-          const matchQ = q.question.toLowerCase().includes(query);
-          const matchOpts = q.options.some(opt => opt.toLowerCase().includes(query));
-          const matchExp = q.explanation.toLowerCase().includes(query);
-          if (!matchQ && !matchOpts && !matchExp) {
-            return false;
-          }
-        }
         return true;
       });
 
       if (quizState.currentIndex >= quizState.filteredQuestions.length) {
         quizState.currentIndex = 0;
       }
-    }
-
-    function filterSegment(segId) {
-      quizState.activeSegment = segId;
-      document.querySelectorAll('.topic-pill').forEach((btn, idx) => {
-        btn.classList.toggle('active', idx === segId);
-      });
-      applyFilters();
-      renderCurrentQuestion();
-      updatePaletteHighlights();
     }
 
     function toggleFilterWrongOnly() {
@@ -1615,7 +2182,7 @@
       renderCurrentQuestion();
     }
 
-    // Question Rendering (Content First)
+    // Question Rendering
     function renderCurrentQuestion() {
       const qArea = document.getElementById('question-viewport');
       if (quizState.filteredQuestions.length === 0) {
@@ -1646,9 +2213,7 @@
       const btnBm = document.getElementById('btn-bookmark-action');
       btnBm.classList.toggle('bookmarked', isBm);
       const bmSvg = document.getElementById('bm-svg-icon');
-      if (bmSvg) {
-        bmSvg.setAttribute('fill', isBm ? 'currentColor' : 'none');
-      }
+      if (bmSvg) bmSvg.setAttribute('fill', isBm ? 'currentColor' : 'none');
       document.getElementById('bm-text').textContent = isBm ? 'குறிக்கப்பட்டது' : 'குறிக்க';
 
       // Question Statement
@@ -1692,7 +2257,7 @@
         stack.appendChild(btn);
       });
 
-      // Citation / Explanation Callout
+      // Citation Callout
       const expBox = document.getElementById('explanation-reveal-card');
       if (quizState.mode === 'practice' && isAnswered) {
         expBox.style.display = 'block';
@@ -1785,9 +2350,7 @@
         closeMobilePalette();
       } else {
         quizState.activeSegment = 0;
-        quizState.filterWrongOnly = false;
-        quizState.filterReviewOnly = false;
-        quizState.searchQuery = '';
+        updateSectionPillUI();
         applyFilters();
         const fallbackIdx = quizState.filteredQuestions.findIndex(q => q.id === qId);
         if (fallbackIdx !== -1) {
@@ -1920,7 +2483,6 @@
 
     function finishExam() {
       clearInterval(quizState.timerInterval);
-      setQuizMode('practice');
       showScorecardModal();
       triggerConfetti();
     }
@@ -1935,17 +2497,32 @@
       document.getElementById('mobile-drawer-backdrop').classList.remove('active');
     }
 
-    // Scorecard Modal
+    // =========================================================================
+    // SECTION-WISE COMPREHENSIVE SCORECARD
+    // =========================================================================
     function showScorecardModal() {
       let correct = 0;
       let wrong = 0;
       const total = quizState.questions.length;
 
+      // Section counts container
+      const sectionScores = {};
+      SYLLABUS_SECTIONS.forEach(s => {
+        sectionScores[s.id] = { correct: 0, total: 0 };
+      });
+
       quizState.questions.forEach(q => {
+        if (sectionScores[q.segment]) {
+          sectionScores[q.segment].total++;
+        }
         const a = quizState.userAnswers[q.id];
         if (a !== undefined) {
-          if (a === q.correct) correct++;
-          else wrong++;
+          if (a === q.correct) {
+            correct++;
+            if (sectionScores[q.segment]) sectionScores[q.segment].correct++;
+          } else {
+            wrong++;
+          }
         }
       });
 
@@ -1953,10 +2530,49 @@
       const ring = document.getElementById('score-radial-ring');
       ring.style.setProperty('--percent', pct);
 
+      document.getElementById('modal-candidate-name').textContent = quizState.candidateName;
+      document.getElementById('modal-exam-mode-tag').textContent = quizState.mode === 'exam' ? 'TNPSC மாதிரித் தேர்வு' : 'வினாடி வினா பயிற்சி';
       document.getElementById('modal-score-num').textContent = correct;
       document.getElementById('modal-correct-count').textContent = correct;
       document.getElementById('modal-wrong-count').textContent = wrong;
       document.getElementById('modal-acc-pct').textContent = `${pct}%`;
+
+      // High Score Calculation & Storage
+      let prevHigh = parseInt(localStorage.getItem('alpha_high_score') || '0', 10);
+      const banner = document.getElementById('modal-highscore-banner');
+      const bannerText = document.getElementById('modal-highscore-text');
+
+      if (correct > prevHigh) {
+        prevHigh = correct;
+        try {
+          localStorage.setItem('alpha_high_score', String(correct));
+        } catch(e) {}
+        bannerText.textContent = `🏆 புதிய சாதனை மதிப்பெண்! (${correct} / 115 • ${pct}%)`;
+      } else {
+        bannerText.textContent = `உங்கள் முந்தைய அதிகபட்ச சாதனை: ${prevHigh} / 115 (${Math.round((prevHigh/115)*100)}%)`;
+      }
+
+      // Render Section Rows Table
+      const breakdownBox = document.getElementById('section-breakdown-rows');
+      breakdownBox.innerHTML = '';
+
+      SYLLABUS_SECTIONS.forEach(s => {
+        const sc = sectionScores[s.id] || { correct: 0, total: s.count };
+        const secPct = Math.round((sc.correct / s.count) * 100);
+
+        const row = document.createElement('div');
+        row.className = 'section-row-item';
+        row.innerHTML = `
+          <div class="section-row-head">
+            <span class="sec-title-text">${s.id}. ${s.title}</span>
+            <span class="sec-score-badge">${sc.correct} / ${s.count} (${secPct}%)</span>
+          </div>
+          <div class="section-mini-track">
+            <div class="section-mini-fill" style="width: ${secPct}%;"></div>
+          </div>
+        `;
+        breakdownBox.appendChild(row);
+      });
 
       document.getElementById('scorecard-modal').classList.add('active');
     }
@@ -1994,7 +2610,7 @@
       quizState.searchQuery = '';
       document.getElementById('chip-wrong-only').classList.remove('active-wrong');
       document.getElementById('chip-review-only').classList.remove('active-review');
-      document.querySelectorAll('.topic-pill').forEach((btn, i) => btn.classList.toggle('active', i === 0));
+      updateSectionPillUI();
       applyFilters();
       renderCurrentQuestion();
     }
@@ -2017,7 +2633,7 @@
       } catch (e) {}
     }
 
-    // Theme Switch with Persistent Preference and Apple Icons
+    // Theme Switch with Persistent Preference and Dynamic Icons
     function applyTheme(theme) {
       document.body.setAttribute('data-theme', theme);
       const metaTheme = document.querySelector('meta[name="theme-color"]');
@@ -2026,10 +2642,10 @@
       const themeSvg = document.getElementById('theme-icon-svg');
       if (themeSvg) {
         if (theme === 'dark') {
-          // Sun Icon (tap to switch to light)
+          // Sun Icon
           themeSvg.innerHTML = '<circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
         } else {
-          // Moon Icon (tap to switch to dark)
+          // Moon Icon
           themeSvg.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>';
         }
       }
@@ -2096,8 +2712,9 @@
       animateConfetti();
     }
 
-    // Keyboard Shortcuts (1-4 for A-D options, arrows for navigation)
+    // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
+      if (document.getElementById('exam-screen').style.display === 'none') return;
       if (['ArrowRight', 'n', 'N'].includes(e.key)) {
         navigateQuestion(1);
       } else if (['ArrowLeft', 'p', 'P'].includes(e.key)) {
