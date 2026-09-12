@@ -1,5 +1,10 @@
 # Alpha x Solution Quiz - TNPSC அலகு 6: தமிழ்நாடு வரலாறு & பண்பாடு 🏛️
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=for-the-badge&logo=github)](https://santhakumar-k-2004.github.io/alpha-x-solution-quiz/)
+[![Author](https://img.shields.io/badge/Author-Santhakumar%20K-blue?style=for-the-badge)](https://github.com/SanthaKumar-K-2004)
+
+> 🚀 **Live Application**: **[https://santhakumar-k-2004.github.io/alpha-x-solution-quiz/](https://santhakumar-k-2004.github.io/alpha-x-solution-quiz/)**
+
 A high-performance, mobile-first, interactive TNPSC Exam Preparation Web Application featuring **115 comprehensive, segment-based questions** derived strictly from the official 96-page study material (`UNIT - 6 [ TN HISTORY ]`).
 
 ---
