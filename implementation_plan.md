@@ -1,4 +1,56 @@
-# Implementation Plan: Exam Setup Lobby, Section-Wise Scorecard & Pure HTML/CSS/JS Experience
+# Implementation Plan: Fix Header, Theme Toggle, Start Button & Leaderboard
+
+## Overview
+The Alpha x Solution Quiz UI needs several enhancements:
+1. Ensure the header stays sticky and slides out/in smoothly on scroll, especially on mobile.
+2. Expose all header icon buttons (mock test, sound, etc.) and make them keyboard‑focusable.
+3. Add a reliable dark/light theme toggle that persists the user’s choice.
+4. Wire the **Start Assessment** button to transition to the exam view with validation.
+5. Introduce a leaderboard component that shows the top scores.
+
+## User Review Required
+> [!IMPORTANT]
+> - **Leaderboard storage**: Should scores be stored locally (`localStorage`) or in a lightweight backend (e.g., Firebase Realtime DB) for cross‑device persistence?
+> - **Theme persistence**: Prefer storing the theme choice in `localStorage` or rely solely on the system `prefers-color-scheme` media query?
+> - **Leaderboard UI tweaks**: Any specific visual preferences (avatars, gradient backgrounds, etc.)?
+
+## Proposed Changes
+---
+### 1. Header Refactor (CSS & JS)
+- **CSS**: Update `.header-container` with `flex-wrap: nowrap; min-width: 0;` and media queries to reduce paddings on small screens.
+- **Icon Visibility**: Ensure `.icon‑btn` has `flex-shrink: 0;` and is not clipped by overflow.
+- **Sticky Logic**: Verify `setupScrollHeader()` toggles `header-hidden` / `header-elevated` correctly; add a `requestAnimationFrame` guard for mobile browsers.
+
+### 2. Dark/Light Mode Toggle
+- **HTML**: Insert `<button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">🌙</button>` inside `.header-actions`.
+- **JS**: Implement `toggleTheme()` that flips `document.documentElement.dataset.theme` between `light` and `dark`, persisting the value in `localStorage`.
+- **CSS**: Ensure all color variables are defined for both themes (already present) and add a smooth `background-color` / `color` transition.
+
+### 3. Start Assessment Button
+- **HTML**: Ensure the button has `id="start-assessment"` and `type="button"`.
+- **JS**: Add an event listener that validates the name/section fields, saves the selected mode in `window.quizState`, and calls `showView('exam')`.
+- **Error Handling**: Show a toast (or alert) if required fields are missing.
+
+### 4. Leaderboard Component
+- **UI**: Create a new hidden view `#leaderboard-view` with a card list showing rank, name, score, and mode.
+- **Data Storage**: Use `localStorage` to store an array of score objects. On exam completion, push the result, sort descending, and keep the top 10.
+- **Integration**: Add a leaderboard icon button (`<button id="leaderboard-btn" class="icon-btn" aria-label="Leaderboard">🏆</button>`) to the header that opens the leaderboard modal.
+- **Styling**: Reuse existing `.lobby-card-box` styles with a distinct accent color (e.g., `--apple-amber`).
+
+### 5. Deployment
+- Commit all changes with a descriptive message and push to `main`.
+- Verify GitHub Pages serves the updated site (either `gh-pages` branch or `main` with `/docs`).
+- Run a quick `curl -I https://santhakumar-k-2004.github.io/alpha-x-solution-quiz/` to confirm a `200 OK` response.
+
+---
+## Verification Plan
+- **Manual**: Open the app on a mobile emulator; scroll to ensure the header hides/shows smoothly.
+- **Theme**: Toggle dark/light mode and verify color transitions and persistence across reloads.
+- **Start Flow**: Fill the lobby form, click **Start Assessment**, and confirm the exam view appears.
+- **Leaderboard**: Complete a mock exam, submit, and check the leaderboard updates correctly.
+- **Deployment**: Access the live URL and verify the UI changes are reflected.
+
+*After your approval, I will proceed with the implementation.*
 
 ## Overview
 Transform the **Alpha x Solution Quiz** into a complete enterprise-grade assessment platform featuring:

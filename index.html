@@ -136,36 +136,40 @@
                   background-color 0.25s ease,
                   box-shadow 0.25s ease;
       will-change: transform;
+      transform: translateY(0);
     }
     header.apple-app-header.header-hidden {
-      transform: translateY(-100%);
+      transform: translateY(-100%) !important;
     }
     header.apple-app-header.header-elevated {
-      box-shadow: 0 4px 24px rgba(0,0,0,0.28);
+      box-shadow: 0 6px 26px rgba(0, 0, 0, 0.32);
     }
     [data-theme="light"] header.apple-app-header.header-elevated {
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     .header-container {
       max-width: 1200px;
       width: 100%;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 0.85rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
+      gap: 0.5rem;
+      min-width: 0;
     }
 
     /* Executive Emblem Logo */
     .brand-cluster {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.55rem;
       cursor: pointer;
       user-select: none;
       text-decoration: none;
+      flex-shrink: 1;
+      min-width: 0;
     }
 
     .brand-emblem-box {
@@ -195,34 +199,35 @@
     .brand-title-wrap {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.4rem;
+      min-width: 0;
     }
 
     .brand-name {
       font-family: var(--font-sf);
-      font-size: 0.98rem;
+      font-size: 0.94rem;
       font-weight: 700;
       color: var(--text-primary);
       letter-spacing: -0.3px;
       white-space: nowrap;
-    }
-    @media (max-width: 420px) {
-      .brand-name { font-size: 0.88rem; }
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .brand-candidate-pill {
       font-family: var(--font-sf);
-      font-size: 0.66rem;
+      font-size: 0.64rem;
       font-weight: 600;
-      padding: 2px 8px;
+      padding: 2px 7px;
       border-radius: 999px;
       background: rgba(10, 132, 255, 0.12);
       color: var(--apple-blue);
       border: 1px solid rgba(10, 132, 255, 0.2);
-      max-width: 110px;
+      max-width: 90px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      flex-shrink: 0;
     }
     [data-theme="light"] .brand-candidate-pill {
       background: rgba(0, 0, 0, 0.05);
@@ -232,7 +237,8 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.35rem;
+      flex-shrink: 0;
     }
 
     /* Apple Segmented Control [Practice | Exam] */
@@ -240,9 +246,10 @@
       display: flex;
       background: rgba(255, 255, 255, 0.07);
       border-radius: 999px;
-      padding: 3px;
+      padding: 2.5px;
       border: 1px solid var(--border-subtle);
       gap: 0;
+      flex-shrink: 0;
     }
     [data-theme="light"] .segmented-control {
       background: rgba(0, 0, 0, 0.06);
@@ -252,10 +259,10 @@
       border: none;
       background: transparent;
       color: var(--text-secondary);
-      padding: 0.22rem 0.7rem;
+      padding: 0.22rem 0.6rem;
       border-radius: 999px;
       font-family: var(--font-tamil);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 600;
       cursor: pointer;
       white-space: nowrap;
@@ -273,13 +280,14 @@
       align-items: center;
       gap: 0.25rem;
       font-family: var(--font-sf);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--apple-amber);
       background: rgba(255, 214, 10, 0.12);
-      padding: 0.25rem 0.55rem;
+      padding: 0.22rem 0.5rem;
       border-radius: 999px;
       border: 1px solid rgba(255, 214, 10, 0.3);
+      flex-shrink: 0;
     }
     .timer-badge.active {
       display: flex;
@@ -289,26 +297,27 @@
       background: var(--apple-green);
       color: #ffffff;
       border: none;
-      padding: 0.28rem 0.75rem;
+      padding: 0.25rem 0.7rem;
       border-radius: 999px;
       font-family: var(--font-tamil);
       font-weight: 700;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       cursor: pointer;
       display: none;
       align-items: center;
       gap: 0.3rem;
+      flex-shrink: 0;
     }
 
     /* Enterprise Icon Buttons */
     .icon-btn {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      display: flex;
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
@@ -325,11 +334,74 @@
       transform: translateY(-1px);
     }
     .icon-btn:active {
-      transform: scale(0.93);
+      transform: scale(0.92);
     }
     .icon-btn svg {
-      width: 17px;
-      height: 17px;
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Gold styling for leaderboard button */
+    .icon-btn.btn-gold-icon {
+      color: var(--apple-amber);
+      border-color: rgba(255, 214, 10, 0.3);
+      background: rgba(255, 214, 10, 0.08);
+    }
+    .icon-btn.btn-gold-icon:hover {
+      background: rgba(255, 214, 10, 0.18);
+      color: #ffd700;
+      border-color: rgba(255, 214, 10, 0.5);
+    }
+
+    @media (max-width: 640px) {
+      .header-container {
+        padding: 0 0.5rem;
+        gap: 0.35rem;
+      }
+      .brand-name {
+        font-size: 0.82rem;
+        max-width: 95px;
+      }
+      .brand-candidate-pill {
+        display: none;
+      }
+      .segmented-control {
+        padding: 2px;
+      }
+      .seg-mode-btn {
+        padding: 0.18rem 0.45rem;
+        font-size: 0.68rem;
+      }
+      .icon-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+      }
+      .icon-btn svg {
+        width: 15px;
+        height: 15px;
+      }
+      .header-actions {
+        gap: 0.28rem;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand-name {
+        display: none;
+      }
+      .brand-emblem-box {
+        width: 30px;
+        height: 30px;
+      }
+      .icon-btn {
+        width: 30px;
+        height: 30px;
+      }
+      .seg-mode-btn {
+        padding: 0.16rem 0.35rem;
+        font-size: 0.65rem;
+      }
     }
 
     /* Hairline Progress Indicator */
@@ -446,7 +518,15 @@
       box-shadow: 0 0 0 3px var(--apple-blue-tint);
     }
 
-    /* Previous Best Record Card */
+    /* Previous Best Record Card & Leaderboard row */
+    .lobby-rank-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.35rem;
+      flex-wrap: wrap;
+    }
+
     .lobby-record-strip {
       display: none;
       align-items: center;
@@ -455,9 +535,10 @@
       border: 1px solid rgba(255, 214, 10, 0.25);
       border-radius: 12px;
       padding: 0.65rem 0.9rem;
-      margin-bottom: 1.35rem;
       font-size: 0.82rem;
       color: var(--apple-amber);
+      flex: 1;
+      min-width: 200px;
     }
     .lobby-record-strip.active {
       display: flex;
@@ -466,6 +547,30 @@
       width: 18px;
       height: 18px;
       flex-shrink: 0;
+    }
+
+    .lobby-lb-btn {
+      background: rgba(255, 214, 10, 0.1);
+      border: 1px solid rgba(255, 214, 10, 0.3);
+      color: var(--apple-amber);
+      padding: 0.65rem 0.95rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .lobby-lb-btn:hover {
+      background: rgba(255, 214, 10, 0.2);
+      border-color: rgba(255, 214, 10, 0.5);
+      transform: translateY(-1px);
+    }
+    .lobby-lb-btn:active {
+      transform: scale(0.96);
     }
 
     /* Format Selection Cards */
@@ -620,21 +725,56 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
+      gap: 0.45rem;
+      position: relative;
     }
-    .subnav-inner::-webkit-scrollbar {
-      display: none;
+
+    .subnav-slide-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.18s ease;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    }
+    .subnav-slide-btn:hover {
+      background: var(--bg-card-option-hover);
+      color: var(--text-primary);
+      border-color: var(--border-active);
+    }
+    .subnav-slide-btn svg {
+      width: 14px;
+      height: 14px;
     }
 
     .topic-pill-track {
       display: flex;
       align-items: center;
       gap: 0.4rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      flex: 1;
+      padding: 2px 0;
+    }
+    .topic-pill-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .topic-filters-right {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
       flex-shrink: 0;
+      margin-left: auto;
     }
 
     .topic-pill {
@@ -1468,11 +1608,249 @@
       transition: width 0.4s ease;
     }
 
-    .modal-actions-row {
+    /* ==========================================================================
+       ENTERPRISE ASPIRANT LEADERBOARD MODAL STYLES
+       ========================================================================== */
+    .leaderboard-modal-box {
+      max-width: 620px;
+      width: 100%;
+      max-height: 88vh;
       display: flex;
-      gap: 0.65rem;
+      flex-direction: column;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-modal);
+    }
+
+    .leaderboard-modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.85rem;
+    }
+
+    /* Candidate rank highlight card */
+    .my-rank-card {
+      background: linear-gradient(135deg, rgba(10, 132, 255, 0.12) 0%, rgba(48, 209, 88, 0.08) 100%);
+      border: 1px solid rgba(10, 132, 255, 0.28);
+      border-radius: 14px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .my-rank-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--apple-blue);
+      color: #ffffff;
+      font-family: var(--font-sf);
+      font-size: 1.15rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(10, 132, 255, 0.4);
+      flex-shrink: 0;
+    }
+
+    .my-rank-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .my-rank-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .my-rank-sub {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+
+    .my-rank-tag {
+      background: var(--apple-green-tint);
+      color: var(--apple-green);
+      border: 1px solid rgba(52, 199, 89, 0.3);
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Top 3 Podium */
+    .podium-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr 1fr;
+      gap: 0.6rem;
+      align-items: end;
+      margin-bottom: 1.15rem;
+      padding: 0.5rem 0.2rem;
+    }
+
+    .podium-card {
+      background: var(--bg-card-option);
+      border: 1.5px solid var(--border-color);
+      border-radius: 14px;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+
+    .podium-card.rank-1 {
+      border-color: rgba(255, 215, 0, 0.6);
+      background: linear-gradient(180deg, rgba(255, 215, 0, 0.12) 0%, var(--bg-card-option) 100%);
+      box-shadow: 0 4px 18px rgba(255, 215, 0, 0.18);
+      transform: translateY(-4px);
+    }
+    .podium-card.rank-2 {
+      border-color: rgba(192, 192, 192, 0.5);
+      background: linear-gradient(180deg, rgba(192, 192, 192, 0.1) 0%, var(--bg-card-option) 100%);
+    }
+    .podium-card.rank-3 {
+      border-color: rgba(205, 127, 50, 0.5);
+      background: linear-gradient(180deg, rgba(205, 127, 50, 0.1) 0%, var(--bg-card-option) 100%);
+    }
+
+    .podium-medal {
+      font-size: 1.4rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .podium-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      margin-bottom: 0.2rem;
+    }
+
+    .podium-score {
+      font-family: var(--font-sf);
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--apple-blue);
+    }
+    .podium-card.rank-1 .podium-score {
+      color: #ffd700;
+    }
+
+    .podium-pct {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    /* Table List */
+    .lb-table-container {
+      background: var(--bg-card-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      overflow: hidden;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 180px;
+    }
+
+    .lb-table-head {
+      display: grid;
+      grid-template-columns: 46px 1fr 90px 72px;
+      padding: 0.55rem 0.85rem;
+      background: rgba(0, 0, 0, 0.15);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    [data-theme="light"] .lb-table-head {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .lb-table-body {
+      overflow-y: auto;
+      max-height: 220px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lb-row {
+      display: grid;
+      grid-template-columns: 46px 1fr 90px 72px;
+      padding: 0.55rem 0.85rem;
+      align-items: center;
+      font-size: 0.82rem;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.15s ease;
+    }
+    .lb-row:last-child {
+      border-bottom: none;
+    }
+    .lb-row:hover {
+      background: var(--bg-card-option-hover);
+    }
+    .lb-row.is-current-user {
+      background: var(--apple-blue-tint);
+      font-weight: 700;
+    }
+
+    .lb-rank-col {
+      font-family: var(--font-sf);
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+    .lb-rank-col.gold { color: #ffd700; }
+    .lb-rank-col.silver { color: #c0c0c0; }
+    .lb-rank-col.bronze { color: #cd7f32; }
+
+    .lb-name-col {
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 0.5rem;
+    }
+
+    .lb-mode-col {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 6px;
+      border-radius: 999px;
+    }
+    [data-theme="light"] .lb-mode-col {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .lb-score-col {
+      font-family: var(--font-sf);
+      font-weight: 700;
+      color: var(--apple-green);
+      text-align: right;
     }
 
     /* Confetti Canvas */
@@ -1529,7 +1907,7 @@
         </div>
       </div>
 
-      <!-- Controls -->
+        <!-- Controls -->
       <div class="header-actions">
         <!-- Segmented Mode Control -->
         <div class="segmented-control" id="header-segmented-mode">
@@ -1545,6 +1923,17 @@
         <!-- Exam Submit Button -->
         <button class="btn-submit-exam" id="btn-submit-exam" onclick="confirmSubmitExam()">சமர்ப்பி</button>
 
+        <!-- Leaderboard Button (Always Accessible) -->
+        <button class="icon-btn btn-gold-icon" id="btn-leaderboard-toggle" onclick="openLeaderboardModal()" title="அகில தமிழகத் தரவரிசைப் பட்டியல் / Leaderboard" aria-label="Leaderboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+          </svg>
+        </button>
+
         <!-- Sound Toggle -->
         <button class="icon-btn" id="btn-sound-toggle" onclick="toggleAudio()" title="ஒலி இயக்கம்" aria-label="Toggle sound">
           <svg id="sound-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1555,7 +1944,7 @@
         </button>
 
         <!-- Theme Toggle -->
-        <button class="icon-btn" onclick="toggleTheme()" title="தீம் மாற்றுக" aria-label="Toggle theme">
+        <button class="icon-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="தீம் மாற்றுக" aria-label="Toggle theme">
           <svg id="theme-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </div>
@@ -1590,13 +1979,25 @@
         </div>
       </div>
 
-      <!-- Previous Best Record Strip -->
-      <div class="lobby-record-strip" id="lobby-record-strip">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="8" r="7"></circle>
-          <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-        </svg>
-        <span id="lobby-record-text">உங்கள் முந்தைய அதிகபட்ச சாதனை: 0 / 115</span>
+      <!-- Previous Best Record Strip + Leaderboard Button -->
+      <div class="lobby-rank-row">
+        <div class="lobby-record-strip" id="lobby-record-strip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="7"></circle>
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+          </svg>
+          <span id="lobby-record-text">உங்கள் முந்தைய அதிகபட்ச சாதனை: 0 / 115</span>
+        </div>
+        <button type="button" class="lobby-lb-btn" id="btn-lobby-leaderboard" onclick="openLeaderboardModal()" title="அகில தமிழகத் தரவரிசைப் பட்டியல்">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 15px; height: 15px;">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+          </svg>
+          <span>🏆 தரவரிசை / Leaderboard</span>
+        </button>
       </div>
 
       <!-- Format Selection Cards -->
@@ -1654,6 +2055,11 @@
     <!-- Compact Topics Bar (Fully Clickable & Reactive) -->
     <nav class="subnav-topic-strip">
       <div class="subnav-inner">
+        <!-- Slide Left button -->
+        <button class="subnav-slide-btn" id="btn-slide-topics-left" onclick="slideTopicsTrack(-1)" title="இடதுபுறம் நகர்த்துக" aria-label="Slide topics left">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
         <div class="topic-pill-track" id="segment-scroll-track">
           <button class="topic-pill active" onclick="selectSegmentFilter(0)">
             <span>அனைத்தும்</span> <span class="pill-count" id="count-seg-0">115</span>
@@ -1678,13 +2084,20 @@
           </button>
         </div>
 
+        <!-- Slide Right button -->
+        <button class="subnav-slide-btn" id="btn-slide-topics-right" onclick="slideTopicsTrack(1)" title="வலதுபுறம் நகர்த்துக" aria-label="Slide topics right">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
         <!-- Quick Filter Chips -->
-        <button class="topic-quick-filter-btn" id="chip-wrong-only" onclick="toggleFilterWrongOnly()">
-          <span>தவறானவை</span>
-        </button>
-        <button class="topic-quick-filter-btn" id="chip-review-only" onclick="toggleFilterReviewOnly()">
-          <span>குறித்தவை</span>
-        </button>
+        <div class="topic-filters-right">
+          <button class="topic-quick-filter-btn" id="chip-wrong-only" onclick="toggleFilterWrongOnly()">
+            <span>தவறானவை</span>
+          </button>
+          <button class="topic-quick-filter-btn" id="chip-review-only" onclick="toggleFilterReviewOnly()">
+            <span>குறித்தவை</span>
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -1865,8 +2278,58 @@
 
       <div class="modal-actions-row">
         <button class="nav-step-btn btn-accent" onclick="reviewIncorrectFromModal()">தவறானவற்றை மீளாய்வு</button>
+        <button class="nav-step-btn" onclick="openLeaderboardFromScorecard()">🏆 தரவரிசைப் பட்டியல்</button>
         <button class="nav-step-btn" onclick="returnToLobbyFromModal()">முகப்பு / புதிய தேர்வு</button>
         <button class="nav-step-btn" onclick="closeModal()">மூடுக</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW: ASPIRANT LEADERBOARD & RANK MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="leaderboard-modal" onclick="closeLeaderboardModal(event)">
+    <div class="modal-box-card leaderboard-modal-box" onclick="event.stopPropagation()">
+      <div class="leaderboard-modal-header">
+        <div class="lb-header-titles">
+          <span class="lobby-badge-tag" style="background: rgba(255, 214, 10, 0.15); color: var(--apple-amber); border: 1px solid rgba(255, 214, 10, 0.3);">🏆 HALL OF FAME</span>
+          <h2 class="modal-headline-text" style="margin-bottom: 0.2rem; font-size: 1.25rem;">அகில தமிழகத் தரவரிசைப் பட்டியல்</h2>
+          <p class="lobby-sub-title" style="font-size: 0.8rem;">Alpha x Solution TNPSC Unit-6 State Rankings</p>
+        </div>
+        <button class="icon-btn" onclick="closeLeaderboardModal()" title="மூடுக" aria-label="Close leaderboard" style="width: 32px; height: 32px;">✕</button>
+      </div>
+
+      <!-- Candidate Current Rank Card -->
+      <div class="my-rank-card" id="lb-candidate-card">
+        <div class="my-rank-badge" id="lb-candidate-rank-badge">#--</div>
+        <div class="my-rank-info">
+          <div class="my-rank-name" id="lb-candidate-name">Santhakumar K (நீங்கள்)</div>
+          <div class="my-rank-sub" id="lb-candidate-stat">சாதனை: 0 / 115 • 0% துல்லியம்</div>
+        </div>
+        <div class="my-rank-tag" id="lb-candidate-percentile">Aspirant</div>
+      </div>
+
+      <!-- Podium for Top 3 (1st, 2nd, 3rd) -->
+      <div class="podium-grid" id="lb-podium-grid">
+        <!-- Injected via JS -->
+      </div>
+
+      <!-- Full Ranked Aspirants List -->
+      <div class="lb-table-container">
+        <div class="lb-table-head">
+          <span>நிலை</span>
+          <span>தேர்வர் பெயர்</span>
+          <span style="text-align: center;">தேர்வு வகை</span>
+          <span style="text-align: right;">மதிப்பெண்</span>
+        </div>
+        <div class="lb-table-body" id="lb-rows-container">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <div class="modal-actions-row" style="margin-top: 1.15rem;">
+        <button type="button" class="nav-step-btn" onclick="resetLeaderboard()" style="font-size: 0.78rem; opacity: 0.8;">மீட்டமை / Reset</button>
+        <button type="button" class="nav-step-btn btn-accent" onclick="closeLeaderboardModal()">மூடுக / Close</button>
       </div>
     </div>
   </div>
@@ -1982,14 +2445,34 @@
       }
       applyFilters();
 
+      // 2b. One-time migration: purge legacy mock/fake leaderboard data
+      // Detect mock data by known fake names that were hardcoded previously
+      const MOCK_NAMES = ['Anitha M (Thanjavur)', 'Karthik R (Madurai)', 'Priya S (Chennai)',
+                          'Vignesh V (Coimbatore)', 'Deepa N (Tirunelveli)',
+                          'Saravanan B (Salem)', 'Meena K (Trichy)'];
+      try {
+        const savedLb = localStorage.getItem('alpha_quiz_leaderboard');
+        if (savedLb) {
+          const lbArr = JSON.parse(savedLb);
+          if (Array.isArray(lbArr)) {
+            const hasMock = lbArr.some(e => MOCK_NAMES.some(mn => e.name && e.name.includes(mn.split(' (')[0])));
+            if (hasMock) {
+              // Strip out any mock entries, keep only real user entries
+              const realEntries = lbArr.filter(e => !MOCK_NAMES.some(mn => e.name && e.name.includes(mn.split(' (')[0])));
+              localStorage.setItem('alpha_quiz_leaderboard', JSON.stringify(realEntries));
+            }
+          }
+        }
+      } catch(e) {}
+
       // 3. Restore Candidate Name from localStorage
       const savedName = localStorage.getItem('alpha_candidate_name');
       if (savedName && savedName.trim()) {
-        quizState.candidateName = savedName;
+        quizState.candidateName = savedName.trim();
         const nameInp = document.getElementById('candidate-name-input');
-        if (nameInp) nameInp.value = savedName;
+        if (nameInp) nameInp.value = savedName.trim();
         const nameDisp = document.getElementById('header-candidate-display');
-        if (nameDisp) nameDisp.textContent = savedName;
+        if (nameDisp) nameDisp.textContent = savedName.trim();
       }
 
       // 4. Check Lifetime High Score
@@ -2004,39 +2487,60 @@
         }
       }
 
+      // 5. Explicit Event Bindings for Start Assessment & Enter key
+      const btnStart = document.getElementById('btn-lobby-start');
+      if (btnStart) {
+        btnStart.addEventListener('click', (e) => {
+          e.preventDefault();
+          startExamFromLobby();
+        });
+      }
+      const nameInput = document.getElementById('candidate-name-input');
+      if (nameInput) {
+        nameInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            startExamFromLobby();
+          }
+        });
+      }
+
       loadLocalProgress();
       buildPalette();
       setupTouchSwipes();
       setupScrollHeader();
+      renderLeaderboard();
     });
 
     // =========================================================================
-    // SMOOTH SCROLL-HIDE / REVEAL HEADER
+    // SMOOTH SCROLL-HIDE / REVEAL HEADER (APPLE STYLE)
     // =========================================================================
     function setupScrollHeader() {
       const header = document.querySelector('header.apple-app-header');
       if (!header) return;
       let lastScroll = 0;
       let ticking = false;
-      const HIDE_THRESHOLD = 50; // px down before sliding up
+      const HIDE_THRESHOLD = 45; // px down before sliding up
 
       window.addEventListener('scroll', () => {
         if (!ticking) {
           requestAnimationFrame(() => {
             const currentScroll = window.scrollY;
 
-            if (currentScroll <= 10) {
-              header.classList.remove('header-hidden', 'header-elevated');
-              document.body.classList.remove('header-is-hidden');
-            } else if (currentScroll > lastScroll + 4 && currentScroll > HIDE_THRESHOLD) {
-              // scrolling DOWN → hide header smoothly
-              header.classList.add('header-hidden');
-              document.body.classList.add('header-is-hidden');
-            } else if (currentScroll < lastScroll - 4) {
-              // scrolling UP → reveal header instantly
+            if (currentScroll <= 15) {
               header.classList.remove('header-hidden');
+              header.classList.remove('header-elevated');
               document.body.classList.remove('header-is-hidden');
+            } else if (currentScroll > lastScroll + 5 && currentScroll > HIDE_THRESHOLD) {
+              // scrolling DOWN → smoothly slide header up out of view
+              header.classList.add('header-hidden');
+              header.classList.remove('header-elevated');
+              document.body.classList.add('header-is-hidden');
+            } else if (currentScroll < lastScroll - 5) {
+              // scrolling UP → smoothly reveal header
+              header.classList.remove('header-hidden');
               header.classList.add('header-elevated');
+              document.body.classList.remove('header-is-hidden');
             }
 
             lastScroll = Math.max(0, currentScroll);
@@ -2047,12 +2551,20 @@
       }, { passive: true });
     }
 
+    // Slide Topic Pills Left/Right
+    function slideTopicsTrack(dir) {
+      const track = document.getElementById('segment-scroll-track');
+      if (track) {
+        track.scrollBy({ left: dir * 180, behavior: 'smooth' });
+      }
+    }
 
     // Touch Swipe Gestures for Mobile
     function setupTouchSwipes() {
       let touchStartX = 0;
       let touchStartY = 0;
       const target = document.getElementById('quiz-card');
+      if (!target) return;
 
       target.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
@@ -2076,16 +2588,19 @@
     }
 
     // =========================================================================
-    // LOBBY CONTROLS & TEST START
+    // LOBBY CONTROLS & BULLETPROOF TEST START
     // =========================================================================
     function selectLobbyMode(mode) {
       quizState.lobbyMode = mode;
-      document.getElementById('mode-card-full').classList.toggle('active', mode === 'practice_full');
-      document.getElementById('mode-card-section').classList.toggle('active', mode === 'practice_section');
-      document.getElementById('mode-card-exam').classList.toggle('active', mode === 'exam_mock');
+      const cardFull = document.getElementById('mode-card-full');
+      const cardSec = document.getElementById('mode-card-section');
+      const cardExam = document.getElementById('mode-card-exam');
+      if (cardFull) cardFull.classList.toggle('active', mode === 'practice_full');
+      if (cardSec) cardSec.classList.toggle('active', mode === 'practice_section');
+      if (cardExam) cardExam.classList.toggle('active', mode === 'exam_mock');
 
       const picker = document.getElementById('lobby-section-picker');
-      picker.style.display = mode === 'practice_section' ? 'block' : 'none';
+      if (picker) picker.style.display = mode === 'practice_section' ? 'block' : 'none';
     }
 
     function updateLobbySegment(val) {
@@ -2093,7 +2608,12 @@
     }
 
     function startExamFromLobby() {
-      // 1. Save Candidate Name
+      // 1. Ensure Questions Dataset is loaded
+      if ((!quizState.questions || quizState.questions.length === 0) && typeof QUIZ_QUESTIONS !== 'undefined') {
+        quizState.questions = QUIZ_QUESTIONS;
+      }
+
+      // 2. Save Candidate Name
       const nameInput = document.getElementById('candidate-name-input');
       const nameVal = nameInput ? nameInput.value.trim() : '';
       quizState.candidateName = nameVal || 'Santhakumar K';
@@ -2105,7 +2625,7 @@
         candidateDisplay.textContent = quizState.candidateName;
       }
 
-      // 2. Configure Mode & Active Segment
+      // 3. Configure Mode & Active Segment
       if (quizState.lobbyMode === 'practice_full') {
         quizState.mode = 'practice';
         quizState.activeSegment = 0;
@@ -2115,6 +2635,7 @@
       } else if (quizState.lobbyMode === 'exam_mock') {
         quizState.mode = 'exam';
         quizState.activeSegment = 0;
+        quizState.timerSeconds = 120 * 60; // 2 hours
       }
 
       // Reset filters and active question
@@ -2126,19 +2647,19 @@
       if (chipReview) chipReview.classList.remove('active-review');
       quizState.currentIndex = 0;
 
-      // 3. Compute Filtered Questions FIRST
+      // 4. Compute Filtered Questions FIRST
       applyFilters();
 
-      // 4. Update Mode Controls (Practice vs Timed Exam)
+      // 5. Update Mode Controls (Practice vs Timed Exam)
       setQuizMode(quizState.mode);
 
-      // 5. Switch Visibility: Hide Lobby, Show Exam
+      // 6. Switch Visibility: Hide Lobby, Show Exam
       const lobbyScreen = document.getElementById('lobby-screen');
       const examScreen = document.getElementById('exam-screen');
       if (lobbyScreen) lobbyScreen.style.display = 'none';
       if (examScreen) examScreen.style.display = 'flex';
 
-      // 6. Refresh UI components
+      // 7. Refresh UI components
       updateSectionPillUI();
       renderCurrentQuestion();
       updatePaletteHighlights();
@@ -2150,6 +2671,7 @@
       const lobbyScreen = document.getElementById('lobby-screen');
       if (examScreen) examScreen.style.display = 'none';
       if (lobbyScreen) lobbyScreen.style.display = 'flex';
+      clearInterval(quizState.timerInterval);
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
@@ -2527,8 +3049,195 @@
 
     function finishExam() {
       clearInterval(quizState.timerInterval);
+
+      // 1. Calculate Score
+      let correct = 0;
+      quizState.questions.forEach(q => {
+        if (quizState.userAnswers[q.id] === q.correct) correct++;
+      });
+
+      // 2. Automatically record on the State Leaderboard
+      recordLeaderboardScore(
+        quizState.candidateName || 'அனாமதேய',
+        correct,
+        quizState.questions.length,
+        quizState.mode === 'exam' ? 'exam_mock' : 'practice_full'
+      );
+
+      // 3. Show Scorecard & Confetti
       showScorecardModal();
       triggerConfetti();
+    }
+
+    // =========================================================================
+    // PRODUCTION-GRADE ASPIRANT LEADERBOARD & RANK ENGINE
+    // All data is real — sourced only from actual quiz completions stored in localStorage.
+    // =========================================================================
+
+    function getLeaderboard() {
+      try {
+        const saved = localStorage.getItem('alpha_quiz_leaderboard');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch(e) {}
+      return []; // Always empty until a real user completes a quiz
+    }
+
+    function saveLeaderboard(lb) {
+      try {
+        localStorage.setItem('alpha_quiz_leaderboard', JSON.stringify(lb));
+      } catch(e) {}
+    }
+
+    function recordLeaderboardScore(name, score, total, mode) {
+      const lb = getLeaderboard();
+      const dateStr = new Date().toISOString().split('T')[0];
+      const entry = {
+        name: name || 'அனாமதேய',
+        score: score,
+        total: total,
+        mode: mode,
+        date: dateStr
+      };
+      lb.push(entry);
+      lb.sort((a, b) => b.score - a.score);
+      const trimmed = lb.slice(0, 50); // Keep top 50 real entries
+      saveLeaderboard(trimmed);
+      renderLeaderboard();
+      return trimmed;
+    }
+
+    function openLeaderboardModal() {
+      renderLeaderboard();
+      document.getElementById('leaderboard-modal').classList.add('active');
+    }
+
+    function closeLeaderboardModal(e) {
+      if (e && e.target && e.target !== e.currentTarget && !e.target.classList.contains('modal-backdrop')) return;
+      document.getElementById('leaderboard-modal').classList.remove('active');
+    }
+
+    function openLeaderboardFromScorecard() {
+      closeModal();
+      openLeaderboardModal();
+    }
+
+    function resetLeaderboard() {
+      if (confirm('தரவரிசைப் பட்டியலை அழிக்க விரும்புகிறீர்களா? இது உங்கள் சாதனையை மட்டும் நீக்கும்.')) {
+        saveLeaderboard([]);
+        renderLeaderboard();
+      }
+    }
+
+    function renderLeaderboard() {
+      const lb = getLeaderboard();
+      const candidateName = quizState.candidateName || 'Santhakumar K';
+
+      // 1. Candidate rank evaluation
+      let myBest = null;
+      let myRankIndex = -1;
+      lb.forEach((entry, idx) => {
+        if (entry.name.toLowerCase().includes(candidateName.toLowerCase()) || candidateName.toLowerCase().includes(entry.name.toLowerCase())) {
+          if (!myBest || entry.score > myBest.score) {
+            myBest = entry;
+            myRankIndex = idx + 1;
+          }
+        }
+      });
+
+      const candBadge = document.getElementById('lb-candidate-rank-badge');
+      const candNameEl = document.getElementById('lb-candidate-name');
+      const candStatEl = document.getElementById('lb-candidate-stat');
+      const candPctEl = document.getElementById('lb-candidate-percentile');
+
+      if (myBest && myRankIndex > 0) {
+        if (candBadge) candBadge.textContent = `#${myRankIndex}`;
+        if (candNameEl) candNameEl.textContent = `${candidateName} (நீங்கள்)`;
+        const pct = Math.round((myBest.score / myBest.total) * 100);
+        if (candStatEl) candStatEl.textContent = `அதிகபட்ச சாதனை: ${myBest.score} / ${myBest.total} • ${pct}% துல்லியம்`;
+        if (candPctEl) {
+          candPctEl.textContent = myRankIndex <= 3 ? 'Top 1% Elite' : `Top Rank #${myRankIndex}`;
+        }
+      } else {
+        const storedHigh = parseInt(localStorage.getItem('alpha_high_score') || '0', 10);
+        if (candBadge) candBadge.textContent = storedHigh > 0 ? '#?' : '#--';
+        if (candNameEl) candNameEl.textContent = `${candidateName} (நீங்கள்)`;
+        if (candStatEl) candStatEl.textContent = storedHigh > 0 ? `சாதனை: ${storedHigh} / 115 • தேர்வை முடித்து இடம் பிடிக்கவும்!` : 'இதுவரை தேர்வு எழுதவில்லை — ஒரு தேர்வை முடிக்கவும்!';
+        if (candPctEl) candPctEl.textContent = 'Aspirant';
+      }
+
+      // 2. Podium (Top 3)
+      const podiumEl = document.getElementById('lb-podium-grid');
+      if (podiumEl) {
+        if (lb.length === 0) {
+          podiumEl.innerHTML = `
+            <div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--text-secondary);">
+              <div style="font-size:2.5rem;margin-bottom:.5rem;">🏆</div>
+              <div style="font-weight:700;font-size:1rem;">இன்னும் யாரும் தேர்வு எழுதவில்லை!</div>
+              <div style="font-size:.85rem;margin-top:.25rem;">முதல் தேர்வை எழுதி No. 1 ஆகுங்கள்!</div>
+            </div>`;
+        } else {
+          const first = lb[0];
+          const second = lb[1];
+          const third = lb[2];
+
+          const makeCard = (entry, medal, rankClass) => entry
+            ? `<div class="podium-card ${rankClass}">
+                <div class="podium-medal">${medal}</div>
+                <div class="podium-name" title="${entry.name}">${entry.name}</div>
+                <div class="podium-score">${entry.score} / ${entry.total}</div>
+                <div class="podium-pct">${Math.round((entry.score/entry.total)*100)}%</div>
+               </div>`
+            : `<div class="podium-card ${rankClass}" style="opacity:.3">
+                <div class="podium-medal">${medal}</div>
+                <div class="podium-name">—</div>
+                <div class="podium-score">—</div>
+               </div>`;
+
+          podiumEl.innerHTML =
+            makeCard(second, '🥈', 'rank-2') +
+            makeCard(first,  '🥇', 'rank-1') +
+            makeCard(third,  '🥉', 'rank-3');
+        }
+      }
+
+      // 3. Full List
+      const rowsBox = document.getElementById('lb-rows-container');
+      if (rowsBox) {
+        rowsBox.innerHTML = '';
+        if (lb.length === 0) {
+          rowsBox.innerHTML = `
+            <div style="text-align:center;padding:2rem 1rem;color:var(--text-secondary);">
+              <div style="font-size:1.8rem;margin-bottom:.5rem;">📋</div>
+              <div style="font-weight:600;">இன்னும் பதிவுகள் இல்லை</div>
+              <div style="font-size:.85rem;margin-top:.35rem;">ஒரு தேர்வை முடித்து முதலில் பதிவு ஆகுங்கள்!</div>
+            </div>`;
+        } else {
+          lb.forEach((entry, idx) => {
+            const rank = idx + 1;
+            const isMe = entry.name.toLowerCase().includes(candidateName.toLowerCase());
+            const modeLabel = entry.mode === 'exam_mock' ? '⏱️ மாதிரித் தேர்வு' : '🎯 பயிற்சி';
+            let rankClass = '';
+            if (rank === 1) rankClass = 'gold';
+            else if (rank === 2) rankClass = 'silver';
+            else if (rank === 3) rankClass = 'bronze';
+
+            const row = document.createElement('div');
+            row.className = `lb-row ${isMe ? 'is-current-user' : ''}`;
+            row.innerHTML = `
+              <span class="lb-rank-col ${rankClass}">#${rank}</span>
+              <span class="lb-name-col" title="${entry.name}">
+                ${entry.name} ${isMe ? '<small style="color:var(--apple-blue);font-weight:700;">(நீங்கள்)</small>' : ''}
+              </span>
+              <span class="lb-mode-col">${modeLabel}</span>
+              <span class="lb-score-col">${entry.score} / ${entry.total}</span>
+            `;
+            rowsBox.appendChild(row);
+          });
+        }
+      }
     }
 
     // Mobile Palette Drawer
@@ -2758,12 +3467,28 @@
 
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
+      // Modals and global shortcuts
+      if (e.key === 'Escape') {
+        closeModal();
+        closeLeaderboardModal();
+        closeMobilePalette();
+        return;
+      }
+      if ((e.key === 'l' || e.key === 'L') && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+        openLeaderboardModal();
+        return;
+      }
+      if ((e.key === 't' || e.key === 'T') && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+        toggleTheme();
+        return;
+      }
+
       if (document.getElementById('exam-screen').style.display === 'none') return;
       if (['ArrowRight', 'n', 'N'].includes(e.key)) {
         navigateQuestion(1);
       } else if (['ArrowLeft', 'p', 'P'].includes(e.key)) {
         navigateQuestion(-1);
-      } else if (['1', '2', '3', '4'].includes(e.key)) {
+      } else if (['1', '2', '3', '4'].includes(e.key) && e.target.tagName !== 'INPUT') {
         const optIdx = parseInt(e.key, 10) - 1;
         const curQ = quizState.filteredQuestions[quizState.currentIndex];
         if (curQ) handleSelectOption(curQ.id, optIdx);
