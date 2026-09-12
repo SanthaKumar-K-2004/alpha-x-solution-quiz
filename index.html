@@ -263,29 +263,99 @@
       opacity: 0.9;
     }
 
-    /* Icon Action Buttons */
+    /* Enterprise-Grade Icon Action Buttons */
     .icon-btn {
-      background: transparent;
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: background 0.15s, color 0.15s;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
       flex-shrink: 0;
+      position: relative;
+    }
+    [data-theme="light"] .icon-btn {
+      background: rgba(0, 0, 0, 0.03);
     }
     .icon-btn:hover {
-      background: var(--bg-card-secondary);
+      background: var(--bg-card-option-hover);
       color: var(--text-primary);
+      border-color: var(--border-active);
+      transform: translateY(-1px);
+    }
+    .icon-btn:active {
+      transform: scale(0.92);
     }
     .icon-btn svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
+      width: 17px;
+      height: 17px;
+      stroke-width: 2.2;
+    }
+
+    /* Enterprise Brand Monogram */
+    .brand-icon-box {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, #0a84ff 0%, #0066cc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(10, 132, 255, 0.35);
+      flex-shrink: 0;
+    }
+    .brand-icon-box svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Tactile Micro-Interactions for All Action Buttons */
+    button {
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    button:active {
+      transform: scale(0.965);
+    }
+
+    /* Status Badge Indicator inside Options (SVG Check/Cross) */
+    .status-badge-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      animation: popBadge 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    .status-badge-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+    .status-badge-icon.badge-correct {
+      background: var(--apple-green);
+      color: #ffffff;
+    }
+    .status-badge-icon.badge-wrong {
+      background: var(--apple-red);
+      color: #ffffff;
+    }
+
+    @keyframes popBadge {
+      0% { transform: scale(0.3); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     /* Hairline Progress Indicator */
@@ -1122,7 +1192,9 @@
     <div class="header-container">
       <!-- Minimalist Brand -->
       <div class="brand-cluster" onclick="filterSegment(0)">
-        <div class="brand-icon-box">α</div>
+        <div class="brand-icon-box">
+          <svg viewBox="0 0 24 24"><path d="M18 18h-4.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 4.5 4.5V18z"></path><path d="M18 13V7a4 4 0 0 0-8 0v11"></path></svg>
+        </div>
         <div class="brand-title-wrap">
           <span class="brand-name">Alpha x Solution Quiz</span>
           <span class="brand-badge">115 Qs</span>
@@ -1146,8 +1218,12 @@
         <button class="btn-submit-exam" id="btn-submit-exam" onclick="confirmSubmitExam()">சமர்ப்பி</button>
 
         <!-- Sound Toggle -->
-        <button class="icon-btn" id="btn-sound-toggle" onclick="toggleAudio()" title="ஒலி" aria-label="Toggle sound">
-          <svg id="sound-icon-svg" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        <button class="icon-btn" id="btn-sound-toggle" onclick="toggleAudio()" title="ஒலி இயக்கம்" aria-label="Toggle sound">
+          <svg id="sound-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
         </button>
 
         <!-- Theme Toggle -->
@@ -1214,7 +1290,7 @@
           </div>
 
           <button class="bookmark-toggle-btn" id="btn-bookmark-action" onclick="toggleBookmarkCurrent()" title="மறுபார்வைக்குக் குறிக்க">
-            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg id="bm-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
             <span id="bm-text">குறிக்க</span>
           </button>
         </div>
@@ -1238,10 +1314,12 @@
         <!-- Question Nav Buttons -->
         <div class="card-footer-controls">
           <button class="nav-step-btn" id="btn-prev" onclick="navigateQuestion(-1)">
-            <span>← முந்தையது</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>முந்தையது</span>
           </button>
           <button class="nav-step-btn btn-accent" id="btn-next" onclick="navigateQuestion(1)">
-            <span>அடுத்தது →</span>
+            <span>அடுத்தது</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
         </div>
       </article>
@@ -1267,22 +1345,33 @@
     </aside>
   </main>
 
-  <!-- Mobile Bottom Tab Bar (iOS Native Style) -->
+  <!-- Mobile Bottom Tab Bar (iOS Enterprise Style) -->
   <nav class="mobile-tab-bar">
     <button class="tab-item-btn" onclick="navigateQuestion(-1)">
-      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
       <span>முந்தையது</span>
     </button>
     <button class="tab-item-btn active" onclick="openMobilePalette()">
-      <svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7" rx="1.8"></rect>
+        <rect x="14" y="3" width="7" height="7" rx="1.8"></rect>
+        <rect x="14" y="14" width="7" height="7" rx="1.8"></rect>
+        <rect x="3" y="14" width="7" height="7" rx="1.8"></rect>
+      </svg>
       <span>வினாத்தட்டு</span>
     </button>
     <button class="tab-item-btn" onclick="showScorecardModal()">
-      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+        <path d="M4 22h16"></path>
+        <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+        <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+      </svg>
       <span>மதிப்பெண்</span>
     </button>
     <button class="tab-item-btn" onclick="navigateQuestion(1)">
-      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
       <span>அடுத்தது</span>
     </button>
   </nav>
@@ -1418,9 +1507,9 @@
       quizState.soundEnabled = !quizState.soundEnabled;
       const svg = document.getElementById('sound-icon-svg');
       if (quizState.soundEnabled) {
-        svg.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+        svg.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>';
       } else {
-        svg.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
+        svg.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
       }
     }
 
@@ -1556,6 +1645,10 @@
       const isBm = quizState.bookmarks.has(q.id);
       const btnBm = document.getElementById('btn-bookmark-action');
       btnBm.classList.toggle('bookmarked', isBm);
+      const bmSvg = document.getElementById('bm-svg-icon');
+      if (bmSvg) {
+        bmSvg.setAttribute('fill', isBm ? 'currentColor' : 'none');
+      }
       document.getElementById('bm-text').textContent = isBm ? 'குறிக்கப்பட்டது' : 'குறிக்க';
 
       // Question Statement
@@ -1578,10 +1671,10 @@
           btn.classList.add('locked');
           if (optIdx === q.correct) {
             btn.classList.add('is-correct-reveal');
-            statusIcon = '✓';
+            statusIcon = '<span class="status-badge-icon badge-correct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>';
           } else if (optIdx === userAns) {
             btn.classList.add('is-wrong-reveal');
-            statusIcon = '✕';
+            statusIcon = '<span class="status-badge-icon badge-wrong"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>';
           }
         } else if (quizState.mode === 'exam') {
           if (userAns === optIdx) {
@@ -1637,18 +1730,21 @@
 
         document.querySelectorAll('.option-cell-btn').forEach(btn => btn.classList.add('locked'));
 
+        const correctBadgeHtml = '<span class="status-badge-icon badge-correct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>';
+        const wrongBadgeHtml = '<span class="status-badge-icon badge-wrong"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>';
+
         if (optIdx === correctIdx) {
           clickedBtn.classList.add('is-correct-reveal');
-          clickedBtn.querySelector('.opt-status-marker').textContent = '✓';
+          clickedBtn.querySelector('.opt-status-marker').innerHTML = correctBadgeHtml;
           playCorrectSound();
         } else {
           clickedBtn.classList.add('is-wrong-reveal');
-          clickedBtn.querySelector('.opt-status-marker').textContent = '✕';
+          clickedBtn.querySelector('.opt-status-marker').innerHTML = wrongBadgeHtml;
           playWrongSound();
 
           if (correctBtn) {
             correctBtn.classList.add('is-correct-reveal');
-            correctBtn.querySelector('.opt-status-marker').textContent = '✓';
+            correctBtn.querySelector('.opt-status-marker').innerHTML = correctBadgeHtml;
           }
         }
 
