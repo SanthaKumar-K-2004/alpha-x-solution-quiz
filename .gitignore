@@ -1,0 +1,7 @@
+# Intermediate text dumps
+extracted_unit6_full.txt
+extracted_unit6_normalized.txt
+repaired_unit6.pdf
+test_write.txt
+*.log
+__pycache__/
